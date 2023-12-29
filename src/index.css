@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "Neue-Light";
   src: url("./assets/fonts/NeueMachina-Light.otf") format("opentype");
