@@ -9,7 +9,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "pushDev": "git push origin",
-    "pushServer": "git push server"
+    "pushServer": "git push server",
+    "pushDevServer": "git push origin && git push server"
   },
   "dependencies": {
     "aos": "^2.3.4",
