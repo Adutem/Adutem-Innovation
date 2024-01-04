@@ -9,6 +9,7 @@ const ClientFeedBack = () => {
   const [direction, setDirection] = useState("");
   const [currentData, setCurrentData] = useState(() => feedbacks[activeIndex]);
   const infoContainerRef = useRef<HTMLElement | undefined>(undefined);
+  const whatTheySayRef = useRef<HTMLElement | undefined>(undefined);
   const clientNameRef = useRef<HTMLElement | undefined>(undefined);
   const clientRoleRef = useRef<HTMLElement | undefined>(undefined);
   const thumbnailImageRef = useRef<HTMLElement | undefined>(undefined);
@@ -25,6 +26,7 @@ const ClientFeedBack = () => {
         clientNameRef.current!,
         clientRoleRef.current!,
         thumbnailImageRef.current!,
+        whatTheySayRef.current!,
       ];
       currents.forEach((el) => {
         if (el) {
@@ -40,7 +42,7 @@ const ClientFeedBack = () => {
         });
         setCurrentData(feedbacks[activeIndex]);
         clearTimeout(displayTmo);
-      }, 800);
+      }, 300);
       // infoContainerRef.current.style.display = "none";
 
       // let displayTmo = setTimeout(() => {
@@ -60,7 +62,9 @@ const ClientFeedBack = () => {
           infoContainerRef={infoContainerRef}
           clientNameRef={clientNameRef}
           clientRoleRef={clientRoleRef}
+          whatTheySayRef={whatTheySayRef}
           thumbnailImageRef={thumbnailImageRef}
+          activeIndex={activeIndex}
         />
         <button
           onClick={() =>

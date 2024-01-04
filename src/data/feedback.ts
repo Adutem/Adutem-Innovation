@@ -40,4 +40,10 @@ const feedbacks: FeedBackData[] = [
   },
 ];
 
+export const thumbNails: string[] = [
+  reviewThumbnailOne,
+  reviewThumbnailTwo,
+  reviewThumbnailThree,
+];
+
 export default feedbacks;
