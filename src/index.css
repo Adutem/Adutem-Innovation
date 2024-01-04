@@ -83,3 +83,14 @@ html {
 .features-container:hover .feature-content-container > div {
   transform: translateY(0);
 }
+
+.fit-container {
+  max-width: 928px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 91.666667%;
+}
+
+.more-project:hover i {
+  transform: rotate(0deg);
+}
