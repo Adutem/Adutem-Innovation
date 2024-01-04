@@ -44,6 +44,9 @@ export default class Animator {
               rotate: "rotate",
               rotateX: "rotateX",
               rotateY: "rotateY",
+              scale: "scale",
+              scaleX: "scaleX",
+              scaleY: "scaleY",
               // Add more properties as needed
             };
             const value = valueWithBracket.slice(1, -1); // Remove the leading '[' and trailing ']' to get the value (e.g., 300px)
@@ -82,8 +85,8 @@ export default class Animator {
     const escapedClassName = className
       .replace(/\[/g, "\\[")
       .replace(/\]/g, "\\]")
-      .replace(/\./g, "\\.");
-    // .replace(/\-/g, "\\-");
+      .replace(/\./g, "\\.")
+      .replace(/\%/g, "\\%");
     return escapedClassName;
   }
 

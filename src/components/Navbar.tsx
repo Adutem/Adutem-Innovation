@@ -36,25 +36,25 @@ const Navbar = () => {
 
   useEffect(() => {
     new Animator();
-  }, [value]);
+  }, []);
   return (
-    <div className="fixed top-0 left-0 flex justify-between items-center px-6 w-full py-4 bg-[var(--black)]">
+    <div className="fixed top-0 left-0 flex justify-between items-center px-6 w-full py-4 bg-[transparent]">
       <h1
-        className="neue-ultrabold text-3xl  maa-transition-[1s] maa-translateX-[100px]"
+        className="neue-ultrabold text-3xl  maa-transition-[.5s] maa-translateX-[100px] text-white"
         ref={h1Ref as any}
       >
         Adutem <br />
         <span>Innovation</span>
       </h1>
       <button
-        className="rounded-2xl bg-blue-800 px-9 py-4 flex items-center gap-2 maa-transition-[1s]"
+        className="rounded-2xl bg-blue-800 px-9 py-4 flex items-center gap-2 maa-transition-[0.5s] text-white"
         ref={getInTouchBtnRef as any}
       >
         Get in touch
         <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
       </button>
       <p
-        className="gray-white-color -maa-translateX-[100px] maa-transition-[1s]"
+        className="gray-white-color -maa-translateX-[100px] maa-transition-[0.5s]"
         ref={menuRef as any}
       >
         Menu

@@ -6,6 +6,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Navbar from "./components/Navbar";
 import Body from "./components/Body";
+import Home from "./pages/Home";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Body />
+      <Home />
     </>
   );
 }
