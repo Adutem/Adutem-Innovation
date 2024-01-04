@@ -3,26 +3,12 @@ import { FeedBackData, thumbNails } from "../../data/feedback";
 import styled from "styled-components";
 
 export interface FeedBackCardProps extends PropsWithChildren {
-  feedback: FeedBackData;
-  infoContainerRef: any;
-  clientNameRef: any;
-  clientRoleRef: any;
-  thumbnailImageRef: any;
-  whatTheySayRef: any;
   activeIndex: number;
 }
 
-const ClientFeedBackCard = ({
-  clientNameRef,
-  clientRoleRef,
-  thumbnailImageRef,
-  infoContainerRef,
-  whatTheySayRef,
-  feedback,
-  activeIndex,
-}: FeedBackCardProps) => {
+const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
   return (
-    <div className="min-h-60 flex gap-8" ref={infoContainerRef}>
+    <div className="min-h-60 flex gap-8">
       <div className="left-container flex flex-col justify-between flex-1">
         <div></div>
         <WhatTheySay className="text-3xl max-w-[380px] italic flex items-center relative">

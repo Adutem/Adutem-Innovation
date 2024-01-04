@@ -57,15 +57,7 @@ const ClientFeedBack = () => {
       <div className="fit-container">
         <p className="text-blue-700 text-[2rem]">We love our clients</p>
         <p className="text-2xl mb-4">And clients love to work with us</p>
-        <ClientFeedBackCard
-          feedback={currentData}
-          infoContainerRef={infoContainerRef}
-          clientNameRef={clientNameRef}
-          clientRoleRef={clientRoleRef}
-          whatTheySayRef={whatTheySayRef}
-          thumbnailImageRef={thumbnailImageRef}
-          activeIndex={activeIndex}
-        />
+        <ClientFeedBackCard activeIndex={activeIndex} />
         <button
           onClick={() =>
             setActiveIndex((prev) => (prev >= 2 ? 0 : Math.min(prev + 1, 2)))
