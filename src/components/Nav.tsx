@@ -12,19 +12,19 @@ const Nav = ({ hideNavBar }: NavProps) => {
       className="bg-black fixed top-0 left-0 right-0 bottom-0 w-dvw h-dvh"
       style={{ zIndex: 1000 }}
     >
-      <NavItemContainer className="py-32 px-6 w-full h-full">
-        <ul className="flex flex-col gap-5 sm:gap-7">
+      <NavItemContainer className="py-32 px-6 md:px-10 w-full h-full max-w-[928px] md:mx-auto">
+        <ul className="flex flex-col gap-5 sm:gap-7 md:flex-row md:flex-wrap md:gap-x-0 md:min-h-[400px] md:content-center">
           {navLinks.map((link, i) => (
             <NavLink index={i} {...link} />
           ))}
         </ul>
-        <Socials className="social flex items-center gap-4 sm:gap-5 text-white mt-12 w-max">
+        <Socials className="social flex items-center gap-4 sm:gap-5 text-white mt-12 w-max md:w-full md:justify-end">
           <i className="fi fi-brands-instagram flex text-lg"></i>
           <i className="fi fi-brands-twitter flex text-lg"></i>
           <i className="fi fi-brands-facebook flex text-lg"></i>
           <i className="fi fi-brands-linkedin flex text-lg"></i>
           <LinkItem
-            className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-blue-700 gap-3 sm:text-xl"
+            className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-blue-700 gap-3 sm:text-xl md:w-auto"
             href={"/careers"}
           >
             <span>Careers</span>{" "}

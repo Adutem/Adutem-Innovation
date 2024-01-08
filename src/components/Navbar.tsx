@@ -71,13 +71,15 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           </>
         )}
       </Heading>
-      <button
-        className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
-        ref={getInTouchBtnRef as any}
-      >
-        Get in touch
-        <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
-      </button>
+      {!isNavbarOpen && (
+        <button
+          className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
+          ref={getInTouchBtnRef as any}
+        >
+          Get in touch
+          <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
+        </button>
+      )}
       <Menu
         className="gray-white-color translateX-neg-hundred maa-transition-[0.5s] flex items-center gap-2 cursor-pointer"
         ref={menuRef as any}
