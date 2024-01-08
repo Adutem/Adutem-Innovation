@@ -7,28 +7,35 @@ const Navbar = () => {
   const h1Ref = useRef<HTMLElement | Element | null>();
   const menuRef = useRef<HTMLElement | Element | null>();
   const getInTouchBtnRef = useRef<HTMLElement | Element | null>();
+  const containerRef = useRef<HTMLElement | Element | null>();
 
   const onTrue = () => {
     if (h1Ref.current) {
-      h1Ref.current.classList.remove("maa-translateX-[100px]");
+      h1Ref.current.classList.remove("translateX-hundred");
     }
     if (menuRef.current) {
-      menuRef.current.classList.remove("-maa-translateX-[100px]");
+      menuRef.current.classList.remove("translateX-neg-hundred");
     }
     if (getInTouchBtnRef.current) {
       getInTouchBtnRef.current.classList.add("-maa-translateY-[150px]");
+    }
+    if (containerRef.current) {
+      containerRef.current.classList.add("bg-black");
     }
   };
 
   const onFalse = () => {
     if (h1Ref.current) {
-      h1Ref.current.classList.add("maa-translateX-[100px]");
+      h1Ref.current.classList.add("translateX-hundred");
     }
     if (menuRef.current) {
-      menuRef.current.classList.add("-maa-translateX-[100px]");
+      menuRef.current.classList.add("translateX-neg-hundred");
     }
     if (getInTouchBtnRef.current) {
       getInTouchBtnRef.current.classList.remove("-maa-translateY-[150px]");
+    }
+    if (containerRef.current) {
+      containerRef.current.classList.remove("bg-black");
     }
   };
 
@@ -39,14 +46,17 @@ const Navbar = () => {
     new Animator();
   }, []);
   return (
-    <Container className="fixed top-0 left-0 flex justify-between items-center px-4 md:px-6 w-full py-4 bg-[transparent]">
-      <h1
-        className="neue-ultrabold text-3xl  maa-transition-[.5s] maa-translateX-[100px] text-white"
+    <Container
+      className="fixed top-0 left-0 flex justify-between items-center px-4 md:px-6 w-full py-4 bg-[transparent] maa-transition-[0.5s]"
+      ref={containerRef as any}
+    >
+      <Heading
+        className="neue-ultrabold text-3xl  maa-transition-[.5s] translateX-hundred text-white"
         ref={h1Ref as any}
       >
         Adutem <br />
         <span>Innovation</span>
-      </h1>
+      </Heading>
       <button
         className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
         ref={getInTouchBtnRef as any}
@@ -54,23 +64,35 @@ const Navbar = () => {
         Get in touch
         <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
       </button>
-      <p
-        className="gray-white-color -maa-translateX-[100px] maa-transition-[0.5s]"
+      <Menu
+        className="gray-white-color translateX-neg-hundred maa-transition-[0.5s]"
         ref={menuRef as any}
       >
         Menu
-      </p>
+      </Menu>
     </Container>
   );
 };
 
 const Container = styled.div`
+  z-index: 100000;
+
+  h1.translateX-hundred {
+    transform: translateX(100px);
+  }
+  p.translateX-neg-hundred {
+    transform: translateX(-100px);
+  }
   @media screen and (max-width: 768px) {
     h1,
-    p {
-      transform: translate(0);
+    p,
+    h1.translateX-hundred,
+    p.translateX-neg-hundred {
+      transform: translate(0) !important;
     }
   }
 `;
 
+const Heading = styled.h1``;
+const Menu = styled.p``;
 export default Navbar;

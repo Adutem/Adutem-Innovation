@@ -13,7 +13,7 @@ const WhatWeDo = () => {
       </div>
       <div className="w-full h-max pt-10">
         <div
-          className="what-we-do-grid-container grid grid-cols-5 border-[0.2px] outline-none border-l-0 border-r-0 grid-rows-1 h-[450px]"
+          className="what-we-do-grid-container grid grid-cols-1 md:grid-cols-5 border-[0.2px] outline-none border-l-0 border-r-0 md:grid-rows-1 grid-rows-5 md:h-[450px] h-max"
           style={{ borderColor: "rgba(255, 255, 255, 0.7)" }}
         >
           {(whatWeDoData || []).map((data, i, arr) => (

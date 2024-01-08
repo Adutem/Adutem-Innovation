@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="w-[100%] px-8 lg:max-w-[982px] lg:mx-auto lg:w-11/12 lg:px-0">
         <div className="w-full grid grid-cols-12 relative h-max md:min-h-[400px] place-items-start">
           <p
-            className="col-span-12 leading-tight bg-contain bg-no-repeat h-[200px] md:min-h-80 flex items-center justify-self-stretch"
+            className="col-span-12 leading-tight bg-contain bg-no-repeat h-[220px] sm:h-[260px] md:min-h-96 flex items-center justify-self-stretch"
             style={{
               backgroundImage: `url(${ideaBackground})`,
               backgroundPosition: "center",
@@ -33,7 +33,7 @@ const Footer = () => {
             Let's bring it to life
           </p>
           <div
-            className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-blue-700 absolute bottom-0 right-0 overflow-hidden cursor-pointer"
+            className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-blue-700 absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
             onMouseEnter={handleVideoPlaying}
           >
             <div className="w-full h-full bg-gray-700">

@@ -10,7 +10,7 @@ interface HeadingProps extends PropsWithChildren {
 const Qualities = () => {
   return (
     <Container
-      className="relative h-max mt-32"
+      className="relative h-max mt-32 overflow-hidden"
       //   style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div
@@ -20,9 +20,9 @@ const Qualities = () => {
       {["Create", "Collaborate", "Disrupt"].map((text, i) => (
         <Heading text={text} i={i} />
       ))}
-      <div className="py-8 flex justify-center gap-7 items-start text-[var(--white)] z-100 relative">
+      <div className="py-8 flex flex-col md:flex-row px-8 md:px-0 justify-center gap-7 items-start text-[var(--white)] z-100 relative overflow-hidden">
         <p
-          className="max-w-sm text-lg"
+          className="max-w-lg md:max-w-sm text-lg"
           data-aos={"fade-left"}
           data-aos-duration={1000}
           data-aos-offset={400}
@@ -31,7 +31,7 @@ const Qualities = () => {
           Innovation, we view clients as creative partners.
         </p>
         <p
-          className="max-w-sm text-lg"
+          className="max-w-lg md:max-w-sm text-lg"
           data-aos={"fade-left"}
           data-aos-duration={1000}
           data-aos-offset={400}

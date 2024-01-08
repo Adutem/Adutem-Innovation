@@ -8,10 +8,10 @@ export interface FeedBackCardProps extends PropsWithChildren {
 
 const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
   return (
-    <div className="min-h-60 flex gap-8">
-      <div className="left-container flex flex-col justify-between flex-1">
+    <div className="min-h-60 flex gap-8 flex-col lg:flex-row">
+      <div className="left-container flex flex-col justify-between lg:flex-1">
         <div></div>
-        <WhatTheySay className="text-3xl max-w-[380px] italic flex items-center relative">
+        <WhatTheySay className="text-3xl lg:max-w-[380px] italic flex items-center relative overflow-hidden lg:overflow-visible min-h-[180px] sm:min-h-[140px] lg:min-h-max">
           <span
             className={`${
               activeIndex === 0 && "is-active"
@@ -37,7 +37,7 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             </q>
           </span>
         </WhatTheySay>
-        <AboutClient className="relative flex items-end">
+        <AboutClient className="relative flex items-end overflow-hidden lg:overflow-visible">
           <span
             className={`${
               activeIndex === 0 && "is-active"
@@ -70,7 +70,7 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
           </span>
         </AboutClient>
       </div>
-      <RightContainer className="right-container h-[420px] flex-1 bg-black overflow-hidden">
+      <RightContainer className="right-container lg:flex-1 bg-black lg:overflow-hidden">
         <ThumbnailContainer className="review-video-container w-full h-full overflow-hidden relative">
           {(thumbNails || []).map((thumbNail, i) => (
             <img
@@ -94,6 +94,8 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
 };
 
 const RightContainer = styled.div`
+  height: clamp(200px, 40vw, 420px);
+
   .review-video-container img {
     transition: 1s ease;
   }

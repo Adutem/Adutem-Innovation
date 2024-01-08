@@ -33,8 +33,10 @@
 }
 
 body,
-html {
+html,
+#root {
   background: var(--black);
+  width: 100%;
 }
 
 .gray-white-color {

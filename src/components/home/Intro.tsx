@@ -4,7 +4,7 @@ import heroVideo from "../../assets/videos/hero-video.mp4";
 const Intro = () => {
   return (
     <div className="w-11/12 mx-auto max-w-[928px] pb-7">
-      <h1 className="max-md:text-[10vw] text-[4.44vw] leading-tight mb-11 text-white">
+      <h1 className="max-md:text-[10vw] text-[4.44vw] leading-tight mb-11 text-white text-center md:text-left">
         A digital agency for the future. We create end-to-end{" "}
         <span className="text-blue-800">
           <TypeWriter
