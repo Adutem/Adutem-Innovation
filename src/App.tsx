@@ -9,9 +9,11 @@ import Body from "./components/Body";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Router from "./router/Router";
+import { useLocation } from "react-router-dom";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const location = useLocation();
 
   const hideNavBar = () => {
     setIsNavbarOpen(false);
@@ -22,7 +24,6 @@ function App() {
 
   const showNavBar = () => {
     setIsNavbarOpen(true);
-
     window.document.body.style.position = "fixed";
     window.document.body.style.overflow = "hidden";
     window.document.body.style.height = "100dvh";
@@ -36,6 +37,11 @@ function App() {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  // Move page to top on location change irrespective of scroll position
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location]);
 
   return (
     <>

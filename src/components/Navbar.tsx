@@ -2,7 +2,12 @@ import React, { useEffect, useRef } from "react";
 import Animator from "../utils/modules/animation/animation";
 import { useScrollPosition } from "../hooks";
 import styled from "styled-components";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+
+const routeBgMap = {
+  "/": "black",
+  "/contact": "transparent",
+};
 
 interface NavbarProps {
   toggleNavBar: () => void;
@@ -13,7 +18,8 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
   const h1Ref = useRef<HTMLElement | Element | null>();
   const menuRef = useRef<HTMLElement | Element | null>();
   const getInTouchBtnRef = useRef<HTMLElement | Element | null>();
-  const containerRef = useRef<HTMLElement | Element | null>();
+  const containerRef = useRef<HTMLElement | null>();
+  const location = useLocation();
 
   const onTrue = () => {
     if (h1Ref.current) {
@@ -26,7 +32,8 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
       getInTouchBtnRef.current.classList.add("-maa-translateY-[150px]");
     }
     if (containerRef.current) {
-      containerRef.current.classList.add("bg-black");
+      containerRef.current.style.background =
+        routeBgMap[location.pathname as keyof typeof routeBgMap] || "black";
     }
   };
 
@@ -41,7 +48,7 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
       getInTouchBtnRef.current.classList.remove("-maa-translateY-[150px]");
     }
     if (containerRef.current) {
-      containerRef.current.classList.remove("bg-black");
+      containerRef.current.style.background = "transparent";
     }
   };
 
@@ -95,9 +102,9 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           )}
         </Menu>
       </Container>
-      <div className="mt-36  mx-auto md:mx-0">
+      <main className="mt-36  mx-auto md:mx-0 bg-transparent">
         <Outlet />
-      </div>
+      </main>
     </>
   );
 };

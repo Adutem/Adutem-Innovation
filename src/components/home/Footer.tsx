@@ -4,8 +4,13 @@ import getStartedVideo from "../../assets/videos//get-started.mp4";
 import ddcVideo from "../../assets/videos/ddc-logo.mp4";
 import { useRef } from "react";
 import footerLinks from "../../data/footer-links";
+import { Link } from "react-router-dom";
 
-const Footer = () => {
+interface FooterProps {
+  hideIdea: boolean;
+}
+
+const Footer = ({ hideIdea }: FooterProps) => {
   const getStartedVideoRef = useRef<HTMLVideoElement | undefined>(undefined);
 
   const handleVideoPlaying = () => {
@@ -17,35 +22,38 @@ const Footer = () => {
   };
 
   return (
-    <Container className="py-24">
+    <Container className="py-24 bg-black">
       <div className="w-[100%] px-8 lg:max-w-[982px] lg:mx-auto lg:w-11/12 lg:px-0">
-        <div className="w-full grid grid-cols-12 relative h-max md:min-h-[400px] place-items-start">
-          <p
-            className="col-span-12 leading-tight bg-contain bg-no-repeat h-[220px] sm:h-[260px] md:min-h-96 flex items-center justify-self-stretch"
-            style={{
-              backgroundImage: `url(${ideaBackground})`,
-              backgroundPosition: "center",
-              backgroundSize: "100%",
-              fontSize: `clamp(2.5rem, 7.6vw, 6.2rem)`,
-            }}
-          >
-            Have an idea? <br />
-            Let's bring it to life
-          </p>
-          <div
-            className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-blue-700 absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
-            onMouseEnter={handleVideoPlaying}
-          >
-            <div className="w-full h-full bg-gray-700">
-              <video
-                className="w-full h-full"
-                src={getStartedVideo}
-                ref={getStartedVideoRef as any}
-                muted
-              />
+        {hideIdea || (
+          <div className="w-full grid grid-cols-12 relative h-max md:min-h-[400px] place-items-start">
+            <p
+              className="col-span-12 leading-tight bg-contain bg-no-repeat h-[220px] sm:h-[260px] md:min-h-96 flex items-center justify-self-stretch"
+              style={{
+                backgroundImage: `url(${ideaBackground})`,
+                backgroundPosition: "center",
+                backgroundSize: "100%",
+                fontSize: `clamp(2.5rem, 7.6vw, 6.2rem)`,
+              }}
+            >
+              Have an idea? <br />
+              Let's bring it to life
+            </p>
+            <div
+              className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-blue-700 absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
+              onMouseEnter={handleVideoPlaying}
+            >
+              <div className="w-full h-full bg-gray-700">
+                <video
+                  className="w-full h-full"
+                  src={getStartedVideo}
+                  ref={getStartedVideoRef as any}
+                  muted
+                />
+              </div>
             </div>
           </div>
-        </div>
+        )}
+
         <GridContainer className="pt-20 grid h-max lg:grid-cols-3 grid-cols-1 md:grid-cols-2 lg:gap-20 gap-y-10 lg:grid-rows-1">
           {/* LOGO VIDEO */}
           <div className="footer-video w-full h-full flex items-center">
@@ -66,7 +74,7 @@ const Footer = () => {
               {(footerLinks || []).map((linkData) => (
                 <LinkItem
                   className="w-full py-4 flex justify-between items-center h-max cursor-pointer"
-                  href={linkData.to}
+                  to={linkData.to}
                 >
                   <span>{linkData.title}</span>{" "}
                   <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] text-2xl maa-transition-[0.3s]"></i>
@@ -123,7 +131,7 @@ const Container = styled.div`
 
 const LinkContainer = styled.div``;
 
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
   text-decoration: none;
   position: relative;
   border-bottom: 0.4px solid rgba(255, 255, 255, 0.3);

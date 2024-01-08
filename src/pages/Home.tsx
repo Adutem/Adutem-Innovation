@@ -7,6 +7,11 @@ import Footer from "../components/home/Footer";
 import ClientFeedBack from "../components/home/ClientFeedBack";
 
 const Home = () => {
+  document.documentElement.style.background = "var(--black)";
+  // document.body.style.background = "var(--black)";
+  // (document.querySelector("#root") as HTMLDivElement).style.background =
+  //   "var(--black)";
+
   return (
     <>
       <Intro />
@@ -14,7 +19,7 @@ const Home = () => {
       <FeaturedProject />
       <WhatWeDo />
       <ClientFeedBack />
-      <Footer />
+      <Footer hideIdea={false} />
     </>
   );
 };
