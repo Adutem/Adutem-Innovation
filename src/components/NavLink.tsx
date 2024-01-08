@@ -1,16 +1,19 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface NavLinkProps {
   index: number;
   title: string;
   to: string;
+  hideNavBar: () => void;
 }
 
-const NavLink = ({ index, title, to }: NavLinkProps) => {
+const NavLink = ({ index, title, to, hideNavBar }: NavLinkProps) => {
   return (
     <AnchorEl
-      href={to}
+      to={to}
       className="flex text-white items-baseline lg:items-center"
+      onClick={hideNavBar}
     >
       <NumberSpan className="opacity-40 sm:min-w-[55px] md:min-w-0 mr-4 sm:mr-5 md:mr-6 lg:mr-3 lg:text-sm">
         0{index + 1}
@@ -20,7 +23,7 @@ const NavLink = ({ index, title, to }: NavLinkProps) => {
   );
 };
 
-const AnchorEl = styled.a`
+const AnchorEl = styled(Link)`
   &:hover span:first-child {
     opacity: 0;
   }

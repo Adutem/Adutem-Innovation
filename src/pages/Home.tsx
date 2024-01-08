@@ -8,14 +8,14 @@ import ClientFeedBack from "../components/home/ClientFeedBack";
 
 const Home = () => {
   return (
-    <div className="mt-36  mx-auto md:mx-0">
+    <>
       <Intro />
       <Qualities />
       <FeaturedProject />
       <WhatWeDo />
       <ClientFeedBack />
       <Footer />
-    </div>
+    </>
   );
 };
 

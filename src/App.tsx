@@ -8,6 +8,7 @@ import Navbar from "./components/Navbar";
 import Body from "./components/Body";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
+import Router from "./router/Router";
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -38,9 +39,10 @@ function App() {
 
   return (
     <>
-      <Navbar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} />
+      {/* <Navbar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} /> */}
       {isNavbarOpen && <Nav hideNavBar={hideNavBar} />}
-      <Home />
+      {/* <Home /> */}
+      <Router isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} />
     </>
   );
 }

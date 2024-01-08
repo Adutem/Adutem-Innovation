@@ -15,7 +15,7 @@ const Nav = ({ hideNavBar }: NavProps) => {
       <NavItemContainer className="py-32 px-6 md:px-10 w-full h-full max-w-[928px] md:mx-auto">
         <ul className="flex flex-col gap-5 sm:gap-7 md:flex-row md:flex-wrap md:gap-x-0 md:min-h-[400px] md:content-center">
           {navLinks.map((link, i) => (
-            <NavLink index={i} {...link} />
+            <NavLink index={i} {...link} hideNavBar={hideNavBar} />
           ))}
         </ul>
         <Socials className="social flex items-center gap-4 sm:gap-5 text-white mt-12 w-max md:w-full md:justify-end">
