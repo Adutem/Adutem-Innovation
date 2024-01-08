@@ -3,7 +3,12 @@ import Animator from "../utils/modules/animation/animation";
 import { useScrollPosition } from "../hooks";
 import styled from "styled-components";
 
-const Navbar = () => {
+interface NavbarProps {
+  toggleNavBar: () => void;
+  isNavbarOpen: boolean;
+}
+
+const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
   const h1Ref = useRef<HTMLElement | Element | null>();
   const menuRef = useRef<HTMLElement | Element | null>();
   const getInTouchBtnRef = useRef<HTMLElement | Element | null>();
@@ -54,8 +59,17 @@ const Navbar = () => {
         className="neue-ultrabold text-3xl  maa-transition-[.5s] translateX-hundred text-white"
         ref={h1Ref as any}
       >
-        Adutem <br />
-        <span>Innovation</span>
+        {!isNavbarOpen ? (
+          <>
+            Adutem <br />
+            <span>Innovation</span>
+          </>
+        ) : (
+          <>
+            <br />
+            <br />
+          </>
+        )}
       </Heading>
       <button
         className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
@@ -65,10 +79,16 @@ const Navbar = () => {
         <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
       </button>
       <Menu
-        className="gray-white-color translateX-neg-hundred maa-transition-[0.5s]"
+        className="gray-white-color translateX-neg-hundred maa-transition-[0.5s] flex items-center gap-2 cursor-pointer"
         ref={menuRef as any}
+        onClick={toggleNavBar}
       >
-        Menu
+        {isNavbarOpen ? "Close" : "Menu"}
+        {isNavbarOpen ? (
+          <i className="fi fi-br-cross-small text-white flex text-2xl"></i>
+        ) : (
+          <i className="fi fi-br-bars-sort flex text-white maa-rotateY-[180deg]"></i>
+        )}
       </Menu>
     </Container>
   );
