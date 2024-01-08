@@ -18,14 +18,15 @@ const Footer = () => {
 
   return (
     <Container className="py-24">
-      <div className="fit-container">
-        <div className="w-full grid grid-cols-12 relative min-h-[400px] place-items-start">
+      <div className="w-[100%] px-8 lg:max-w-[982px] lg:mx-auto lg:w-11/12 lg:px-0">
+        <div className="w-full grid grid-cols-12 relative h-max md:min-h-[400px] place-items-start">
           <p
-            className="text-[6.2rem] col-span-12 leading-tight bg-contain bg-no-repeat min-h-80 flex items-center justify-self-stretch"
+            className="col-span-12 leading-tight bg-contain bg-no-repeat h-[200px] md:min-h-80 flex items-center justify-self-stretch"
             style={{
               backgroundImage: `url(${ideaBackground})`,
               backgroundPosition: "center",
               backgroundSize: "100%",
+              fontSize: `clamp(2.5rem, 7.6vw, 6.2rem)`,
             }}
           >
             Have an idea? <br />
@@ -45,7 +46,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="pt-20 grid h-max grid-cols-3 gap-20 grid-rows-1">
+        <GridContainer className="pt-20 grid h-max lg:grid-cols-3 grid-cols-1 md:grid-cols-2 lg:gap-20 gap-y-10 lg:grid-rows-1">
           {/* LOGO VIDEO */}
           <div className="footer-video w-full h-full flex items-center">
             <div className="w-full h-auto">
@@ -75,7 +76,7 @@ const Footer = () => {
           </div>
 
           {/** CONTACT US SECTON */}
-          <div className="flex flex-col justify-between">
+          <ContactSectionContainer className="flex flex-col lg:justify-between gap-6 lg:gap-0 col-span-full lg:col-span-1">
             {/** SOCIAL MEDIA LINKS */}
             <div className="social flex items-center gap-5">
               <i className="fi fi-brands-instagram flex text-lg"></i>
@@ -92,7 +93,7 @@ const Footer = () => {
                 <span>
                   Ibadan, 201109 <br />
                 </span>
-                <span style={{ whiteSpace: "nowrap" }}>
+                <span>
                   Email: <a>design@adutem-innovation.com</a>
                 </span>
                 <span>
@@ -103,15 +104,12 @@ const Footer = () => {
 
             {/** COPYRIGHT */}
             <div>
-              <p
-                className="text-[var(--grayWhite)] text-sm opacity-70 font-light"
-                style={{ whiteSpace: "nowrap" }}
-              >
+              <p className="text-[var(--grayWhite)] text-sm opacity-70 font-light">
                 &copy; 2022. AdutemInno. All Rights Reserved
               </p>
             </div>
-          </div>
-        </div>
+          </ContactSectionContainer>
+        </GridContainer>
       </div>
     </Container>
   );
@@ -155,4 +153,9 @@ const LinkItem = styled.a`
   }
 `;
 
+const ContactSectionContainer = styled.div``;
+
+const GridContainer = styled.div`
+  grid-template-rows: 2 max-content;
+`;
 export default Footer;
