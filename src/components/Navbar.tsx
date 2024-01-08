@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Animator from "../utils/modules/animation/animation";
 import { useScrollPosition } from "../hooks";
+import styled from "styled-components";
 
 const Navbar = () => {
   const h1Ref = useRef<HTMLElement | Element | null>();
@@ -38,7 +39,7 @@ const Navbar = () => {
     new Animator();
   }, []);
   return (
-    <div className="fixed top-0 left-0 flex justify-between items-center px-6 w-full py-4 bg-[transparent]">
+    <Container className="fixed top-0 left-0 flex justify-between items-center px-4 md:px-6 w-full py-4 bg-[transparent]">
       <h1
         className="neue-ultrabold text-3xl  maa-transition-[.5s] maa-translateX-[100px] text-white"
         ref={h1Ref as any}
@@ -47,7 +48,7 @@ const Navbar = () => {
         <span>Innovation</span>
       </h1>
       <button
-        className="rounded-2xl bg-blue-800 px-9 py-4 flex items-center gap-2 maa-transition-[0.5s] text-white"
+        className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
         ref={getInTouchBtnRef as any}
       >
         Get in touch
@@ -59,8 +60,17 @@ const Navbar = () => {
       >
         Menu
       </p>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  @media screen and (max-width: 768px) {
+    h1,
+    p {
+      transform: translate(0);
+    }
+  }
+`;
 
 export default Navbar;
