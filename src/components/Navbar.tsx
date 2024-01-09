@@ -80,7 +80,7 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
             </>
           )}
         </Heading>
-        {!isNavbarOpen && (
+        {!isNavbarOpen && location.pathname !== "/contact" && (
           <button
             className="rounded-2xl bg-[var(--base-color)] px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
             ref={getInTouchBtnRef as any}
