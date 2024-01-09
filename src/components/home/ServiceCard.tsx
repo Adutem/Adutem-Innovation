@@ -15,7 +15,7 @@ const ServiceCard = ({
     <CardContainer
       className={`${
         shouldHaveBorder && "md:border-r-[0.2px] border-b-[0.2px]"
-      } cursor-pointer lg:hover:bg-blue-700 maa-transition-[0.8s] w-full h-full relative`}
+      } cursor-pointer lg:hover:bg-[var(--base-color)] maa-transition-[0.8s] w-full h-full relative`}
       style={{ borderColor: "rgba(255, 255, 255, 0.7)" }}
     >
       <div className="underlay flex flex-row md:flex-col items-center md:justify-around justify-between md: gap-16 h-full py-16 relative z-40 px-8 md:px-0">

@@ -24,7 +24,7 @@ const Nav = ({ hideNavBar }: NavProps) => {
           <i className="fi fi-brands-facebook flex text-lg"></i>
           <i className="fi fi-brands-linkedin flex text-lg"></i>
           <LinkItem
-            className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-blue-700 gap-3 sm:text-xl md:w-auto"
+            className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-[var(--base-color)] gap-3 sm:text-xl md:w-auto"
             href={"/careers"}
           >
             <span>Careers</span>{" "}

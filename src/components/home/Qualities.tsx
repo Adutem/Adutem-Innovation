@@ -49,7 +49,7 @@ const Heading = ({ text, i }: HeadingProps) => {
     <h2
       className={`max-md:text-[10vw] text-[4.44vw] border-[#f1f1f1] border-b-[0.2px] py-8 ${
         i % 2 === 0 ? "text-left" : "text-right"
-      } hover:text-blue-700 transition-colors text-white duration-500`}
+      } hover:text-[var(--base-color)] transition-colors text-white duration-500`}
     >
       <span
         className="w-11/12 mx-auto max-w-[928px] block text-[inherit]"

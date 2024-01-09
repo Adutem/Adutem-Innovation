@@ -16,7 +16,7 @@ const NotFound = () => {
       <p className="my-10 text-center text-white text-sm sm:text-base md:text-xl">
         The Page you are looking for could not be found.
       </p>
-      <Link to={"/"} className="underline text-blue-700">
+      <Link to={"/"} className="underline text-[var(--base-color)]">
         Go Back to Homepage
       </Link>
     </div>

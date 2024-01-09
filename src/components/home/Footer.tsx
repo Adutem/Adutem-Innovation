@@ -39,7 +39,7 @@ const Footer = ({ hideIdea }: FooterProps) => {
               Let's bring it to life
             </p>
             <div
-              className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-blue-700 absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
+              className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-[var(--base-color)] absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
               onMouseEnter={handleVideoPlaying}
             >
               <div className="w-full h-full bg-gray-700">

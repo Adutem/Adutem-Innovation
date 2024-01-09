@@ -6,7 +6,7 @@ const WhatWeDo = () => {
     <div className="bg-black py-24 pt-36">
       <div className="fit-container flex justify-between place-items-baseline">
         <h2 className="text-white text-[4rem] ">What We Do</h2>
-        <p className="text-blue-700 hover:text-white transition-colors text-xl flex gap-2 items-center cursor-pointer more-project">
+        <p className="text-[var(--base-color)] hover:text-white transition-colors text-xl flex gap-2 items-center cursor-pointer more-project">
           More{" "}
           <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] text-2xl maa-transition-[0.4s]"></i>
         </p>

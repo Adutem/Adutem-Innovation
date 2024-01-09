@@ -82,7 +82,7 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
         </Heading>
         {!isNavbarOpen && (
           <button
-            className="rounded-2xl bg-blue-800 px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
+            className="rounded-2xl bg-[var(--base-color)] px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
             ref={getInTouchBtnRef as any}
           >
             Get in touch
