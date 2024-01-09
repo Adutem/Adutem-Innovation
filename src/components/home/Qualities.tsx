@@ -52,7 +52,7 @@ const Heading = ({ text, i }: HeadingProps) => {
       } hover:text-[var(--base-color)] transition-colors text-white duration-500`}
     >
       <span
-        className="w-11/12 mx-auto max-w-[928px] block text-[inherit]"
+        className="w-11/12 mx-auto max-w-[1024px] block text-[inherit]"
         data-aos={i % 2 === 0 ? "fade-right" : "fade-left"}
         data-aos-duration={1000}
       >

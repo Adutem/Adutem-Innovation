@@ -158,7 +158,7 @@ const FeaturedProject = () => {
         )}
 
         <div
-          className="w-11/12 mx-auto max-w-[928px]"
+          className="w-11/12 mx-auto max-w-[1024px]"
           ref={parentCardContainerRef as any}
         >
           <div
@@ -185,7 +185,7 @@ const FeaturedProject = () => {
           </div>
         )}
       </div>
-      {/* <div className="no-wrap overflow-hidden py-6 w-11/12 mx-auto max-w-[928px]">
+      {/* <div className="no-wrap overflow-hidden py-6 w-11/12 mx-auto max-w-[1024px]">
         <ul className=" list-[square] flex gap-8 list-inside infinite-translate w-max">
           {[
             "wed development",
@@ -209,7 +209,7 @@ const FeaturedProject = () => {
           ))}
         </ul>
       </div> */}
-      {/* <div className="py-10 w-11/12 ms-auto max-w-[928px] bg-red-900"></div> */}
+      {/* <div className="py-10 w-11/12 ms-auto max-w-[1024px] bg-red-900"></div> */}
     </div>
   );
 };

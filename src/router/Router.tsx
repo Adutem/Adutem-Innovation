@@ -1,9 +1,9 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/404";
 import Navbar from "../components/Navbar";
+import Team from "../pages/Team";
 
 interface Props {
   toggleNavBar: () => void;
@@ -21,6 +21,7 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
       >
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="team" element={<Team />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
