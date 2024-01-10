@@ -11,18 +11,20 @@ const Intro = () => {
   const { inView, topFromOffSet } = useInView({
     ref: videoContainerRef.current,
     outOfViewTo: "bottom",
-    topOffSetFromBottom: 150,
+    topOffSetFromBottom: 50,
   });
 
   useEffect(() => {
     if (inView) {
+      const windowWidth = window.innerWidth;
+      const scaleFactor = windowWidth > 768 ? 200 : 150;
       let scaleValue = 0;
       if (topFromOffSet < 0) {
         scaleValue = 45;
       } else {
-        scaleValue = Math.min(Math.max(topFromOffSet, 45), 150);
+        scaleValue = Math.min(Math.max(topFromOffSet, 45), scaleFactor);
       }
-      const scalePercent = scaleValue / 150;
+      const scalePercent = scaleValue / scaleFactor;
       const scalePercentToIdp = parseFloat(scalePercent.toFixed(1));
       console.log(scaleValue, scalePercentToIdp);
       if (
