@@ -29,6 +29,7 @@ const Intro = () => {
             loop
             muted
             autoPlay
+            playsInline
           />
         </div>
       </div>

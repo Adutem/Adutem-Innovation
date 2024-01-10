@@ -23,7 +23,7 @@ const Footer = ({ hideIdea }: FooterProps) => {
 
   return (
     <Container className="py-24 bg-black">
-      <div className="w-[100%] px-8 lg:max-w-[982px] lg:mx-auto lg:w-11/12 lg:px-0">
+      <Divi className="w-[100%] md:w-[90%] lg:max-w-[1024px] md:mx-auto lg:w-11/12">
         {hideIdea || (
           <div className="w-full grid grid-cols-12 relative h-max md:min-h-[400px] place-items-start">
             <p
@@ -118,7 +118,7 @@ const Footer = ({ hideIdea }: FooterProps) => {
             </div>
           </ContactSectionContainer>
         </GridContainer>
-      </div>
+      </Divi>
     </Container>
   );
 };
@@ -126,6 +126,21 @@ const Footer = ({ hideIdea }: FooterProps) => {
 const Container = styled.div`
   & > * {
     color: var(--white);
+  }
+`;
+
+const Divi = styled.div`
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+
+  @media screen and (min-width: 420px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 `;
 
