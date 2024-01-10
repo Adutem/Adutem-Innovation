@@ -1,9 +1,39 @@
 import reviewVideo from "../../assets/videos/review.mp4";
 import styled from "styled-components";
 import { useScrollPosition } from "../../hooks";
+import useInView from "../../hooks/useInView";
+import { useEffect, useRef } from "react";
 
 const Intro = () => {
   const { isPastPosition } = useScrollPosition(null, 70);
+  const videoContainerRef = useRef<HTMLElement | Element | null>(null);
+  const videoPlayerRef = useRef<HTMLElement | Element | null>(null);
+  const { inView, topFromOffSet } = useInView({
+    ref: videoContainerRef.current,
+    outOfViewTo: "bottom",
+    topOffSetFromBottom: 150,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      let scaleValue = 0;
+      if (topFromOffSet < 0) {
+        scaleValue = 45;
+      } else {
+        scaleValue = Math.min(Math.max(topFromOffSet, 45), 150);
+      }
+      const scalePercent = scaleValue / 150;
+      const scalePercentToIdp = parseFloat(scalePercent.toFixed(1));
+      console.log(scaleValue, scalePercentToIdp);
+      if (
+        videoPlayerRef.current &&
+        videoPlayerRef.current instanceof HTMLElement
+      ) {
+        videoPlayerRef.current.style.transform = `scale(${scalePercentToIdp})`;
+      }
+    }
+  }, [inView, topFromOffSet]);
+
   return (
     <div>
       <Divi className="w-[100%] md:w-[90%] lg:max-w-[1024px] md:mx-auto lg:w-11/12">
@@ -34,9 +64,10 @@ const Intro = () => {
         </div>
         <div
           className={`my-16 md:mt-24 video-container ${
-            !isPastPosition && "scale-reduce"
+            // !isPastPosition && "scale-reduce"
+            ""
           }`}
-          style={{ transformOrigin: "bottom" }}
+          ref={videoContainerRef as any}
         >
           <video
             className="w-full h-auto"
@@ -45,6 +76,8 @@ const Intro = () => {
             playsInline
             autoPlay
             src={reviewVideo}
+            ref={videoPlayerRef as any}
+            style={{ transformOrigin: "bottom" }}
           />
         </div>
       </Divi>
@@ -56,13 +89,14 @@ export const Divi = styled.div`
   padding-left: 0.8rem;
   padding-right: 0.8rem;
 
-  .video-container {
-    transition: 0.4s ease;
+  .video-container video {
+    transition: 1.2s ease;
+    transform: scale(0.3);
   }
 
-  .video-container.scale-reduce {
-    transform: scale(0.9);
-  }
+  // .video-container.scale-reduce {
+  //   transform: scale(0.9);
+  // }
 
   @media screen and (min-width: 420px) {
     padding-left: 2rem;
