@@ -102,7 +102,11 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           )}
         </Menu>
       </Container>
-      <main className="mt-36  mx-auto md:mx-0 bg-transparent">
+      <main
+        className={`${
+          location.pathname !== "/projects" ? "mt-36" : "mt-0"
+        } mx-auto md:mx-0 bg-transparent `}
+      >
         <Outlet />
       </main>
     </>
