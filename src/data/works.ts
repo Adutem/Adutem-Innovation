@@ -1,30 +1,67 @@
+// Thumbnails
 import reflexionThumbnail from "../assets/images/projects/reflexion/thumbNail.jpg";
 import altumintThumbnail from "../assets/images/projects/altumint/thumbNail.jpg";
 import jflThumbnail from "../assets/images/projects/jfl/thumbNail.jpg";
+import wrgThumbnail from "../assets/images/projects/wrg/thumbNail.jpg";
+
+// Hero media
 import reflexionHeroImage from "../assets/images/projects/reflexion/heroImage.jpg";
 import altumintHeroImage from "../assets/images/projects/altumint/heroImage.jpg";
 import jflHeroImage from "../assets/images/projects/jfl/heroImage.jpg";
+import wrgHeroVideo from "../assets/videos/projects/wrg/waterresourcesgroup-video.mp4";
+
+// Preview Poster
 import reflexionPreviewVideoPoster from "../assets/images/projects/reflexion/banner-poster-reflexion.jpg";
 import altumintPreviewVideoPoster from "../assets/images/projects/altumint/banner-poster-altumint.jpg";
 import jflPreviewVideoPoster from "../assets/images/projects/jfl/banner-poster-jfl.jpg";
+import wrgPreviewVideoPoster from "../assets/images/projects/wrg/banner-poster-wrg.jpg";
+
+// Preview Video
 import reflexionPreviewVideo from "../assets/videos/projects/reflexion/preview.mp4";
 import altumintPreviewVideo from "../assets/videos/projects/altumint/preview-altumint.mp4";
 import jflPreviewVideo from "../assets/videos/projects/jfl/preview-jfl.mp4";
+import wrgPreviewVideo from "../assets/videos/projects/wrg/preview-water.mp4";
+
+// Hero Project SnapShot
 import reflexionHeroProjectSnapShot from "../assets/images/projects/reflexion/heroProjectSnapshot.jpg";
 import altumintHeroProjectSnapShot from "../assets/images/projects/altumint/heroProjectSnapshot.jpg";
 import jflHeroProjectSnapShot from "../assets/images/projects/jfl/heroProjectSnapshot.jpg";
+import wrgHeroProjectSnapShot from "../assets/images/projects/wrg/heroProjectSnapshot.jpg";
+
+// Web SnapShots
 import reflexionProjectSnapShotForWebA from "../assets/images/projects/reflexion/projectSnapShotsForWebA.jpg";
 import altumintProjectSnapShotForWebA from "../assets/images/projects/altumint/projectSnapShotsForWebA.jpg";
 import jflProjectSnapShotForWebA from "../assets/images/projects/jfl/projectSnapShotsForWebA.jpg";
+import wrgProjectSnapShotForWebA from "../assets/images/projects/wrg/projectSnapShotsForWebA.jpg";
+
 import reflexionProjectSnapShotForWebB from "../assets/images/projects/reflexion/projectSnapShotsForWebB.jpg";
 import altumintProjectSnapShotForWebB from "../assets/images/projects/altumint/projectSnapShotsForWebB.jpg";
 import jflProjectSnapShotForWebB from "../assets/images/projects/jfl/projectSnapShotsForWebB.jpg";
+import wrgProjectSnapShotForWebB from "../assets/images/projects/wrg/projectSnapShotsForWebB.jpg";
+
+// Mobile SnapShots
 import reflexionProjectSnapShotForMobileA from "../assets/images/projects/reflexion/projectSnapShotsForMobileA.jpg";
 import jflProjectSnapShotForMobileA from "../assets/images/projects/jfl/projectSnapShotsForMobileA.jpg";
+import wrgProjectSnapShotForMobileA from "../assets/images/projects/wrg/projectSnapShotsForMobileA.jpg";
 import reflexionProjectSnapShotForMobileB from "../assets/images/projects/reflexion/projectSnapShotsForMobileB.jpg";
 import jflProjectSnapShotForMobileB from "../assets/images/projects/jfl/projectSnapShotsForMobileB.jpg";
+import wrgProjectSnapShotForMobileB from "../assets/images/projects/wrg/projectSnapShotsForMobileB.jpg";
 import reflexionProjectSnapShotForMobileC from "../assets/images/projects/reflexion/projectSnapShotsForMobileC.jpg";
 import jflProjectSnapShotForMobileC from "../assets/images/projects/jfl/projectSnapShotsForMobileC.jpg";
+import wrgProjectSnapShotForMobileC from "../assets/images/projects/wrg/projectSnapShotsForMobileC.jpg";
+
+type ProjectCategory =
+  | "All"
+  | "Apps"
+  | "Construction/Landscaping"
+  | "Education"
+  | "IT"
+  | "Maintenance"
+  | "NGO/Government"
+  | "Photography/Graphics"
+  | "SEO"
+  | "Video"
+  | "Websites";
 
 interface ProjectFeedback {
   whatTheySay: string;
@@ -32,12 +69,16 @@ interface ProjectFeedback {
   clientRole: string;
 }
 
+interface HeroMedia {
+  type: "video" | "image";
+  mediaUrl: string;
+}
 export interface ProjectData {
   id: string | number;
   title: string;
   shortDescription: string;
   thumbNailUrl: string;
-  heroImage: string;
+  heroMedia: HeroMedia;
   heroShortTag: string;
   aboutTheCompany: string;
   whatWeDo: string[];
@@ -45,10 +86,11 @@ export interface ProjectData {
   previewVideo: string;
   aboutTheProject: string[];
   heroProjectSnapShot: string;
-  feedback: ProjectFeedback;
+  feedback: ProjectFeedback | null;
   projectSnapShotsForWeb: [string, string];
   projectSnapShotsForMobile?: [string, string, string];
   moreProjects?: string[];
+  projectCategory: ProjectCategory[];
 }
 
 const works: ProjectData[] = [
@@ -58,7 +100,10 @@ const works: ProjectData[] = [
     shortDescription:
       "Web Design & Development, Web & Mobile App, UX/UI Design, Explainer Video, Animation, Maintenance and other",
     thumbNailUrl: reflexionThumbnail,
-    heroImage: reflexionHeroImage,
+    heroMedia: {
+      type: "image",
+      mediaUrl: reflexionHeroImage,
+    },
     heroShortTag: "Play More, See More",
     aboutTheCompany:
       "Reflexion is a cognitive sports-training service which uses data-driven, speed-focused AI technology to bolster its clients’ physical and mental capabilities. The company’s clients include professional athletes, businesspeople and rehab patients who “neuro train” using a state-of-the-art touchscreen lightboard. The technology, which tracks progress and tailors drill sessions accordingly, strengthens clients’ cognition and sharpens skills such as decision-making, reaction time and hand-eye coordination.",
@@ -94,6 +139,7 @@ const works: ProjectData[] = [
       reflexionProjectSnapShotForMobileB,
       reflexionProjectSnapShotForMobileC,
     ],
+    projectCategory: ["Apps", "Websites"],
   },
   {
     id: 2,
@@ -101,7 +147,10 @@ const works: ProjectData[] = [
     shortDescription:
       "Web Design & Development, UX/UI Design, Intranet Portal, Logo Design, Video Editing, Maintenance and other",
     thumbNailUrl: altumintThumbnail,
-    heroImage: altumintHeroImage,
+    heroMedia: {
+      type: "image",
+      mediaUrl: altumintHeroImage,
+    },
     heroShortTag: "Deep Visual Intelligence for an Optimized World",
     aboutTheCompany:
       "Powered by top-tier AI, Altumint is a visual intelligence company which benefits a variety of industries by mixing the latest in surveillance technology with optimal solutions to formidable challenges. The industries range from education to law enforcement to retail sales, and the technology includes automated vehicle recognition, traffic enforcement and person detection. The company’s biggest strength—aside from its focus on customer service—is its turnkey solutions, each one leveraging superior AI software to meet a client’s specific needs.",
@@ -130,6 +179,7 @@ const works: ProjectData[] = [
       altumintProjectSnapShotForWebA,
       altumintProjectSnapShotForWebB,
     ],
+    projectCategory: ["Websites"],
   },
   {
     id: 3,
@@ -137,7 +187,10 @@ const works: ProjectData[] = [
     shortDescription:
       "Web Design & Development, UX/UI Design, Client Support Portal, Hero Video, 360° Product Photography and other",
     thumbNailUrl: jflThumbnail,
-    heroImage: jflHeroImage,
+    heroMedia: {
+      type: "image",
+      mediaUrl: jflHeroImage,
+    },
     heroShortTag: "Your Security is Our Priority",
     aboutTheCompany:
       "JFL Consulting is a premier cybersecurity company whose services, products, and expertise ensure the secure optimization of their clients’ online operations. JFL’s skilled experts work closely with both Federal and commercial clients, offering a range of customizable solutions that mitigate security risks and protect potentially vulnerable computer network systems. The company is also the sole proprietor of their signature product, the Mobile Air Cyber Kit (MACK). A portable, military-approved, high-performance IT network system, MACK serves as an on-the-go data center.",
@@ -171,6 +224,47 @@ const works: ProjectData[] = [
       jflProjectSnapShotForMobileB,
       jflProjectSnapShotForMobileC,
     ],
+    projectCategory: ["Apps", "Websites"],
+  },
+  {
+    id: 4,
+    title: "2030 Water Resources Group",
+    shortDescription:
+      "Web Design & Development, UX/UI Design, Interactive Map, On-Site SEO Optimization and other",
+    thumbNailUrl: wrgThumbnail,
+    heroMedia: {
+      type: "image",
+      mediaUrl: wrgHeroVideo,
+    },
+    heroShortTag:
+      "FOUNDED BY THE WORLD BANK <br /> Collective Action on Water Security for People, Environment, and Economy",
+    aboutTheCompany:
+      "A multi-donor trust fund hosted by the World Bank Group, 2030 Water Resources Group aims to help countries reach water security by the year 2030. To achieve this goal, the organization has two overarching mandates: to increase global awareness among decision-makers about the importance of water for people, environments, and economies; and to help decision-makers facilitate the sustainable use of water. With over 1000 partners worldwide, 2030 WRG operates at the public, private, and civil level in countries across the globe.",
+    whatWeDo: [
+      "Web Design",
+      "Web Development",
+      "UX/UI Design",
+      "Interactive Map",
+      "On-Site SEO Optimization",
+    ],
+    previewVideoPoster: wrgPreviewVideoPoster,
+    previewVideo: wrgPreviewVideo,
+    aboutTheProject: [
+      "When 2030 WRG approached Design in DC, its website was overflowing with important information but lacked a dynamic and user-friendly interface. Our task was to transform the existing site into an interactive digital experience that would both captivate and educate users. We wanted site visitors to understand 2030 WRG’s initiatives with as few clicks as possible, while also incentivizing those users to take part in the growing water security movement.",
+      'In order for users to properly visualize 2030 WRG’s global model, our team designed an interactive map illustrating 2030 WRG’s ongoing projects. The clickable map displays the organization’s impressive reach while enabling users to learn more about each region’s water-security challenges. Since 2030 WRG serves as a hub for water security-related materials, our team compiled and categorized the organization’s many documents on one "Resource” page. A cross-site search functionality now allows researchers to easily locate items they’re looking for without having to wade through immense amounts of information. To reflect the focus of the organization’s important work, our designers incorporated a subtle wave animation on the site’s main pages.',
+    ],
+    heroProjectSnapShot: wrgHeroProjectSnapShot,
+    feedback: null,
+    projectSnapShotsForWeb: [
+      wrgProjectSnapShotForWebA,
+      wrgProjectSnapShotForWebB,
+    ],
+    projectSnapShotsForMobile: [
+      wrgProjectSnapShotForMobileA,
+      wrgProjectSnapShotForMobileB,
+      wrgProjectSnapShotForMobileC,
+    ],
+    projectCategory: ["Apps", "Websites"],
   },
 ];
 

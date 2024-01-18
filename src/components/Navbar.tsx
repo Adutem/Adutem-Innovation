@@ -65,13 +65,14 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
         ref={containerRef as any}
       >
         <Heading
-          className="neue-ultrabold text-3xl  maa-transition-[.5s] translateX-hundred text-white"
+          className="neue-ultrabold text-2xl md:text-3xl  maa-transition-[.5s] translateX-hundred text-white"
           ref={h1Ref as any}
         >
           {!isNavbarOpen ? (
             <>
-              Adutem <br />
-              <span>Innovation</span>
+              ADUTEM
+              {/* <br /> */}
+              {/* <span>Innovation</span> */}
             </>
           ) : (
             <>
@@ -104,7 +105,9 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
       </Container>
       <main
         className={`${
-          location.pathname !== "/projects" ? "mt-36" : "mt-0"
+          location.pathname !== "/projects" && location.pathname !== "/services"
+            ? "mt-36"
+            : "mt-0"
         } mx-auto md:mx-0 bg-transparent `}
       >
         <Outlet />
@@ -132,6 +135,8 @@ const Container = styled.div`
   }
 `;
 
-const Heading = styled.h1``;
+const Heading = styled.h1`
+  font-variant: small-caps;
+`;
 const Menu = styled.p``;
 export default Navbar;

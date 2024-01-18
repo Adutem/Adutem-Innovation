@@ -38,6 +38,7 @@ html,
 #root {
   /* background: var(--black); */
   width: 100%;
+  scroll-behavior: smooth;
 }
 
 .gray-white-color {
