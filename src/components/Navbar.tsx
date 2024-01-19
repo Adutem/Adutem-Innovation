@@ -52,7 +52,12 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
     }
   };
 
-  const value = useScrollPosition(null, 70, onTrue, onFalse);
+  const value = useScrollPosition(
+    null,
+    location.pathname.includes("/projects/") ? 300 : 70,
+    onTrue,
+    onFalse
+  );
   // useScrollPosition(menuRef.current, 90, onTrue, onFalse);
 
   useEffect(() => {
@@ -105,7 +110,9 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
       </Container>
       <main
         className={`${
-          location.pathname !== "/projects" && location.pathname !== "/services"
+          location.pathname !== "/projects" &&
+          location.pathname !== "/services" &&
+          !location.pathname.includes("/projects")
             ? "mt-36"
             : "mt-0"
         } mx-auto md:mx-0 bg-transparent `}

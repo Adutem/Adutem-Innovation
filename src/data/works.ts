@@ -233,7 +233,7 @@ const works: ProjectData[] = [
       "Web Design & Development, UX/UI Design, Interactive Map, On-Site SEO Optimization and other",
     thumbNailUrl: wrgThumbnail,
     heroMedia: {
-      type: "image",
+      type: "video",
       mediaUrl: wrgHeroVideo,
     },
     heroShortTag:

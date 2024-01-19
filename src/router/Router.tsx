@@ -7,6 +7,7 @@ import Team from "../pages/Team";
 import Work from "../pages/Work";
 import Services from "../pages/Services";
 import Blog from "../pages/Blog";
+import ProjectDetails from "../pages/ProjectDetails";
 
 interface Props {
   toggleNavBar: () => void;
@@ -25,7 +26,10 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
         <Route path="" element={<Home />} />
         <Route path="contact" element={<Contact />} />
         <Route path="team" element={<Team />} />
-        <Route path="projects" element={<Work />} />
+        <Route path="projects">
+          <Route index element={<Work />} />
+          <Route path=":uniqueValue" element={<ProjectDetails />} />
+        </Route>
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
         <Route path="*" element={<NotFound />} />
