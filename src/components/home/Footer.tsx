@@ -5,7 +5,7 @@ import ddcVideo from "../../assets/videos/ddc-logo.mp4";
 import { useRef } from "react";
 import footerLinks from "../../data/footer-links";
 import { Link } from "react-router-dom";
-import adutemLogo from "../../assets/images/adutem_logo.png";
+import adutemLogo from "../../assets/images/adutem_logo_b.png";
 
 interface FooterProps {
   hideIdea: boolean;
@@ -131,7 +131,7 @@ const Container = styled.div`
   }
 
   .adutem-logo {
-    animation: infiniteRotation 5s linear infinite;
+    animation: infiniteRotation 8s linear infinite;
     transform-style: preserve-3d;
   }
 
