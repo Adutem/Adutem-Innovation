@@ -131,7 +131,7 @@ const Container = styled.div`
   }
 
   .adutem-logo {
-    animation: infiniteRotation 8s ease 0s normal infinite;
+    animation: infiniteRotation 5s linear infinite;
     transform-style: preserve-3d;
   }
 
@@ -141,7 +141,7 @@ const Container = styled.div`
     }
 
     to {
-      transform: rotateY(360deg);
+      transform: rotateY(-360deg);
     }
   }
 `;
