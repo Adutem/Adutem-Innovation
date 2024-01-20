@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ProjectData } from "../data/works";
 import Footer from "../components/home/Footer";
 import { Divi } from "../components/team/Intro";
+import ImageQuote from "../assets/images/svg/ImageQuote";
 
 const ProjectDetails = () => {
   const location = useLocation();
@@ -53,7 +54,7 @@ const ProjectDetails = () => {
                     ? details.heroShortTag.split("<br />").map((tag) => (
                         <>
                           <span>{tag}</span>
-                          <br />{" "}
+                          <br />
                         </>
                       ))
                     : details.heroShortTag}
@@ -79,7 +80,7 @@ const ProjectDetails = () => {
             <div className="text-white pt-10 md:pt-20 lg:pt-36 md:flex md:gap-10 md:justify-between w-full">
               <h3
                 className="mb-4 md:mb-6 flex-[2] md:max-w-[250px] leading-tight"
-                style={{ fontSize: "clamp(1rem, 6vw, 1.9rem)" }}
+                style={{ fontSize: "clamp(1.4rem, 6vw, 1.9rem)" }}
               >
                 What we did
               </h3>
@@ -103,7 +104,26 @@ const ProjectDetails = () => {
                 playsInline
               />
             </div>
+            <SectionContainer>
+              <h3
+                className="mb-4 md:mb-6 flex-[2] md:max-w-[250px] leading-tight"
+                style={{ fontSize: "clamp(1.4rem, 6vw, 1.9rem)" }}
+              >
+                About the project
+              </h3>
+              <div className="flex flex-col gap-6">
+                {details.aboutTheProject.map((info) => (
+                  <SectionPara>{info}</SectionPara>
+                ))}
+              </div>
+            </SectionContainer>
+            <div className="w-full h-auto p-1 lg:p-8 border-2 border-[rgba(184,199,196,.5)] mt-10 md:mt-20 lg:mt-36 hero-project-snapshot-container bg-[rgba(38,38,38,.5)]">
+              <img src={details.heroProjectSnapShot} />
+            </div>
           </CustomDivi>
+          <div className="bg-red-900 mt-10 md:mt-20 lg:mt-36">
+            <CustomDivi></CustomDivi>
+          </div>
         </>
       )}
       <Footer hideIdea={false} />
@@ -119,6 +139,9 @@ const Container = styled.div`
       rgba(30, 30, 30, 0.378)
     );
   }
+
+  .hero-project-snapshot-container {
+  }
 `;
 
 const CustomDivi = styled(Divi)`
@@ -126,5 +149,24 @@ const CustomDivi = styled(Divi)`
     color: rgba(255, 255, 255, 0.75);
   }
 `;
+
+const SectionContainer = ({ children }: PropsWithChildren) => {
+  return (
+    <div className="text-white pt-10 md:pt-20 lg:pt-36 md:flex md:gap-10 md:justify-between w-full">
+      {children}
+    </div>
+  );
+};
+
+const SectionPara = ({ children }: PropsWithChildren) => {
+  return (
+    <p
+      className="faded flex-[3] max-w-[500px] md:max-w-[600px]"
+      style={{ fontSize: "clamp(0.75rem, 5vw ,1.1rem)" }}
+    >
+      {children}
+    </p>
+  );
+};
 
 export default ProjectDetails;

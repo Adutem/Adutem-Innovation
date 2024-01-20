@@ -5,6 +5,7 @@ import ddcVideo from "../../assets/videos/ddc-logo.mp4";
 import { useRef } from "react";
 import footerLinks from "../../data/footer-links";
 import { Link } from "react-router-dom";
+import adutemLogo from "../../assets/images/adutem_logo.png";
 
 interface FooterProps {
   hideIdea: boolean;
@@ -58,13 +59,14 @@ const Footer = ({ hideIdea }: FooterProps) => {
           {/* LOGO VIDEO */}
           <div className="footer-video w-full h-full flex items-center">
             <div className="w-full h-auto">
-              <video
+              <img src={adutemLogo} className="w-full h-auto adutem-logo" />
+              {/* <video
                 className="w-full h-auto"
                 src={ddcVideo}
                 loop
                 muted
                 autoPlay
-              />
+              /> */}
             </div>
           </div>
 
@@ -126,6 +128,21 @@ const Footer = ({ hideIdea }: FooterProps) => {
 const Container = styled.div`
   & > * {
     color: var(--white);
+  }
+
+  .adutem-logo {
+    animation: infiniteRotation 8s ease 0s normal infinite;
+    transform-style: preserve-3d;
+  }
+
+  @keyframes infiniteRotation {
+    from {
+      transform: rotateY(0deg);
+    }
+
+    to {
+      transform: rotateY(360deg);
+    }
   }
 `;
 
