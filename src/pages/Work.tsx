@@ -6,6 +6,7 @@ import ProjectCard from "../components/work/ProjectCard";
 import Footer from "../components/home/Footer";
 import { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { useScrollPosition } from "../hooks";
 
 export const projectCategory: string[] = [
   "All",
@@ -115,6 +116,20 @@ const Work = () => {
   const updateCurrentCategory = (val: string) => {
     setCurrentCategory(val);
   };
+
+  const onTrue = () => {
+    if (parentCardContainerRef.current) {
+      parentCardContainerRef.current.style.background = "#000";
+    }
+  };
+
+  const onFalse = () => {
+    if (parentCardContainerRef.current) {
+      parentCardContainerRef.current.style.background = "transparent";
+    }
+  };
+
+  const value = useScrollPosition(null, 300, onTrue, onFalse);
 
   document.documentElement.style.background = "var(--black)";
 
