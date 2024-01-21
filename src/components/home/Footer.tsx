@@ -89,9 +89,13 @@ const Footer = ({ hideIdea }: FooterProps) => {
           <ContactSectionContainer className="flex flex-col lg:justify-between gap-6 lg:gap-0 col-span-full lg:col-span-1">
             {/** SOCIAL MEDIA LINKS */}
             <div className="social flex items-center gap-5">
-              <i className="fi fi-brands-instagram flex text-lg"></i>
+              <a target="_blank" href="https://www.instagram.com/adutem_tech">
+                <i className="fi fi-brands-instagram flex text-lg"></i>
+              </a>
               <i className="fi fi-brands-twitter flex text-lg"></i>
-              <i className="fi fi-brands-facebook flex text-lg"></i>
+              <a target="_blank" href="https://www.facebook.com/Aduratemilorun">
+                <i className="fi fi-brands-facebook flex text-lg"></i>
+              </a>
               <i className="fi fi-brands-linkedin flex text-lg"></i>
             </div>
 

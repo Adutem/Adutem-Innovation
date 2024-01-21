@@ -19,9 +19,13 @@ const Nav = ({ hideNavBar }: NavProps) => {
           ))}
         </ul>
         <Socials className="social flex items-center gap-4 sm:gap-5 text-white mt-12 w-max md:w-full md:justify-end">
-          <i className="fi fi-brands-instagram flex text-lg"></i>
+          <a target="_blank" href="https://www.instagram.com/adutem_tech">
+            <i className="fi fi-brands-instagram flex text-lg"></i>
+          </a>
           <i className="fi fi-brands-twitter flex text-lg"></i>
-          <i className="fi fi-brands-facebook flex text-lg"></i>
+          <a target="_blank" href="https://www.facebook.com/Aduratemilorun">
+            <i className="fi fi-brands-facebook flex text-lg"></i>
+          </a>
           <i className="fi fi-brands-linkedin flex text-lg"></i>
           <LinkItem
             className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-[var(--base-color)] gap-3 sm:text-xl md:w-auto"
