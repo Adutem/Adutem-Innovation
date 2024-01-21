@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ProjectData } from "../data/works";
 import Footer from "../components/home/Footer";
 import { Divi } from "../components/team/Intro";
-import ImageQuote from "../assets/images/svg/ImageQuote";
+import imageQuote from "../assets/images/svg/quote.svg";
 
 const ProjectDetails = () => {
   const location = useLocation();
@@ -121,9 +121,58 @@ const ProjectDetails = () => {
               <img src={details.heroProjectSnapShot} />
             </div>
           </CustomDivi>
-          <div className="bg-red-900 mt-10 md:mt-20 lg:mt-36">
-            <CustomDivi></CustomDivi>
-          </div>
+          {details.feedback && (
+            <div className="bg-[#121212] mt-10 md:mt-20 lg:mt-36 py-10 md:py-20 lg:py-32">
+              <CustomDivi className="w-[100%] md:w-[80%] lg:max-w-[990px] md:mx-auto lg:w-11/12">
+                <div className="w-full">
+                  <div>
+                    <img
+                      src={imageQuote}
+                      className="w-[40px] sm:w-[60px] md:w-[80px]"
+                    />
+                  </div>
+                  <p
+                    className="text-white italic font-medium py-4 leading-tight"
+                    style={{ fontSize: "calc(16px + 2vw)" }}
+                  >
+                    {details.feedback?.whatTheySay}
+                  </p>
+                  <div className="pt-6 md:pt-12 lg:pt-16">
+                    <p className="faded uppercase client-name">
+                      -{details.feedback.clientName}
+                    </p>
+                    <p className="faded uppercase client-role">
+                      {details.feedback.clientRole}
+                    </p>
+                  </div>
+                </div>
+              </CustomDivi>
+            </div>
+          )}
+          <CustomDivi className="w-[100%] md:w-[90%] lg:max-w-[1024px] md:mx-auto lg:w-11/12">
+            <div className="w-full h-auto p-1 lg:p-8 border-2 border-[rgba(184,199,196,.5)] mt-10 md:mt-20 lg:mt-36 hero-project-snapshot-container bg-[rgba(38,38,38,.5)] grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+              <img src={details.projectSnapShotsForWeb[0]} />
+              <img src={details.projectSnapShotsForWeb[1]} />
+            </div>
+          </CustomDivi>
+          {details.projectSnapShotsForMobile && (
+            <CustomDivi className="w-[100%] md:w-[90%] lg:max-w-[1024px] md:mx-auto lg:w-11/12">
+              <div className="w-full h-auto p-1 lg:p-8 border-2 border-[rgba(184,199,196,.5)] mt-10 md:mt-20 lg:mt-36 hero-project-snapshot-container bg-[rgba(38,38,38,.5)] grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 lg:gap-6">
+                <img
+                  src={details.projectSnapShotsForMobile[0]}
+                  className="w-full object-cover"
+                />
+                <img
+                  src={details.projectSnapShotsForMobile[1]}
+                  className="w-full object-cover"
+                />
+                <img
+                  src={details.projectSnapShotsForMobile[2]}
+                  className="w-full object-cover"
+                />
+              </div>
+            </CustomDivi>
+          )}
         </>
       )}
       <Footer hideIdea={false} />
@@ -140,7 +189,9 @@ const Container = styled.div`
     );
   }
 
-  .hero-project-snapshot-container {
+  .client-name,
+  .client-role {
+    font-size: clamp(0.65rem, 3vw, 0.9rem);
   }
 `;
 
