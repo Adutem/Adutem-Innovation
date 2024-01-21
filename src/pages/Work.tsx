@@ -142,7 +142,7 @@ const Work = () => {
         clicking on a case study below.
       </p>
       <div
-        className="flex items-center justify-between my-6 sm:my-8 md:my-10 sticky md:relative top-14 bg-black py-3"
+        className="flex items-center justify-between my-6 sm:my-8 md:my-10 sticky md:relative top-14 bg-transparent py-3"
         ref={parentCardContainerRef as any}
       >
         <div className="cursor-pointer left-scroller scroller">
