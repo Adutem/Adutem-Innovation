@@ -20,10 +20,10 @@ const footerLinks: FooterLink[] = [
     title: "Our Team",
     to: "/team",
   },
-  {
-    title: "Careers",
-    to: "/careers",
-  },
+  // {
+  //   title: "Careers",
+  //   to: "/careers",
+  // },
   {
     title: "Blog",
     to: "/blog",
@@ -32,10 +32,10 @@ const footerLinks: FooterLink[] = [
     title: "Contact Us",
     to: "/contact",
   },
-  {
-    title: "Employee Portal",
-    to: "/employee-portal",
-  },
+  // {
+  //   title: "Employee Portal",
+  //   to: "/employee-portal",
+  // },
 ];
 
 export default footerLinks;

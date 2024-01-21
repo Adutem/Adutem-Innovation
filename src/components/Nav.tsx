@@ -31,8 +31,8 @@ const Nav = ({ hideNavBar }: NavProps) => {
             className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-[var(--base-color)] gap-3 sm:text-xl md:w-auto"
             href={"/careers"}
           >
-            <span>Careers</span>{" "}
-            <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] maa-transition-[0.3s]"></i>
+            {/* <span>Careers</span>{" "}
+            <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] maa-transition-[0.3s]"></i> */}
           </LinkItem>
         </Socials>
       </NavItemContainer>
