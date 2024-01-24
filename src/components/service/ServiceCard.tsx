@@ -10,8 +10,11 @@ const ServiceCard = ({
 }: ServiceCardProps) => {
   return (
     <Container
-      className="relative h-auto text-white"
+      className="relative h-auto text-white fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
       id={`${name.toLowerCase()}-service`}
+      style={{
+        transition: "transform 0.5s, opacity 0.7s ease",
+      }}
     >
       <div className="relative h-max md:h-full md:flex">
         <div className="left-container  absolute left-0 top-0 right-0 bottom-0 -z-1 w-full h-full md:static md:max-w-[450px] md:z-50 md:flex-1">

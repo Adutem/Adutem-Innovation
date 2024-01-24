@@ -83,6 +83,10 @@ html,
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .gray-white-color {
   color: var(--grayWhite) !important;
 }
@@ -139,4 +143,25 @@ html,
 
 .more-project:hover i {
   transform: rotate(0deg);
+}
+
+.fade-in {
+  animation: fadeIn 1.4s ease 2s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.opacityToggler {
+  opacity: 1 !important;
+  transform: scale(1) !important;
 }

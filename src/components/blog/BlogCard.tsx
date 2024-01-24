@@ -15,7 +15,12 @@ const BlogCard = ({
   index,
 }: BlogCardProps) => {
   return (
-    <Container className="">
+    <Container
+      className="fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+      style={{
+        transition: "transform 0.5s, opacity 0.7s ease",
+      }}
+    >
       <div className="md:grid grid-cols-5 gap-4 md:gap-6 lg:gap-10 items-center">
         <div
           className={`md:col-span-2 lg:col-span-3 h-auto ${

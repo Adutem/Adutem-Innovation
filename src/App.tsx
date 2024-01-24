@@ -10,6 +10,16 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import Router from "./router/Router";
 import { useLocation } from "react-router-dom";
+import { checkInViewPort } from "./utils";
+
+const handleWindowScroll = () => {
+  const allCards = document.querySelectorAll(".fade-up-card");
+  allCards.forEach((el: any) => {
+    let inViewPort = checkInViewPort(el);
+    inViewPort ? el.classList.add("opacityToggler") : void 0;
+    // : image.classList.remove("opacityToggler");
+  });
+};
 
 function App() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
@@ -43,6 +53,11 @@ function App() {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location]);
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleWindowScroll);
+
+    return () => window.removeEventListener("scroll", handleWindowScroll);
+  }, []);
   return (
     <>
       {/* <Navbar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} /> */}

@@ -25,8 +25,11 @@ const ProjectCard = ({
 
   return (
     <div
-      className="text-white cursor-pointer zoom-cursor"
+      className="text-white cursor-pointer zoom-cursor fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
       onClick={handleNavigate}
+      style={{
+        transition: "transform 0.5s, opacity 0.7s ease",
+      }}
     >
       <div>
         <img src={thumbNailUrl} />
