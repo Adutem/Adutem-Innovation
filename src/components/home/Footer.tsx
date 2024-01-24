@@ -92,11 +92,21 @@ const Footer = ({ hideIdea }: FooterProps) => {
               <a target="_blank" href="https://www.instagram.com/adutem_tech">
                 <i className="fi fi-brands-instagram flex text-lg"></i>
               </a>
-              <i className="fi fi-brands-twitter flex text-lg"></i>
+              <a
+                href="https://www.tiktok.com/@adutem_tech.adute?_t=8iy70GF1tmY&_r=1"
+                target="_blank"
+              >
+                <i className="fi fi-brands-tik-tok flex text-lg"></i>
+              </a>
               <a target="_blank" href="https://www.facebook.com/Aduratemilorun">
                 <i className="fi fi-brands-facebook flex text-lg"></i>
               </a>
-              <i className="fi fi-brands-linkedin flex text-lg"></i>
+              <a
+                href="https://www.linkedin.com/in/adutem-innovation-587979224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+              >
+                <i className="fi fi-brands-linkedin flex text-lg"></i>
+              </a>
             </div>
 
             {/** ADDRESS AND EMAIL LINKS */}
@@ -108,10 +118,10 @@ const Footer = ({ hideIdea }: FooterProps) => {
                   Ibadan, 201109 <br />
                 </span>
                 <span>
-                  Email: <a>design@adutem-innovation.com</a>
+                  Email: <a>Adutem05@gmail.com</a>
                 </span>
                 <span>
-                  Phone <a href="tel:+2348153026203">+234-81-5302-6203</a>
+                  Phone <a href="tel:+2347053295453">+(234)-7053295453</a>
                 </span>
               </address>
             </div>

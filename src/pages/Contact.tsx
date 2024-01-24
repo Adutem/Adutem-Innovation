@@ -81,13 +81,13 @@ const Contact = () => {
           <div>
             <p className="faded text-sm">Email us:</p>
             <p className="mb-4 text-base md:text-lg">
-              <a>design@adutem-innovation.com</a>
+              <a>Adutem05@gmail.com</a>
             </p>
           </div>
           <div>
             <p className="faded text-sm">Call us:</p>
             <p className="text-base md:text-lg">
-              <a href="tel:+2348153026203">+234-81-5302-6203</a>
+              <a href="tel:+2347053295453">+(234)-7053295453</a>
             </p>
           </div>
         </SecondContainer>
