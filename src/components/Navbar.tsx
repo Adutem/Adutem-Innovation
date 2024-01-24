@@ -97,13 +97,14 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           </Link>
         </Heading>
         {!isNavbarOpen && location.pathname !== "/contact" && (
-          <button
+          <Link
             className="rounded-2xl bg-[var(--base-color)] px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
             ref={getInTouchBtnRef as any}
+            to={"/contact"}
           >
             Get in touch
             <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
-          </button>
+          </Link>
         )}
         <Menu
           className="gray-white-color translateX-neg-hundred maa-transition-[0.5s] flex items-center gap-2 cursor-pointer"

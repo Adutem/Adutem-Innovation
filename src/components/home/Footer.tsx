@@ -39,9 +39,10 @@ const Footer = ({ hideIdea }: FooterProps) => {
               Have an idea? <br />
               Let's bring it to life
             </p>
-            <div
+            <Link
               className="get-started-video-container rounded-full w-[15.4vw] aspect-square bg-[var(--base-color)] absolute bottom-0 right-0 overflow-hidden cursor-pointer hidden md:block"
               onMouseEnter={handleVideoPlaying}
+              to={"/contact"}
             >
               <div className="w-full h-full bg-gray-700">
                 <video
@@ -51,7 +52,7 @@ const Footer = ({ hideIdea }: FooterProps) => {
                   muted
                 />
               </div>
-            </div>
+            </Link>
           </div>
         )}
 
