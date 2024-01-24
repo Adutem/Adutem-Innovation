@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Animator from "../utils/modules/animation/animation";
 import { useScrollPosition } from "../hooks";
 import styled from "styled-components";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const routeBgMap = {
   "/": "black",
@@ -73,18 +73,28 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           className="neue-ultrabold text-2xl md:text-3xl  maa-transition-[.5s] translateX-hundred text-white"
           ref={h1Ref as any}
         >
-          {!isNavbarOpen ? (
-            <>
-              ADUTEM
-              {/* <br /> */}
-              {/* <span>Innovation</span> */}
-            </>
-          ) : (
-            <>
-              <br />
-              <br />
-            </>
-          )}
+          <Link
+            to={"/"}
+            className="text-inherit"
+            style={{
+              fontSize: "inherit",
+              fontWeight: "inherit",
+              fontFamily: "inherit",
+            }}
+          >
+            {!isNavbarOpen ? (
+              <>
+                ADUTEM
+                {/* <br /> */}
+                {/* <span>Innovation</span> */}
+              </>
+            ) : (
+              <>
+                <br />
+                <br />
+              </>
+            )}
+          </Link>
         </Heading>
         {!isNavbarOpen && location.pathname !== "/contact" && (
           <button
