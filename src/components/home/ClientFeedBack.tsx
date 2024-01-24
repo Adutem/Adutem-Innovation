@@ -18,7 +18,7 @@ const ClientFeedBack = () => {
         <ClientFeedBackCard activeIndex={activeIndex} />
         <div className="flex items-center mt-12">
           <div className="flex-1"> </div>
-          <div className="flex items-center gap-4">
+          {/* <div className="flex items-center gap-4">
             <i
               className="fi fi-sr-arrow-alt-left flex text-white hover:text-[var(--base-color)] transition-colors text-3xl cursor-pointer"
               onClick={() =>
@@ -35,7 +35,7 @@ const ClientFeedBack = () => {
                 )
               }
             ></i>
-          </div>
+          </div> */}
         </div>
       </div>
     </Container>
