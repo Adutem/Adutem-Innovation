@@ -29,7 +29,47 @@
     />
   </head>
   <body>
+    <div class="custom-cursor"><p>View</p></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const customCursor = document.querySelector(".custom-cursor");
+
+      document.addEventListener("mousemove", function (e) {
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        customCursor.style.left = `${mouseX}px`;
+        customCursor.style.top = `${mouseY}px`;
+      });
+
+      document.addEventListener("mouseenter", function () {
+        customCursor.style.width = "40px";
+        customCursor.style.height = "40px";
+      });
+
+      document.addEventListener("mouseleave", function () {
+        customCursor.style.width = "20px";
+        customCursor.style.height = "20px";
+      });
+
+      document.addEventListener("mouseover", function (e) {
+        if (
+          e.target.classList.contains("zoom-cursor") ||
+          e.target.closest(".zoom-cursor")
+        ) {
+          customCursor.style.width = "120px";
+          customCursor.style.height = "120px";
+          customCursor.classList.add("zoom-cursor");
+        } else {
+          customCursor.style.width = "40px";
+          customCursor.style.height = "40px";
+          customCursor.classList.remove("zoom-cursor");
+        }
+      });
+    });
+  </script>
 </html>

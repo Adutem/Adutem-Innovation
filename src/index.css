@@ -33,6 +33,48 @@
   font-family: "DM Sans", sans-serif;
 }
 
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background-color: white;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+  z-index: 100000000;
+}
+
+.custom-cursor p {
+  font-size: 1.1rem;
+  color: #000;
+  visibility: hidden;
+}
+
+.custom-cursor.zoom-cursor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: normal;
+}
+
+.custom-cursor.zoom-cursor p {
+  visibility: visible;
+}
+
+@media screen and (max-width: 480px) {
+  .custom-cursor,
+  .custom-cursor.zoom-cursor {
+    display: none;
+  }
+}
+
 body,
 html,
 #root {

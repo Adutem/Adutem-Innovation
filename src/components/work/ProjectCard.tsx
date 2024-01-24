@@ -24,7 +24,10 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="text-white cursor-pointer" onClick={handleNavigate}>
+    <div
+      className="text-white cursor-pointer zoom-cursor"
+      onClick={handleNavigate}
+    >
       <div>
         <img src={thumbNailUrl} />
       </div>
