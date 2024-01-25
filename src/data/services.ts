@@ -105,7 +105,7 @@ const services: Service[] = [
       {
         categoryName: "Website Maintenance",
         categoryDescription:
-          "At Design In DC, we live by the credo that a website is only as good as its ongoing maintenance; as an evolving organism, a website requires routine checkups to remain healthy and high-performing. Whether you’re looking to fix bugs, swaps content, monitor uptime, review analytics or more, our monthly maintenance packages ensure your website continues to meet the demands of an ever-changing digital environment.",
+          "At Adutem Innovation, we live by the credo that a website is only as good as its ongoing maintenance; as an evolving organism, a website requires routine checkups to remain healthy and high-performing. Whether you’re looking to fix bugs, swaps content, monitor uptime, review analytics or more, our monthly maintenance packages ensure your website continues to meet the demands of an ever-changing digital environment.",
         categoryTasks: [
           "Monthly WordPress updates",
           "Daily backups",
@@ -366,7 +366,7 @@ const services: Service[] = [
       {
         categoryName: "Print Design",
         categoryDescription:
-          "Digital is not the only way to promote you and your product. When it comes to marketing, print design is still an effective marketing tool – recent research confirms that people retain information better after reading material in print rather than on-screen. At Design In DC, our graphic designers specialize in creating eye-catching hardcopy assets engineered to have a lasting impact on your audience.",
+          "Digital is not the only way to promote you and your product. When it comes to marketing, print design is still an effective marketing tool – recent research confirms that people retain information better after reading material in print rather than on-screen. At Adutem Innovation, our graphic designers specialize in creating eye-catching hardcopy assets engineered to have a lasting impact on your audience.",
         categoryTasks: [
           "Annual reports",
           "Ad design",

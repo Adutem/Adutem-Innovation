@@ -32,7 +32,7 @@ const feedbacks: FeedBackData[] = [
   },
   {
     whatTheySay:
-      "Overall, loved working with the team at Design in DC and look forward to a continued partnership with them.",
+      "Overall, loved working with the team at Adutem Innovation and look forward to a continued partnership with them.",
     clientName: "Pinakin Patel",
     clientRole: "CEO - IT Concept",
     videoUrl: reviewVideoThree,

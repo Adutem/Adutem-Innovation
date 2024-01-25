@@ -27,7 +27,7 @@ const Qualities = () => {
           data-aos-duration={1000}
           data-aos-offset={400}
         >
-          A local DC digital design agency with global reach. At Adutem
+          A local Lagos digital design agency with global reach. At Adutem
           Innovation, we view clients as creative partners.
         </p>
         <p

@@ -17,7 +17,7 @@ const blogPosts: BlogPost[] = [
   {
     id: 1,
     title:
-      "Clutch Names Design In DC as one of the Game Changing Branding Agencies in Washington DC",
+      "Clutch Names Adutem as one of the Game Changing Branding Agencies in Lagos",
     shortDescription:
       "In today’s digital landscape, branding has evolved far beyond logos and slogans. It’s a rich tapestry of aggressive advertising, immersive user experiences, and narratives that reach people through compelling content and visuals.  Modern brands recognize the importance of developing a strong digital image, utilizing an array of digital tools that include web design, app development, […]",
     thumbNail: clutchName,
