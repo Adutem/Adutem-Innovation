@@ -4,6 +4,10 @@ import seoBasics from "../assets/images/blog/seo-basics.jpg";
 import howToGetMoreQualified from "../assets/images/blog/how-to-get-more.jpg";
 import howChatGPT from "../assets/images/blog/how-chatgpt.jpg";
 
+import smartBoard from "../assets/images/blog/smart-board.jpg";
+import seoChart from "../assets/images/blog/seo-chart.jpg";
+import leadGeneration from "../assets/images/blog/lead-generation.jpg";
+
 export interface BlogPost {
   id: string | number;
   title: string;
@@ -29,7 +33,8 @@ const blogPosts: BlogPost[] = [
     title: "Digital Marketing Cheat Sheet: Your Guide to a Successful Campaign",
     shortDescription:
       "Unlock the Secrets to Successful Digital Marketing Today, a solid understanding of digital marketing is essential for any business or individual looking to thrive online. However, many people shy away from digital marketing because they don’t fully comprehend its intricacies.  If you find yourself in this position, fear not!  In this comprehensive cheat sheet, we […]",
-    thumbNail: digitalMarketing,
+    // thumbNail: digitalMarketing,
+    thumbNail: smartBoard,
     publicationDate: new Date(),
     tag: "Marketing",
   },
@@ -38,7 +43,8 @@ const blogPosts: BlogPost[] = [
     title: "SEO Basics: How to Optimize Your Website",
     shortDescription:
       "Learn the Basics of SEO to Boost Your Online Presence In today’s digital landscape, having a strong online presence is crucial for the success of any business or website. With millions of websites competing for attention, how can you ensure your content stands out?  This is where Search Engine Optimization (SEO) comes into play. Understanding […]",
-    thumbNail: seoBasics,
+    // thumbNail: seoBasics,
+    thumbNail: seoChart,
     publicationDate: new Date(),
     tag: "SEO",
   },
@@ -47,7 +53,8 @@ const blogPosts: BlogPost[] = [
     title: "How to Get More Qualified Leads with Paid Advertising",
     shortDescription:
       "In today’s digital marketplace, paid ads are essential for businesses looking to maximize marketing potential with the highest ROI. With the right strategy, paid advertising can drive traffic, increase brand awareness, and generate qualified leads from your target audience. Our comprehensive guide teaches you how to implement a successful paid ad campaign into your digital […]",
-    thumbNail: howToGetMoreQualified,
+    // thumbNail: howToGetMoreQualified,
+    thumbNail: leadGeneration,
     publicationDate: new Date(),
     tag: "Marketing",
   },

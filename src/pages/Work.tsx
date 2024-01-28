@@ -7,6 +7,7 @@ import Footer from "../components/home/Footer";
 import { useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useScrollPosition } from "../hooks";
+import newWorks from "../data/new-work";
 
 export const projectCategory: string[] = [
   "All",
@@ -156,7 +157,7 @@ const Work = () => {
         elements to resonate with your target audience. Explore our work by
         clicking on a case study below.
       </p>
-      <div
+      {/* <div
         className="flex items-center justify-between my-6 sm:my-8 md:my-10 sticky md:relative top-14 bg-transparent py-3"
         ref={parentCardContainerRef as any}
       >
@@ -199,11 +200,30 @@ const Work = () => {
             <i className="fi fi-sr-arrow-alt-right text-white text-3xl flex"></i>
           </button>
         </div>
-      </div>
+      </div> */}
       <div className="my-8 sm:my-12 md:my-14">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2">
-          {works.map((work) => (
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+          {/* <div className="grid grid-cols-1 gap-12 sm:grid-cols-2"> */}
+          {/* {works.map((work) => (
             <ProjectCard {...work} />
+          ))} */}
+          {newWorks.map((work) => (
+            <div
+              className="text-white cursor-pointer fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20 min-h-[400px] "
+              style={{
+                transition: "transform 0.5s, opacity 0.7s ease",
+              }}
+            >
+              <iframe
+                className="w-full h-full"
+                // width="560" height="315"
+                src={`https://www.youtube.com/embed/${work.url}?si=${work.si}&amp;controls=0`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
           ))}
         </div>
       </div>

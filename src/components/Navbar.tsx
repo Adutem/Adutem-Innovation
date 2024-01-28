@@ -100,7 +100,10 @@ const Navbar = ({ toggleNavBar, isNavbarOpen }: NavbarProps) => {
           <Link
             className="rounded-2xl bg-[var(--base-color)] px-9 py-4 items-center gap-2 maa-transition-[0.5s] text-white hidden md:flex"
             ref={getInTouchBtnRef as any}
-            to={"/contact"}
+            to={
+              "https://calendly.com/adutem05/marketing-consultation?back=1&month=2024-01"
+            }
+            target={"_blank"}
           >
             Get in touch
             <i className="fi fi-rr-arrow-small-right flex  text-xl -maa-rotate-[45deg]"></i>
