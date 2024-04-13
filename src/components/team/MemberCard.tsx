@@ -5,7 +5,7 @@ const MemberCard = ({ imageUrl, name, role }: Lead) => {
   return (
     <Container className="rounded-xl overflow-hidden h-full flex flex-col">
       <div className="masked h-auto overflow-hidden relative rounded-t-xl">
-        <img src={imageUrl} className="w-full h-full object-cover" />
+        <img src={imageUrl} className="w-full h-auto object-top" />
       </div>
       <div className="p-4 md:p-8 bg-[#121212]  rounded-b-xl flex-1 justify-center flex flex-col">
         <p className="text-center text-white text-xl mb-2">{name}</p>
