@@ -67,11 +67,11 @@ const teamMembers: Lead[] = [
     role: "CFO",
     imageUrl: anifat,
   },
-  {
-    name: "Tifeh",
-    role: "Design Lead",
-    imageUrl: tifeh,
-  },
+  // {
+  //   name: "Tifeh",
+  //   role: "Design Lead",
+  //   imageUrl: tifeh,
+  // },
   {
     name: "Philip",
     role: "Tech Lead",
