@@ -58,10 +58,23 @@ function App() {
 
     return () => window.removeEventListener("scroll", handleWindowScroll);
   }, []);
+
+  // Hide navbars that are not for admin portal
+  const isAdminPortal = location.pathname.includes("admin-portal");
+
+  // Only use custom cursor if not in admin portal
+  useEffect(() => {
+    if (!isAdminPortal) {
+      document.body.classList.add("custom-cursor-body");
+    } else {
+      document.body.classList.remove("custom-cursor-body");
+    }
+  }, [isAdminPortal]);
+
   return (
     <>
       {/* <Navbar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} /> */}
-      {isNavbarOpen && <Nav hideNavBar={hideNavBar} />}
+      {!isAdminPortal && isNavbarOpen && <Nav hideNavBar={hideNavBar} />}
       {/* <Home /> */}
       <Router isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} />
     </>

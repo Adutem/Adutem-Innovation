@@ -12,12 +12,12 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
       <div className="left-container flex flex-col justify-between lg:flex-1">
         <div></div>
         <WhatTheySay className="text-3xl lg:max-w-[380px] italic flex items-center relative overflow-hidden lg:overflow-visible min-h-[180px] sm:min-h-[140px] lg:min-h-max">
-          <span
+          {/* <span
             className={`${"is-active"} opacity-0 maa-translateY-[100px] absolute left-0`}
           >
             <q>Their technical ability was particularly impressive.</q>
-          </span>
-          {/* <span
+          </span> */}
+          <span
             className={`${
               activeIndex === 0 && "is-active"
             } opacity-0 maa-translateY-[100px] absolute left-0`}
@@ -40,18 +40,18 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
               Overall, loved working with the team at Design in DC and look
               forward to a continued partnership with them.
             </q>
-          </span> */}
+          </span>
         </WhatTheySay>
         <AboutClient className="relative flex items-end overflow-hidden lg:overflow-visible">
-          <span
+          {/* <span
             className={`${"is-active"} opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
               William
             </p>
             <p>CEO - Investing</p>
-          </span>
-          {/* <span
+          </span> */}
+          <span
             className={`${
               activeIndex === 0 && "is-active"
             } opacity-0 maa-translateY-[60px] absolute left-0`}
@@ -80,12 +80,12 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
               Pinakin Patel
             </p>
             <p>CEO - IT Concept</p>
-          </span> */}
+          </span>
         </AboutClient>
       </div>
       <RightContainer className="right-container lg:flex-1 bg-black lg:overflow-hidden">
         <ThumbnailContainer className="review-video-container w-full h-full overflow-hidden relative">
-          <iframe
+          {/* <iframe
             className="w-full h-full"
             // width="560" height="315"
             src="https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv&amp;controls=0"
@@ -93,8 +93,8 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-          ></iframe>
-          {/* {(thumbNails || []).map((thumbNail, i) => (
+          ></iframe> */}
+          {(thumbNails || []).map((thumbNail, i) => (
             <img
               src={thumbNail}
               className={`${
@@ -108,7 +108,7 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             style={{ transform: "translate(-50%, -50%)" }}
           >
             <i className="fi fi-sr-play flex text-gray-700 text-2xl"></i>
-          </div> */}
+          </div>
         </ThumbnailContainer>
       </RightContainer>
     </div>

@@ -8,6 +8,11 @@ import Work from "../pages/Work";
 import Services from "../pages/Services";
 import Blog from "../pages/Blog";
 import ProjectDetails from "../pages/ProjectDetails";
+import Login from "../pages/Login";
+import Layout from "../layout/index.tsx";
+import { AuthProtected } from "./AuthProtected.tsx";
+import Dashboard from "../pages/dashboard/index.tsx";
+import Logout from "@/pages/Logout.tsx";
 
 interface Props {
   toggleNavBar: () => void;
@@ -32,8 +37,22 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
         </Route>
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
-        <Route path="*" element={<NotFound />} />
       </Route>
+      <Route path="admin-portal">
+        <Route path="login" element={<Login />} />
+        <Route path="logout" element={<Logout />} />
+        <Route
+          path="dashboard"
+          element={
+            <AuthProtected>
+              <Layout>
+                <Dashboard />
+              </Layout>
+            </AuthProtected>
+          }
+        />
+      </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
