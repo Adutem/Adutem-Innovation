@@ -20,7 +20,9 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={classNames(defaultStyles, className)}
+      className={classNames(defaultStyles, className, {
+        "hover:brightness-100 cursor-not-allowed": disabled,
+      })}
       type={type || "button"}
       disabled={disabled}
       onClick={onClick}

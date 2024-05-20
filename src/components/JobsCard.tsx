@@ -5,18 +5,47 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useRedux } from "@/hooks/useRedux";
+
+interface JobCardInterface extends JobInterface {
+  onDelete: (jobId: string) => void;
+  onRequestEdit: (data: JobInterface) => void;
+}
 
 const JobsCard = ({
+  _id,
   role,
   description,
   requirements,
   applicationLink,
-}: JobInterface) => {
+  applicationDeadline,
+  contactLink,
+  contactLinkType,
+  onDelete,
+  onRequestEdit,
+}: JobCardInterface) => {
+  const { useStateSelector } = useRedux();
+
+  const { isDeletingJob } = useStateSelector((state) => state.Jobs);
+
+  const requestEdit = () => {
+    onRequestEdit({
+      _id,
+      role,
+      description,
+      requirements,
+      applicationLink,
+      contactLink,
+      applicationDeadline,
+      contactLinkType,
+    });
+  };
+
   return (
-    <div className="transparent-white rounded-md p-4 neue-regular relative">
+    <div className="transparent-white rounded-md p-4 neue-regular relative max-w-[600px]">
       <div className="absolute top-0 right-0">
         <DropdownMenu>
-          <DropdownMenuTrigger>
+          <DropdownMenuTrigger disabled={isDeletingJob}>
             <span
               className={`w-10 h-10 rounded-md grid place-items-center cursor-pointer`}
             >
@@ -29,14 +58,17 @@ const JobsCard = ({
             <DropdownMenuItem>
               <span
                 className="w-36 flex justify-between cursor-pointer"
-                // onClick={() => openFormModal()}
+                onClick={() => requestEdit()}
               >
                 <span>Edit</span>
                 <i className="fi fi-rr-pencil"></i>
               </span>
             </DropdownMenuItem>
             <DropdownMenuItem>
-              <span className="w-36 flex justify-between cursor-pointer">
+              <span
+                className="w-36 flex justify-between cursor-pointer"
+                onClick={() => onDelete(_id as string)}
+              >
                 <span>Delete</span>
                 <i className="fi fi-rr-trash-xmarkx"></i>
               </span>
@@ -67,6 +99,21 @@ const JobsCard = ({
           target="_blank"
         >
           {applicationLink}
+        </a>
+      </p>
+      <p className="text-gray-200 text-xs font-medium mt-4 neue-regular break-words">
+        Application Deadline:
+        <span className="text-gray-400 cursor-pointer neue-regular ml-2">
+          {new Date(applicationDeadline).toLocaleDateString()}
+        </span>
+      </p>
+      <p className="text-gray-200 text-xs font-medium mt-4 neue-regular break-words">
+        For more enquiry: <br />
+        <a
+          className="text-blue-500 underline cursor-pointer neue-regular"
+          target="_blank"
+        >
+          {contactLink}
         </a>
       </p>
     </div>

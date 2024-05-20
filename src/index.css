@@ -28,13 +28,13 @@
   --success: #3cd188;
   --secondary: #ff7f5d;
   --warning: #efae4e;
-  --primary: #687cfe;
+  --base-primary: #687cfe;
   --info: #0ac7fb;
   --danger: #f7666e;
   --success-bg: #3cd1882e;
   --secondary-bg: #ff7f5d1a;
   --warning-bg: #efae4e2e;
-  --primary-bg: #687cfe1a;
+  --base-primary-bg: #687cfe1a;
   --info-bg: #0ac7fb2e;
   --danger-bg: #f7666e1a;
 }
@@ -196,11 +196,11 @@ body {
 }
 
 .primary {
-  color: var(--primary);
+  color: var(--base-primary);
 }
 
 .primary-bg {
-  background-color: var(--primary-bg);
+  background-color: var(--base-primary-bg);
 }
 
 .success {
@@ -276,6 +276,11 @@ body {
 .MuiInputBase-input,
 .MuiOutlinedInput-input {
   font-family: "Neue-Light", Arial, sans-serif !important;
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+  padding-left: 0.75rem !important;
+  font-size: 0.75rem !important;
+  line-height: 1rem !important;
 }
 
 .MuiInputBase-input::placeholder,
