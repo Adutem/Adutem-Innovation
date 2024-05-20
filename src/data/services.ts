@@ -493,7 +493,7 @@ const services: Service[] = [
       {
         categoryName: "Email Marketing",
         categoryDescription:
-          "Through email sequencing, template creation, newsletters, integrations with automated email marketing platforms, and optimized on-site call-to-actions, we help capture and maintain subscribers. Our team creates highly personalized and scalable email marketing campaigns, helping to convert prospects into customers and one-time users into repeat clients.",
+          "Through email sequencing, template creation, BlogInterfaceletters, integrations with automated email marketing platforms, and optimized on-site call-to-actions, we help capture and maintain subscribers. Our team creates highly personalized and scalable email marketing campaigns, helping to convert prospects into customers and one-time users into repeat clients.",
         categoryTasks: [
           "Mail Chimp integrations",
           "Custom templates",

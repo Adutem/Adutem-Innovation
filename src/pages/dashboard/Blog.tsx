@@ -6,7 +6,7 @@ const News = () => {
   return (
     <MainContent>
       <div className="flex justify-between flex-end">
-        <h1 className="text-white text-3xl neue-regular font-bold">News</h1>
+        <h1 className="text-white text-3xl neue-regular font-bold">Blog</h1>
 
         <span
           className={`w-10 h-10 rounded-md transparent-white grid place-items-center cursor-pointer hover:bg-gray-700 transition-all`}

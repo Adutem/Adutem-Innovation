@@ -60,7 +60,7 @@ const staffAnalytics: StatWidgetInterface[] = [
     widgetIconColor: "info",
   },
   {
-    label: "News",
+    label: "BlogInterface",
     badgeClass: "success",
     badgeIconClass: "fi fi-rr-arrow-small-right -rotate-45",
     percentage: "+23.48",
@@ -77,7 +77,7 @@ const staffAnalytics: StatWidgetInterface[] = [
     linkType: "section",
     link: "See details",
     // linkUrl: "#users-sections",
-    linkUrl: TABS.NEWS,
+    linkUrl: TABS.BlogInterface,
     widgetIconBg: "success-bg",
     widgetIconClass: "fi fi-rr-radio",
     widgetIconColor: "success",

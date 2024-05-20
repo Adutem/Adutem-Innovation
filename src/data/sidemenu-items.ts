@@ -4,7 +4,7 @@ export interface MenuItem {
   title: string;
   icon: string;
   tooltip: string;
-  tabName: TABS.ANALYTICS | TABS.HOLIDAY | TABS.JOBS | TABS.NEWS;
+  tabName: TABS.ANALYTICS | TABS.HOLIDAY | TABS.JOBS | TABS.BLOG;
 }
 
 const menuItems: MenuItem[] = [
@@ -27,10 +27,10 @@ const menuItems: MenuItem[] = [
     tabName: TABS.JOBS,
   },
   {
-    title: "News",
+    title: "Blog",
     icon: "fi fi-sr-radio",
-    tooltip: "News Section",
-    tabName: TABS.NEWS,
+    tooltip: "Blog Section",
+    tabName: TABS.BLOG,
   },
 ];
 

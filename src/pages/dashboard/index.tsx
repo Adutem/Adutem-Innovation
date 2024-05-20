@@ -6,7 +6,7 @@ import Analytics from "./Analytics";
 import { PropsWithChildren } from "react";
 import Holiday from "./Holiday";
 import Jobs from "./Jobs";
-import News from "./News";
+import Blog from "./Blog";
 import styled from "styled-components";
 
 interface PageContainerProps extends PropsWithChildren {
@@ -51,8 +51,8 @@ const index = () => {
       <PageContainer tab={TABS.JOBS}>
         <Jobs />
       </PageContainer>
-      <PageContainer tab={TABS.NEWS}>
-        <News />
+      <PageContainer tab={TABS.BLOG}>
+        <Blog />
       </PageContainer>
     </div>
   );
