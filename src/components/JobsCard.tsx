@@ -54,8 +54,8 @@ const JobsCard = ({
               ></i>
             </span>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>
+          <DropdownMenuContent className="bg-black">
+            <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
               <span
                 className="w-36 flex justify-between cursor-pointer"
                 onClick={() => requestEdit()}
@@ -64,7 +64,7 @@ const JobsCard = ({
                 <i className="fi fi-rr-pencil"></i>
               </span>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
               <span
                 className="w-36 flex justify-between cursor-pointer"
                 onClick={() => onDelete(_id as string)}
