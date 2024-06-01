@@ -265,9 +265,8 @@ body {
   width: 100% !important;
 }
 
-.css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root,
-.MuiButtonBase-root,
-.MuiIconButton-root {
+.MuiButtonBase-root:not([role="gridcell"]),
+.MuiIconButton-root:not([role="gridcell"]) {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity)) !important;
   font-family: "Neue-Light", Arial, sans-serif !important;
