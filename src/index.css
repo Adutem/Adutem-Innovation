@@ -247,7 +247,7 @@ body {
   background-color: var(--transparent-white);
 }
 
-.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root {
+.MuiPickersPopper-root {
   z-index: 100000005 !important;
 }
 
