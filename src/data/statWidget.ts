@@ -77,7 +77,7 @@ const staffAnalytics: StatWidgetInterface[] = [
     linkType: "section",
     link: "See details",
     // linkUrl: "#users-sections",
-    linkUrl: TABS.BlogInterface,
+    linkUrl: TABS.BLOG,
     widgetIconBg: "success-bg",
     widgetIconClass: "fi fi-rr-radio",
     widgetIconColor: "success",
