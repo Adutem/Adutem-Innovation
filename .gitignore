@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 work.js
+
+# Environment variables
+.env
+.env.local
