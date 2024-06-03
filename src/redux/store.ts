@@ -4,6 +4,7 @@ import loginSlice from "./auth/login/loginSlice";
 import analyticsSlice from "./analytics/analyticsSlice";
 import holidaySlice from "./holiday/holidaySlice";
 import jobsSlice from "./job/jobsSlice";
+import blogSlice from "./blog/blogSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     Analytics: analyticsSlice,
     Holiday: holidaySlice,
     Jobs: jobsSlice,
+    Blog: blogSlice,
   },
 });
 

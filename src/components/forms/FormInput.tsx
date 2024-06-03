@@ -29,6 +29,10 @@ interface FormInputProps {
   min?: any;
   max?: any;
   defaultValue?: any;
+  accept?: string;
+  inputRef?: any;
+  hidden?: boolean;
+  handleFileChange?: any;
 }
 
 interface DetachableInputProps {
@@ -56,7 +60,14 @@ const FormInput = ({
   min,
   max,
   defaultValue,
+  accept,
+  hidden,
+  inputRef,
+  handleFileChange,
 }: FormInputProps) => {
+  if (type === "file" && !handleFileChange)
+    throw Error("File Change Handler Required For File Input");
+
   if (type === "text") {
     return (
       <div className="mb-4 w-full">
@@ -82,6 +93,7 @@ const FormInput = ({
       </div>
     );
   }
+
   if (type === "textarea") {
     return (
       <div className="mb-4 w-full">
@@ -275,6 +287,53 @@ const FormInput = ({
           defaultValue,
         }}
       />
+    );
+  }
+
+  if (type === "file") {
+    return (
+      <div className="mb-4 w-full">
+        <label htmlFor={name} className="block text-sm font-medium text-white">
+          {label}
+        </label>
+        <input
+          type={type}
+          name={name}
+          placeholder={placeholder}
+          onBlur={onBlur}
+          onChange={handleFileChange}
+          disabled={disabled}
+          className={classNames(
+            "border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none border-[lightgray] text-gray-500 font-medium bg-[var(--input-bg)] cursor-pointer",
+            className,
+            { block: !hidden }
+          )}
+          min={min}
+          max={max}
+          hidden={hidden}
+          ref={inputRef}
+          accept={accept}
+        />
+        <button
+          type="button"
+          className={classNames(
+            "border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none border-[lightgray] text-gray-500 font-medium bg-[var(--input-bg)] cursor-pointer flex items-center gap-2",
+            className
+          )}
+          onClick={() =>
+            inputRef && inputRef.current && inputRef.current.click()
+          }
+        >
+          <i className="fi fi-rr-images flex text-white"></i>
+          <span className="neue-regular">Choose File</span>
+        </button>
+        <p className="text-gray-400 neue-regular text-xs mt-2">
+          {value ? `Chosen file: ${value}` : "No file chosen"}
+        </p>
+        {validation.touched[name] && validation.errors[name] ? (
+          <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
+        ) : null}
+      </div>
     );
   }
 

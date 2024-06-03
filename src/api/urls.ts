@@ -11,3 +11,6 @@ export const HOLIDAY = "/holiday";
 
 // jobs
 export const JOBS = "/jobs";
+
+// blog
+export const BLOG = "/blog";

@@ -17,3 +17,7 @@ export * from "@/redux/holiday/interface";
 // Jobs
 export * from "@/redux/job/jobsSlice";
 export * from "@/redux/job/interface";
+
+// Blog
+export * from "@/redux/blog/blogSlice";
+export * from "@/redux/blog/interface";

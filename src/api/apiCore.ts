@@ -96,11 +96,18 @@ class APIClient {
   /*
    file upload post method
    */
-  createWithFile = (url: string, data: any) => {
-    const formData = new FormData();
-    for (const k in data) {
-      console.log(data[k]);
-      formData.append(k, data[k]);
+  createWithFile = (
+    url: string,
+    data: any,
+    dataType?: "form-data" | "json"
+  ) => {
+    let formData: FormData = new FormData();
+    if (dataType === "form-data") {
+      formData = data;
+    } else if (dataType === "json") {
+      for (const k in data) {
+        formData.append(k, data[k]);
+      }
     }
     const config = {
       headers: {

@@ -3,6 +3,7 @@ import { LoginState } from "./auth/login/loginSlice";
 import { HolidayState } from "./holiday/interface";
 import { JobState } from "./job/interface";
 import { LayoutState } from "./layout/interface";
+import { BlogState } from "./blog/interface";
 
 export interface StoreInterface {
   Layout: LayoutState;
@@ -10,6 +11,7 @@ export interface StoreInterface {
   Analytics: AnalyticsState;
   Holiday: HolidayState;
   Jobs: JobState;
+  Blog: BlogState;
 }
 
 export type RootState = {
@@ -18,4 +20,5 @@ export type RootState = {
   Analytics: StoreInterface["Analytics"];
   Holiday: StoreInterface["Holiday"];
   Jobs: StoreInterface["Jobs"];
+  Blog: StoreInterface["Blog"];
 };

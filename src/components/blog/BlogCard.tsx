@@ -11,7 +11,7 @@ const BlogCard = ({
   tag,
   publicationDate,
   title,
-  shortDescription,
+  shortIntroduction,
   index,
 }: BlogCardProps) => {
   return (
@@ -52,7 +52,7 @@ const BlogCard = ({
             className="mt-4"
             style={{ fontSize: "clamp(0.8rem, 4.5vw, 18px)" }}
           >
-            {shortDescription}
+            {shortIntroduction}
           </p>
         </div>
       </div>

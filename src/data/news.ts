@@ -1,5 +1,5 @@
-export interface BlogInterfaceInterface {
-  id: string | number;
+export interface BlogInterface {
+  _id: string | number;
   title: string;
   description: string;
   date: string;
