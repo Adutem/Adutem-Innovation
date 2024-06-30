@@ -14,3 +14,6 @@ export const JOBS = "/jobs";
 
 // blog
 export const BLOG = "/blog";
+
+// contact
+export const CONTACT_ORG = "/contact/contact-org";
