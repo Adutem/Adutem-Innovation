@@ -20,24 +20,24 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
           <span
             className={`${
               activeIndex === 0 && "is-active"
-            } opacity-0 maa-translateY-[100px] absolute left-0`}
+            } opacity-0 translate-y-[100px] absolute left-0`}
           >
             <q>Their technical ability was particularly impressive.</q>
           </span>
           <span
             className={`${
               activeIndex === 1 && "is-active"
-            } opacity-0 maa-translateY-[100px] absolute left-0`}
+            } opacity-0 translate-y-[100px] absolute left-0`}
           >
             <q>The end result was outstanding!</q>
           </span>
           <span
             className={`${
               activeIndex === 2 && "is-active"
-            } opacity-0 maa-translateY-[100px] absolute left-0`}
+            } opacity-0 translate-y-[100px] absolute left-0`}
           >
             <q>
-              Overall, loved working with the team at Design in DC and look
+              Overall, loved working with the team at Adutem Innovation and look
               forward to a continued partnership with them.
             </q>
           </span>
@@ -57,9 +57,9 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             } opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
-              Carol Corman
+              Akram Himed
             </p>
-            <p>President - Prism Inc.</p>
+            <p>Business Owner</p>
           </span>
           <span
             className={`${
@@ -67,9 +67,9 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             } opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
-              Amr El-Bayoumi
+              Jermaine Watkins
             </p>
-            <p>Actor</p>
+            <p>Business Owner</p>
           </span>
           <span
             className={`${
@@ -77,15 +77,15 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             } opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
-              Pinakin Patel
+              Hall
             </p>
-            <p>CEO - IT Concept</p>
+            <p>-</p>
           </span>
         </AboutClient>
       </div>
       <RightContainer className="right-container lg:flex-1 bg-black lg:overflow-hidden">
         <ThumbnailContainer className="review-video-container w-full h-full overflow-hidden relative">
-          {/* <iframe
+          <iframe
             className="w-full h-full"
             // width="560" height="315"
             src="https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv&amp;controls=0"
@@ -93,22 +93,22 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
-          ></iframe> */}
-          {(thumbNails || []).map((thumbNail, i) => (
+          ></iframe>
+          {/* {(thumbNails || []).map((thumbNail, i) => (
             <img
               src={thumbNail}
               className={`${
                 activeIndex === i && "is-active"
-              } opacity-0 maa-scale-[1.15] absolute left-0 top-0 w-full h-full cover object-cover object-center`}
+              } opacity-0 scale-[1.15] absolute left-0 top-0 w-full h-full cover object-cover object-center`}
             />
-          ))}
+          ))} */}
 
-          <div
+          {/* <div
             className="player absolute top-1/2 left-1/2 w-[50px] h-[50px] rounded-full bg-white flex justify-center items-center cursor-pointer z-20"
             style={{ transform: "translate(-50%, -50%)" }}
           >
             <i className="fi fi-sr-play flex text-gray-700 text-2xl"></i>
-          </div>
+          </div> */}
         </ThumbnailContainer>
       </RightContainer>
     </div>
