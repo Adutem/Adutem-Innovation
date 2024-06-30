@@ -18,7 +18,7 @@ const Community = () => {
               className="faded"
               style={{ fontSize: "clamp(0.75rem, 5.2vw ,1.1rem)" }}
             >
-              DesignInDC has an unwavering commitment to diversity. Unlike other
+              ADUTEM has an unwavering commitment to diversity. Unlike other
               agencies, our commitment is not rhetoric but rather a central
               component that makes up the essence of our company. Working with a
               diverse team, as it relates to age, gender, and ethnicity, has

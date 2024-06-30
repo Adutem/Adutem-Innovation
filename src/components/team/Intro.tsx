@@ -5,36 +5,36 @@ import useInView from "../../hooks/useInView";
 import { useEffect, useRef } from "react";
 
 const Intro = () => {
-  const { isPastPosition } = useScrollPosition(null, 70);
-  const videoContainerRef = useRef<HTMLElement | Element | null>(null);
-  const videoPlayerRef = useRef<HTMLElement | Element | null>(null);
-  const { inView, topFromOffSet } = useInView({
-    ref: videoContainerRef.current,
-    outOfViewTo: "bottom",
-    topOffSetFromBottom: 50,
-  });
+  // const { isPastPosition } = useScrollPosition(null, 70);
+  // const videoContainerRef = useRef<HTMLElement | Element | null>(null);
+  // const videoPlayerRef = useRef<HTMLElement | Element | null>(null);
+  // const { inView, topFromOffSet } = useInView({
+  //   ref: videoContainerRef.current,
+  //   outOfViewTo: "bottom",
+  //   topOffSetFromBottom: 50,
+  // });
 
-  useEffect(() => {
-    if (inView) {
-      const windowWidth = window.innerWidth;
-      const scaleFactor = windowWidth > 768 ? 200 : 150;
-      let scaleValue = 0;
-      if (topFromOffSet < 0) {
-        scaleValue = 45;
-      } else {
-        scaleValue = Math.min(Math.max(topFromOffSet, 45), scaleFactor);
-      }
-      const scalePercent = scaleValue / scaleFactor;
-      const scalePercentToIdp = parseFloat(scalePercent.toFixed(1));
-      console.log(scaleValue, scalePercentToIdp);
-      if (
-        videoPlayerRef.current &&
-        videoPlayerRef.current instanceof HTMLElement
-      ) {
-        videoPlayerRef.current.style.transform = `scale(${scalePercentToIdp})`;
-      }
-    }
-  }, [inView, topFromOffSet]);
+  // useEffect(() => {
+  //   if (inView) {
+  //     const windowWidth = window.innerWidth;
+  //     const scaleFactor = windowWidth > 768 ? 200 : 150;
+  //     let scaleValue = 0;
+  //     if (topFromOffSet < 0) {
+  //       scaleValue = 45;
+  //     } else {
+  //       scaleValue = Math.min(Math.max(topFromOffSet, 45), scaleFactor);
+  //     }
+  //     const scalePercent = scaleValue / scaleFactor;
+  //     const scalePercentToIdp = parseFloat(scalePercent.toFixed(1));
+  //     console.log(scaleValue, scalePercentToIdp);
+  //     if (
+  //       videoPlayerRef.current &&
+  //       videoPlayerRef.current instanceof HTMLElement
+  //     ) {
+  //       videoPlayerRef.current.style.transform = `scale(${scalePercentToIdp})`;
+  //     }
+  //   }
+  // }, [inView, topFromOffSet]);
 
   return (
     <div>
@@ -64,7 +64,7 @@ const Intro = () => {
             <p className="text-base text-gray-400">Awards</p>
           </div>
         </div>
-        <div
+        {/* <div
           className={`my-16 md:mt-24 video-container ${
             // !isPastPosition && "scale-reduce"
             ""
@@ -81,7 +81,7 @@ const Intro = () => {
             ref={videoPlayerRef as any}
             style={{ transformOrigin: "bottom" }}
           />
-        </div>
+        </div> */}
       </Divi>
     </div>
   );

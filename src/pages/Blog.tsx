@@ -23,9 +23,9 @@ const Blog = () => {
       </div>
       <div className="my-8">
         <div className="grid grid-cols-1 gap-y-12 md:gap-y-16 lg:gap-y-24">
-          {blogPosts.map((blogPost, i) => (
+          {/* {blogPosts.map((blogPost, i) => (
             <BlogCard {...blogPost} index={i} />
-          ))}
+          ))} */}
         </div>
       </div>
       <Footer hideIdea={true} />
