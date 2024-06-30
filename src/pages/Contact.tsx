@@ -9,10 +9,12 @@ import { emailRegex } from "@/constant/regex";
 import { showErrorNotification, showSuccessNotification } from "@/utils";
 import FormInput from "@/components/forms/FormInput";
 import { Loader } from "@/components/progress";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   // redux utilsc
   const { dispatch, useStateSelector } = useRedux();
+  const navigate = useNavigate();
 
   // contact state
   const { formSubmissionError, formSubmitted, submittingForm } =
@@ -52,8 +54,11 @@ const Contact = () => {
 
   useEffect(() => {
     if (formSubmitted) {
-      showSuccessNotification("Your message has been received");
-      dispatch(resetContactOrg());
+      showSuccessNotification("Your message has been received", 1500);
+      let tmo = setTimeout(() => {
+        dispatch(resetContactOrg());
+        return navigate("/");
+      }, 1000);
     }
   }, [formSubmitted]);
 
