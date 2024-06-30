@@ -7,7 +7,7 @@ export interface JobState {
   isFetchingJobs: boolean;
   jobsFetched: boolean;
   fetchError: string;
-  jobs: Array<JobData>;
+  jobs: Array<JobData> | null;
   isCreatingJob: boolean;
   jobCreated: boolean;
   createError: string;

@@ -7,6 +7,7 @@ import Team from "../pages/Team";
 import Work from "../pages/Work";
 import Services from "../pages/Services";
 import Blog from "../pages/Blog";
+import { Career } from "@/pages/Career.tsx";
 import ProjectDetails from "../pages/ProjectDetails";
 import Login from "../pages/Login";
 import Layout from "../layout/index.tsx";
@@ -37,6 +38,7 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
         </Route>
         <Route path="services" element={<Services />} />
         <Route path="blog" element={<Blog />} />
+        <Route path="career" element={<Career />} />
       </Route>
       <Route path="admin-portal">
         <Route path="login" element={<Login />} />

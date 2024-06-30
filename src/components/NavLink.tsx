@@ -18,7 +18,7 @@ const NavLink = ({ index, title, to, hideNavBar }: NavLinkProps) => {
       <NumberSpan className="opacity-40 sm:min-w-[55px] md:min-w-0 mr-4 sm:mr-5 md:mr-6 lg:mr-3 lg:text-sm">
         0{index + 1}
       </NumberSpan>
-      <span style={{ fontSize: `clamp(1.2rem, 6vw, 55px)` }}>{title}</span>
+      <span style={{ fontSize: `clamp(1.2rem, 4vw, 55px)` }}>{title}</span>
     </AnchorEl>
   );
 };

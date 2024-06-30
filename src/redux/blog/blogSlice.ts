@@ -150,14 +150,15 @@ export const blogSlice = createSlice({
       .addCase(updateBlog.fulfilled, (state, action) => {
         state.isUpdatingBlog = false;
         state.blogUpdated = true;
-        state.blogs &&
-          state.blogs.map((blog) => {
-            if (blog._id === action.payload._id) {
-              return action.payload;
-            } else {
-              return blog;
-            }
-          });
+        state.blogs = !state.blogs
+          ? []
+          : state.blogs.map((blog) => {
+              if (blog._id === action.payload._id) {
+                return action.payload;
+              } else {
+                return blog;
+              }
+            });
       })
       .addCase(updateBlog.rejected, (state, action) => {
         state.isUpdatingBlog = false;
@@ -169,8 +170,9 @@ export const blogSlice = createSlice({
       .addCase(deleteBlog.fulfilled, (state, action) => {
         state.isDeletingBlog = false;
         state.blogDeleted = true;
-        state.blogs &&
-          state.blogs.filter((blog) => blog._id !== action.payload._id);
+        state.blogs = !state.blogs
+          ? []
+          : state.blogs.filter((blog) => blog._id !== action.payload._id);
       })
       .addCase(deleteBlog.rejected, (state, action) => {
         state.isDeletingBlog = false;

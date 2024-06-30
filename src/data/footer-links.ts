@@ -20,10 +20,10 @@ const footerLinks: FooterLink[] = [
     title: "Our Team",
     to: "/team",
   },
-  // {
-  //   title: "Careers",
-  //   to: "/careers",
-  // },
+  {
+    title: "Career",
+    to: "/career",
+  },
   {
     title: "Blog",
     to: "/blog",

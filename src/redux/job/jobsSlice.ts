@@ -13,7 +13,7 @@ const INIT_STATE: JobState = {
   isFetchingJobs: false,
   jobsFetched: false,
   fetchError: "",
-  jobs: [],
+  jobs: null,
   isCreatingJob: false,
   jobCreated: false,
   createError: "",
@@ -137,7 +137,9 @@ const jobsSlice = createSlice({
     builder.addCase(createJob.fulfilled, (state: JobState, action) => {
       state.isCreatingJob = false;
       state.jobCreated = true;
-      state.jobs.push(action.payload); // add new job to jobs array
+      state.jobs
+        ? state.jobs.push(action.payload)
+        : (state.jobs = [action.payload]);
     });
     builder.addCase(createJob.rejected, (state: JobState, action) => {
       state.isCreatingJob = false;
@@ -152,12 +154,15 @@ const jobsSlice = createSlice({
     builder.addCase(updateJob.fulfilled, (state: JobState, action) => {
       state.isUpdatingJob = false;
       state.jobUpdated = true;
-      state.jobs = state.jobs.map((job) => {
-        if (job._id === action.payload._id) {
-          return action.payload;
-        }
-        return job;
-      });
+      state.jobs = !state.jobs
+        ? []
+        : state.jobs.map((job) => {
+            if (job._id === action.payload._id) {
+              return action.payload;
+            } else {
+              return job;
+            }
+          });
     });
     builder.addCase(updateJob.rejected, (state: JobState, action) => {
       state.isUpdatingJob = false;
@@ -172,7 +177,9 @@ const jobsSlice = createSlice({
     builder.addCase(deleteJob.fulfilled, (state: JobState, action) => {
       state.isDeletingJob = false;
       state.jobDeleted = true;
-      state.jobs = state.jobs.filter((job) => job._id !== action.payload._id);
+      state.jobs = !state.jobs
+        ? []
+        : state.jobs.filter((job) => job._id !== action.payload._id);
     });
     builder.addCase(deleteJob.rejected, (state: JobState, action) => {
       state.isDeletingJob = false;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import navLinks from "../data/nav-links";
 import NavLink from "./NavLink";
+import { Link } from "react-router-dom";
 
 interface NavProps {
   hideNavBar: () => void;
@@ -13,7 +14,7 @@ const Nav = ({ hideNavBar }: NavProps) => {
       style={{ zIndex: 1000 }}
     >
       <NavItemContainer className="py-32 px-6 md:px-10 w-full h-full max-w-[1024px] md:mx-auto">
-        <ul className="flex flex-col gap-5 sm:gap-7 md:flex-row md:flex-wrap md:gap-x-0 md:min-h-[400px] md:content-center">
+        <ul className="flex flex-col gap-5 sm:gap-6 md:flex-row md:flex-wrap md:gap-x-0 md:min-h-[400px] md:content-center">
           {navLinks.map((link, i) => (
             <NavLink index={i} {...link} hideNavBar={hideNavBar} />
           ))}
@@ -42,10 +43,11 @@ const Nav = ({ hideNavBar }: NavProps) => {
           </a>
           <LinkItem
             className="w-full flex justify-between items-center h-max cursor-pointer text-white hover:text-[var(--base-color)] gap-3 sm:text-xl md:w-auto"
-            href={"/careers"}
+            to={"/career"}
+            onClick={hideNavBar}
           >
-            {/* <span>Careers</span>{" "}
-            <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] maa-transition-[0.3s]"></i> */}
+            <span>Career</span>{" "}
+            <i className="fi fi-sr-arrow-alt-right flex -maa-rotate-[45deg] maa-transition-[0.3s]"></i>
           </LinkItem>
         </Socials>
       </NavItemContainer>
@@ -70,7 +72,7 @@ const NavContainer = styled.div`
   }
 `;
 
-const LinkItem = styled.a`
+const LinkItem = styled(Link)`
   text-decoration: none;
   position: relative;
   transition: 0.4s ease;

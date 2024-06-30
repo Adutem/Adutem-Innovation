@@ -8,8 +8,9 @@ import {
 import { useRedux } from "@/hooks/useRedux";
 
 interface JobCardInterface extends JobInterface {
-  onDelete: (jobId: string) => void;
-  onRequestEdit: (data: JobInterface) => void;
+  onDelete?: (jobId: string) => void;
+  onRequestEdit?: (data: JobInterface) => void;
+  showMenuBtn: boolean;
 }
 
 const JobsCard = ({
@@ -23,58 +24,62 @@ const JobsCard = ({
   contactLinkType,
   onDelete,
   onRequestEdit,
+  showMenuBtn = true,
 }: JobCardInterface) => {
   const { useStateSelector } = useRedux();
 
   const { isDeletingJob } = useStateSelector((state) => state.Jobs);
 
   const requestEdit = () => {
-    onRequestEdit({
-      _id,
-      role,
-      description,
-      requirements,
-      applicationLink,
-      contactLink,
-      applicationDeadline,
-      contactLinkType,
-    });
+    onRequestEdit &&
+      onRequestEdit({
+        _id,
+        role,
+        description,
+        requirements,
+        applicationLink,
+        contactLink,
+        applicationDeadline,
+        contactLinkType,
+      });
   };
 
   return (
     <div className="transparent-white rounded-md p-4 neue-regular relative max-w-[600px]">
       <div className="absolute top-0 right-0">
-        <DropdownMenu>
-          <DropdownMenuTrigger disabled={isDeletingJob}>
-            <span
-              className={`w-10 h-10 rounded-md grid place-items-center cursor-pointer`}
-            >
-              <i
-                className={`text-white flex fi fi-rr-menu-dots-vertical text-base`}
-              ></i>
-            </span>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-black">
-            <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
+        {showMenuBtn && (
+          <DropdownMenu>
+            <DropdownMenuTrigger disabled={isDeletingJob}>
               <span
-                className="w-36 flex justify-between cursor-pointer"
-                onClick={() => requestEdit()}
+                className={`w-10 h-10 rounded-md grid place-items-center cursor-pointer`}
               >
-                <span>Edit</span>
-                <i className="fi fi-rr-pencil"></i>
+                <i
+                  className={`text-white flex fi fi-rr-menu-dots-vertical text-base`}
+                ></i>
               </span>
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
-              <span
-                className="w-36 flex justify-between cursor-pointer"
-                onClick={() => onDelete(_id as string)}
-              >
-                <span>Delete</span>
-                <i className="fi fi-rr-trash-xmarkx"></i>
-              </span>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-black">
+              <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
+                <span
+                  className="w-36 flex justify-between cursor-pointer"
+                  onClick={() => requestEdit()}
+                >
+                  <span>Edit</span>
+                  <i className="fi fi-rr-pencil"></i>
+                </span>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="cursor-pointer text-gray-300 hover:text-black focus:text-black">
+                <span
+                  className="w-36 flex justify-between cursor-pointer"
+                  onClick={() => onDelete && onDelete(_id as string)}
+                >
+                  <span>Delete</span>
+                  <i className="fi fi-rr-trash-xmarkx"></i>
+                </span>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        )}
       </div>
       <h3 className="text-white neue-regular font-medium text-xl mb-3 mr-10">
         {role}

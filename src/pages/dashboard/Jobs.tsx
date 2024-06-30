@@ -115,7 +115,7 @@ const Jobs = () => {
             <p className="text-white neue-regular text-xl">Retry</p>
           </Button>
         </div>
-      ) : jobs.length === 0 ? (
+      ) : jobs && jobs.length === 0 ? (
         <div
           className="
             flex-1 transparent-white p-4 w-full flex justify-center items-center flex-col gap-3 rounded-sm"
@@ -130,13 +130,15 @@ const Jobs = () => {
       ) : (
         <div className="mt-4">
           <JobsContainer className="jobs-container grid gap-4">
-            {jobs.map((job) => (
-              <JobsCard
-                {...job}
-                onDelete={onDelete}
-                onRequestEdit={onRequestEdit}
-              />
-            ))}
+            {jobs &&
+              jobs.map((job) => (
+                <JobsCard
+                  {...job}
+                  onDelete={onDelete}
+                  onRequestEdit={onRequestEdit}
+                  showMenuBtn={true}
+                />
+              ))}
           </JobsContainer>
         </div>
       )}
