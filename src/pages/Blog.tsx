@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import blogPosts from "../data/blog";
 import { Divi } from "../components/team/Intro";
 import Footer from "../components/home/Footer";
 import BlogCard from "../components/blog/BlogCard";
-import { useRedux, useSelectState } from "@/hooks/useRedux";
+import { useRedux } from "@/hooks/useRedux";
 import { useEffect } from "react";
 import { fetchBlogs } from "@/redux";
 import { Loader } from "@/components/progress";

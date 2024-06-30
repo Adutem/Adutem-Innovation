@@ -1,6 +1,7 @@
 import React from "react";
 import { BlogInterface, BlogPost } from "../../data/blog";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 interface BlogCardProps {
   blog: BlogInterface;
@@ -8,6 +9,8 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ blog, index }: BlogCardProps) => {
+  const navigate = useNavigate();
+
   const { _id, title, thumbNail, tag, publicationDate, shortIntroduction } =
     blog;
 
@@ -17,6 +20,7 @@ const BlogCard = ({ blog, index }: BlogCardProps) => {
       style={{
         transition: "transform 0.5s, opacity 0.7s ease",
       }}
+      onClick={() => navigate(`/blog/${_id}`, { state: { blogData: blog } })}
     >
       <div className="md:grid grid-cols-5 gap-4 md:gap-6 lg:gap-10 items-center">
         <div
@@ -32,7 +36,7 @@ const BlogCard = ({ blog, index }: BlogCardProps) => {
           </div>
         </div>
         <div
-          className={`md:col-span-3 lg:col-span-2 transparent-white p-6 rounded-b-md md:rounded-md ${
+          className={`md:col-span-3 lg:col-span-2 p-6 rounded-b-md md:rounded-md ${
             index % 2 === 0 ? "order-2" : "order-1"
           }`}
         >

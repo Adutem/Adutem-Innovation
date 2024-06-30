@@ -27,7 +27,7 @@ export type BlogContentInputType =
   | "file"
   | "multiple-input";
 
-interface IBlogContent {
+export interface IBlogContent {
   type: BlogContentType;
   inputType: BlogContentInputType;
   nanoId: string;
