@@ -28,11 +28,14 @@ const Nav = ({ hideNavBar }: NavProps) => {
           >
             <i className="fi fi-brands-tik-tok flex text-lg"></i>
           </a>
-          <a target="_blank" href="https://www.facebook.com/Aduratemilorun">
+          <a
+            target="_blank"
+            href="https://www.facebook.com/Aduteminnovationmarketing/"
+          >
             <i className="fi fi-brands-facebook flex text-lg"></i>
           </a>
           <a
-            href="https://www.linkedin.com/in/adutem-innovation-587979224?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            href="https://www.linkedin.com/company/adutem-innovation-marketing/"
             target="_blank"
           >
             <i className="fi fi-brands-linkedin flex text-lg"></i>
