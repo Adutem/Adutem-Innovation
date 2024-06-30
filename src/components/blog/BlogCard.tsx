@@ -56,7 +56,9 @@ const BlogCard = ({ blog, index }: BlogCardProps) => {
             className="mt-4"
             style={{ fontSize: "clamp(0.8rem, 4.5vw, 18px)" }}
           >
-            {shortIntroduction}
+            {shortIntroduction.length > 200
+              ? `${shortIntroduction.slice(0, 201)}...`
+              : shortIntroduction}
           </p>
         </div>
       </div>
