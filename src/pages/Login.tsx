@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { showErrorNotification, showSuccessNotification } from "@/utils";
 import { loginUser, resetLoginState } from "@/redux";
 import { Spinner, Loader } from "@/components/progress";
+import { emailRegex, passwordRegex } from "@/constant/regex";
 
 const Login = () => {
   // Login Schema
@@ -15,16 +16,13 @@ const Login = () => {
     email: yup
       .string()
       .required("Please Enter Your Email")
-      .matches(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        "Please enter a valid email"
-      ),
+      .matches(emailRegex, "Please enter a valid email"),
     password: yup
       .string()
       .required("Please Enter Your Password")
       .min(8, "Password must be at least 8 characters")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,}$/,
+        passwordRegex,
         "Password must contain at least one uppercase letter, one lowercase letter, a number and special character"
       ),
   });
