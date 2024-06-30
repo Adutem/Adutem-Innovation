@@ -16,7 +16,7 @@ const Home = () => {
     <>
       <Intro />
       <Qualities />
-      <FeaturedProject />
+      {/* <FeaturedProject /> */}
       <WhatWeDo />
       <ClientFeedBack />
       <Footer hideIdea={false} />
