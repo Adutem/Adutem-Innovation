@@ -21,3 +21,7 @@ export * from "@/redux/job/interface";
 // Blog
 export * from "@/redux/blog/blogSlice";
 export * from "@/redux/blog/interface";
+
+// Contact
+export * from "@/redux/contact/contactSlice";
+export * from "@/redux/contact/interface";

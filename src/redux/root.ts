@@ -4,6 +4,7 @@ import { HolidayState } from "./holiday/interface";
 import { JobState } from "./job/interface";
 import { LayoutState } from "./layout/interface";
 import { BlogState } from "./blog/interface";
+import { ContactState } from "./contact/interface";
 
 export interface StoreInterface {
   Layout: LayoutState;
@@ -12,6 +13,7 @@ export interface StoreInterface {
   Holiday: HolidayState;
   Jobs: JobState;
   Blog: BlogState;
+  Contact: ContactState;
 }
 
 export type RootState = {
@@ -21,4 +23,5 @@ export type RootState = {
   Holiday: StoreInterface["Holiday"];
   Jobs: StoreInterface["Jobs"];
   Blog: StoreInterface["Blog"];
+  Contact: StoreInterface["Contact"];
 };

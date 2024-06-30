@@ -5,6 +5,7 @@ import analyticsSlice from "./analytics/analyticsSlice";
 import holidaySlice from "./holiday/holidaySlice";
 import jobsSlice from "./job/jobsSlice";
 import blogSlice from "./blog/blogSlice";
+import contactSlice from "./contact/contactSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     Holiday: holidaySlice,
     Jobs: jobsSlice,
     Blog: blogSlice,
+    Contact: contactSlice,
   },
 });
 
