@@ -11,6 +11,8 @@ import Nav from "./components/Nav";
 import Router from "./router/Router";
 import { useLocation } from "react-router-dom";
 import { checkInViewPort } from "./utils";
+// @ts-ignore
+import FacebookPixel from "./tracking/Facebook";
 
 const handleWindowScroll = () => {
   const allCards = document.querySelectorAll(".fade-up-card");
@@ -76,6 +78,7 @@ function App() {
       {/* <Navbar isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} /> */}
       {!isAdminPortal && isNavbarOpen && <Nav hideNavBar={hideNavBar} />}
       {/* <Home /> */}
+      <FacebookPixel />
       <Router isNavbarOpen={isNavbarOpen} toggleNavBar={toggleNavBar} />
     </>
   );

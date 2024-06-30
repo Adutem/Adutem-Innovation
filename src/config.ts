@@ -3,6 +3,7 @@ const config = {
   // API_URL: "https://adutem-innovation-backend.onrender.com/adutem/api/v1/",
   // API_URL: "http://localhost:5000/adutem/api/v1/",
   API_URL: import.meta.env.VITE_API_URL,
+  PIXEL_ID: "2495547617315276",
   FIRE_BASE: {
     //   API_KEY: process.env.REACT_APP_APIKEY,
     //   AUTH_DOMAIN: process.env.REACT_APP_AUTHDOMAIN,
