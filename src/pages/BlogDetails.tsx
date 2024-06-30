@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Divi } from "../components/team/Intro";
 import { BlogInterface, IBlogContent } from "@/data/blog";
+import parse from "html-react-parser";
 
 const CustomDivi = styled(Divi)`
   p.faded {
@@ -14,13 +15,13 @@ const BlogContentItem = ({ content }: { content: IBlogContent }) => {
   switch (content.type) {
     case "heading":
       return (
-        <h2 className="text-white text-xl md:text-2xl">
+        <h2 className="text-white text-xl md:text-2xl mt-10 my-4">
           {content.textContent}
         </h2>
       );
     case "paragraph":
       return (
-        <p className="text-gray-200 text-sm sm:text-base sm:leading-relaxed md:leading-loose">
+        <p className="text-gray-200 text-sm sm:text-base sm:leading-relaxed md:leading-loose my-4">
           {content.textContent}
         </p>
       );
@@ -33,9 +34,11 @@ const BlogContentItem = ({ content }: { content: IBlogContent }) => {
       );
     case "list":
       return (
-        <ul>
+        <ul className="list-disc list-inside ml-4 flex flex-col gap-3">
           {content.listContent?.map((listItem) => (
-            <li className="text-gray-200 text-sm sm:text-base">{listItem}</li>
+            <li className="text-gray-200 text-sm sm:text-base">
+              {parse(listItem)}
+            </li>
           ))}
         </ul>
       );
@@ -77,10 +80,15 @@ export const BlogDetails = () => {
         {/* Title */}
         <h1
           aria-roledescription="Blog Title"
-          className="text-white text-xl sm:text-2xl md:text-3xl font-semibold"
+          className="text-white text-xl sm:text-2xl md:text-3xl font-semibold mt-10 my-6"
         >
           {blogData.title}
         </h1>
+
+        {/* Short description */}
+        <p className="text-gray-200 text-sm sm:text-base sm:leading-relaxed md:leading-loose my-4">
+          {blogData.shortIntroduction}
+        </p>
 
         {/* Blog Content */}
         <div className="my-8">
