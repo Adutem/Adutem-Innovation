@@ -13,7 +13,7 @@ const INIT_STATE: BlogState = {
   isFetchingBlogs: false,
   blogsFetched: false,
   fetchError: "",
-  blogs: [],
+  blogs: null,
   isCreatingBlog: false,
   blogCreated: false,
   createError: "",
@@ -28,7 +28,7 @@ const INIT_STATE: BlogState = {
 // Fetch blogs
 export const fetchBlogs = createAsyncThunk(
   "fetchBlogs",
-  async (active: boolean, thunkAPI) => {
+  async (data: void, thunkAPI) => {
     try {
       const blogsResponse: Awaited<Promise<AllBlogsApiResponse>> =
         (await getAllBlogsApi()) as unknown as AllBlogsApiResponse;
@@ -124,7 +124,7 @@ export const blogSlice = createSlice({
       .addCase(fetchBlogs.rejected, (state, action) => {
         state.isFetchingBlogs = false;
         state.blogsFetched = false;
-        state.fetchError = action.error.message || "";
+        state.fetchError = action.payload as string;
       })
       .addCase(createBlog.pending, (state) => {
         state.isCreatingBlog = true;
@@ -134,7 +134,9 @@ export const blogSlice = createSlice({
       .addCase(createBlog.fulfilled, (state, action) => {
         state.isCreatingBlog = false;
         state.blogCreated = true;
-        state.blogs.push(action.payload);
+        state.blogs
+          ? state.blogs.push(action.payload)
+          : (state.blogs = [action.payload]);
       })
       .addCase(createBlog.rejected, (state, action) => {
         state.isCreatingBlog = false;
@@ -148,13 +150,14 @@ export const blogSlice = createSlice({
       .addCase(updateBlog.fulfilled, (state, action) => {
         state.isUpdatingBlog = false;
         state.blogUpdated = true;
-        state.blogs = state.blogs.map((blog) => {
-          if (blog._id === action.payload._id) {
-            return action.payload;
-          } else {
-            return blog;
-          }
-        });
+        state.blogs &&
+          state.blogs.map((blog) => {
+            if (blog._id === action.payload._id) {
+              return action.payload;
+            } else {
+              return blog;
+            }
+          });
       })
       .addCase(updateBlog.rejected, (state, action) => {
         state.isUpdatingBlog = false;
@@ -166,9 +169,8 @@ export const blogSlice = createSlice({
       .addCase(deleteBlog.fulfilled, (state, action) => {
         state.isDeletingBlog = false;
         state.blogDeleted = true;
-        state.blogs = state.blogs.filter(
-          (blog) => blog._id !== action.payload._id
-        );
+        state.blogs &&
+          state.blogs.filter((blog) => blog._id !== action.payload._id);
       })
       .addCase(deleteBlog.rejected, (state, action) => {
         state.isDeletingBlog = false;

@@ -6,7 +6,7 @@ export interface BlogState {
   isFetchingBlogs: boolean;
   blogsFetched: boolean;
   fetchError: string;
-  blogs: Array<BlogInterface>;
+  blogs: Array<BlogInterface> | null;
   isCreatingBlog: boolean;
   blogCreated: boolean;
   createError: string;

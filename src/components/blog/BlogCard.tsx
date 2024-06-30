@@ -1,19 +1,16 @@
 import React from "react";
-import { BlogPost } from "../../data/blog";
+import { BlogInterface, BlogPost } from "../../data/blog";
 import styled from "styled-components";
 
-interface BlogCardProps extends BlogPost {
+interface BlogCardProps {
+  blog: BlogInterface;
   index: number;
 }
 
-const BlogCard = ({
-  thumbNail,
-  tag,
-  publicationDate,
-  title,
-  shortIntroduction,
-  index,
-}: BlogCardProps) => {
+const BlogCard = ({ blog, index }: BlogCardProps) => {
+  const { _id, title, thumbNail, tag, publicationDate, shortIntroduction } =
+    blog;
+
   return (
     <Container
       className="fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
@@ -27,12 +24,15 @@ const BlogCard = ({
             index % 2 === 0 ? "order-1" : "order-2"
           }`}
         >
-          <div className="w-full rounded-lg overflow-hidden h-[200px] sm:h-[280px] md:h-[300px] lg:h-[350px]">
-            <img src={thumbNail} className="w-full h-full object-cover" />
+          <div className="w-full rounded-t-md md:rounded-md overflow-hidden h-[200px] sm:h-[280px] md:h-[300px] lg:h-[350px]">
+            <img
+              src={thumbNail.downloadUrl}
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div
-          className={`md:col-span-3 lg:col-span-2 ${
+          className={`md:col-span-3 lg:col-span-2 transparent-white p-6 rounded-b-md md:rounded-md ${
             index % 2 === 0 ? "order-2" : "order-1"
           }`}
         >

@@ -43,7 +43,7 @@ const Blog = () => {
   } = useStateSelector((state) => state.Blog);
 
   useEffect(() => {
-    dispatch(fetchBlogs(false));
+    dispatch(fetchBlogs());
   }, []);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const Blog = () => {
     }
   }, [blogsFetched]);
 
-  const retryFetchBlogs = () => dispatch(fetchBlogs(false));
+  const retryFetchBlogs = () => dispatch(fetchBlogs());
 
   // Delete blog handlers
   // Pending deletion
@@ -117,7 +117,7 @@ const Blog = () => {
             <p className="text-white neue-regular text-xl">Retry</p>
           </Button>
         </div>
-      ) : blogs.length === 0 ? (
+      ) : blogs && blogs.length === 0 ? (
         <div
           className="
             flex-1 transparent-white p-4 w-full flex justify-center items-center flex-col gap-3 rounded-sm"
@@ -132,13 +132,14 @@ const Blog = () => {
       ) : (
         <div className="mt-4">
           <BlogsContainer className="blogs-container grid gap-4">
-            {blogs.map((blog) => (
-              <BlogCard
-                {...blog}
-                onDelete={onDelete}
-                onRequestEdit={onRequestEdit}
-              />
-            ))}
+            {blogs &&
+              blogs.map((blog) => (
+                <BlogCard
+                  {...blog}
+                  onDelete={onDelete}
+                  onRequestEdit={onRequestEdit}
+                />
+              ))}
           </BlogsContainer>
         </div>
       )}
