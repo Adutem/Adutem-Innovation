@@ -6,6 +6,12 @@ export interface FeedBackCardProps extends PropsWithChildren {
   activeIndex: number;
 }
 
+const reviews = [
+  "https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv",
+  "https://youtube.com/embed/XTYgE9VWRP8?si=uKHKcyZWK54_rsHf",
+  "https://youtube.com/embed/rTeMtftvMfE?si=mRUmBp3OtAKAPHO4",
+];
+
 const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
   return (
     <div className="min-h-60 flex gap-8 flex-col lg:flex-row">
@@ -57,7 +63,7 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             } opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
-              Akram Himed
+              William Richardson
             </p>
             <p>Business Owner</p>
           </span>
@@ -67,9 +73,9 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             } opacity-0 maa-translateY-[60px] absolute left-0`}
           >
             <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
-              Jermaine Watkins
+              Akram Himed && Jermaine Watkins
             </p>
-            <p>Business Owner</p>
+            <p>Business Owners</p>
           </span>
           <span
             className={`${
@@ -88,7 +94,10 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
           <iframe
             className="w-full h-full"
             // width="560" height="315"
-            src="https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv&amp;controls=0"
+            src={
+              `${reviews[activeIndex]}&amp;controls=0` ||
+              "https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv"
+            }
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
