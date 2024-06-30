@@ -1,73 +1,150 @@
-import { useState } from "react";
-import { FormGroupComponent } from "../components/FormInput";
+import { useEffect, useState } from "react";
 import Footer from "../components/home/Footer";
 import styled from "styled-components";
-
-interface FormDataVals {
-  name: string;
-  email: string;
-  phoneNumber: string;
-  organization: string;
-}
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { useRedux } from "@/hooks/useRedux";
+import { contactOrg, resetContactOrg } from "@/redux";
+import { emailRegex } from "@/constant/regex";
+import { showErrorNotification, showSuccessNotification } from "@/utils";
+import FormInput from "@/components/forms/FormInput";
+import { Loader } from "@/components/progress";
 
 const Contact = () => {
-  const [formData, setFormData] = useState<FormDataVals>({
-    name: "",
+  // redux utilsc
+  const { dispatch, useStateSelector } = useRedux();
+
+  // contact state
+  const { formSubmissionError, formSubmitted, submittingForm } =
+    useStateSelector((state) => state.Contact);
+
+  // validation schema
+  const contactValidationSchema = yup.object({
+    fullName: yup.string().required("Please enter your name"),
+    email: yup
+      .string()
+      .required("Please enter your email")
+      .matches(emailRegex, "Please enter a valid email"),
+    phoneNumber: yup.string().required("Please provide your contact info"),
+    organization: yup.string().required("Please provide your organization"),
+    message: yup.string().required("Please leave a message"),
+  });
+
+  const defaultValues = {
+    fullName: "",
     email: "",
     phoneNumber: "",
     organization: "",
-  });
-
-  const handleInputChange = (e: any) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    message: "",
   };
 
-  document.documentElement.style.background = "rgba(34,34,39,.94)";
+  // form validation
+  const validation = useFormik({
+    enableReinitialize: false,
+    initialValues: defaultValues,
+    validationSchema: contactValidationSchema,
+    onSubmit: (values) => {
+      dispatch(contactOrg(values));
+    },
+  });
+
+  const { handleBlur, handleChange, handleSubmit, values } = validation;
+
+  useEffect(() => {
+    if (formSubmitted) {
+      showSuccessNotification("Your message has been received");
+      dispatch(resetContactOrg());
+    }
+  }, [formSubmitted]);
+
+  useEffect(() => {
+    if (formSubmissionError) {
+      showErrorNotification(formSubmissionError, 1500);
+      dispatch(resetContactOrg());
+    }
+  }, [formSubmissionError]);
+
+  // document.documentElement.style.background = "rgba(34,34,39,.94)";
+  document.documentElement.style.background = "black";
 
   return (
     <div>
       <div className="px-4 md:px-8 md:flex md:gap-14 md:justify-evenly md:py-36">
-        <FirstContainer className="flex-1 flex-grow-[3] md:max-w-xl">
-          <h4 className="text-white text-3xl">Let's Talk!</h4>
-          <p className="text-white text-base mt-2 mb-4">
+        <FirstContainer className="flex-1 flex-grow-[3] md:max-w-xl relative">
+          <h4 className="text-[var(--base-color)] text-3xl neue-regular">
+            Let's Talk!
+          </h4>
+          <p className="text-gray-400 text-sm mt-2 mb-4 neue-regular">
             Fill out the following to get your project started
           </p>
-          <form>
-            <FormGroupComponent
-              name="name"
+          {submittingForm && <Loader />}
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSubmit();
+              return false;
+            }}
+          >
+            <FormInput
+              name="fullName"
+              label="Your Name*"
+              onBlur={handleBlur}
+              onChange={handleChange}
               type="text"
-              value={formData.name}
-              onChange={handleInputChange}
-              placeholder="Your name*"
+              value={values.fullName}
+              placeholder="e.g John Doe"
+              validation={validation}
             />
-            <FormGroupComponent
+            <FormInput
               name="email"
-              type="text"
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="Email*"
+              label="Email"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="email"
+              value={values.email}
+              placeholder="e.g: example@gmail.com"
+              validation={validation}
             />
-            <FormGroupComponent
+            <FormInput
               name="phoneNumber"
+              label="Phone Number"
+              onBlur={handleBlur}
+              onChange={handleChange}
               type="text"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              placeholder="Phone Number"
+              value={values.phoneNumber}
+              placeholder="xxx-xxxx-xxxx"
+              validation={validation}
             />
-            <FormGroupComponent
+            <FormInput
               name="organization"
+              label="Your Organization"
+              onBlur={handleBlur}
+              onChange={handleChange}
               type="text"
-              value={formData.organization}
-              onChange={handleInputChange}
-              placeholder="Your organization"
+              value={values.organization}
+              placeholder="e.g. Example Inc"
+              validation={validation}
             />
-            <SubmitButton className="rounded-2xl text-[var(--base-color)] px-6 py-3 items-center gap-2 maa-transition-[0.5s] bg-white flex my-5 w-full text-center justify-center">
+            <FormInput
+              name="message"
+              label="Message"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="textarea"
+              value={values.message}
+              placeholder="Here..."
+              validation={validation}
+            />
+            <SubmitButton
+              className="rounded-lg text-[var(--base-color)] px-6 py-3 items-center gap-2 maa-transition-[0.5s] bg-white flex my-5 w-full text-center justify-center neue-regular"
+              type="submit"
+            >
               Submit
               <i className="fi fi-rr-arrow-small-right flex  text-xl"></i>
             </SubmitButton>
           </form>
         </FirstContainer>
-        <SecondContainer className="bg-[rgba(34,34,39,.94)] p-4 border-y my-20 md:px-12 py-8 md:my-0 flex-1 md:max-w-96 flex-grow-[2] md:flex md:flex-col md:justify-between">
+        <SecondContainer className="transparent-white p-4 my-20 md:px-12 py-8 md:my-0 flex-1 md:max-w-96 flex-grow-[2] md:flex md:flex-col md:justify-center gap-6 max-h-[400px] md:self-center">
           <div>
             <p className="faded text-sm">Find Us</p>
             <address className="text-base md:text-lg flex flex-col gap-1 mb-4">
