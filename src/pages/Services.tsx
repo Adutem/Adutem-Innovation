@@ -137,10 +137,10 @@ const Services = () => {
         className="faded max-w-[750px]"
         style={{ fontSize: "clamp(0.75rem, 4.9vw ,1.1rem)" }}
       >
-        At DesignInDC, we take a 360° approach to our projects. A successful
-        digital experience requires the seamless integration of multiple
-        elements, which is why our agency offers an array of services, from
-        interface design to custom photography to digital marketing.
+        At Adutem Innovation, we take a 360° approach to our projects. A
+        successful digital experience requires the seamless integration of
+        multiple elements, which is why our agency offers an array of services,
+        from interface design to custom photography to digital marketing.
       </p>
       <div
         className="flex items-center justify-between py-3 sm:py-8 md:py-10 sticky md:relative top-14 bg-black pt-6 slider-section"

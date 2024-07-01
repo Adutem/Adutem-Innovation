@@ -16,6 +16,10 @@ export interface HolidayState {
   isUpdatingHoliday: boolean;
   holidayUpdated: boolean;
   updateError: string;
+  gettingActiveHoliday: boolean;
+  activeHolidayFetched: boolean;
+  activeHolidayFetchError: string;
+  activeHoliday: HolidayData | null;
 }
 
 export interface HolidayApiResponse extends ApiResponse {

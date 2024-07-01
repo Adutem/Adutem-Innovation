@@ -10,6 +10,10 @@ const INIT_STATE: HolidayState = {
   isUpdatingHoliday: false,
   holidayUpdated: false,
   updateError: "",
+  gettingActiveHoliday: false,
+  activeHolidayFetched: false,
+  activeHolidayFetchError: "",
+  activeHoliday: null,
 };
 
 // Fetch holiday
@@ -43,6 +47,20 @@ export const updateHoliday = createAsyncThunk(
   }
 );
 
+// get active holiday
+export const getActiveHoliday = createAsyncThunk(
+  "getActiveHoliday",
+  async (active: boolean = true, thunkAPI) => {
+    try {
+      const holidayResponse: Awaited<Promise<HolidayApiResponse>> =
+        (await getHoliday(active)) as unknown as HolidayApiResponse;
+      return holidayResponse.holiday;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
 const holidaySlice = createSlice({
   name: "Holiday",
   initialState: INIT_STATE,
@@ -59,6 +77,7 @@ const holidaySlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    // FETCH HOLIDAY
     builder.addCase(fetchHoliday.pending, (state: HolidayState) => {
       state.isFetchingHoliday = true;
       state.holidayFetched = false;
@@ -77,6 +96,7 @@ const holidaySlice = createSlice({
       state.fetchError = action.payload as string;
     });
 
+    // UPDATE HOLIDAY
     builder.addCase(updateHoliday.pending, (state: HolidayState) => {
       state.isUpdatingHoliday = true;
       state.holidayUpdated = false;
@@ -95,6 +115,24 @@ const holidaySlice = createSlice({
       state.holidayUpdated = false;
       state.updateError = action.payload as string;
     });
+
+    // GET ACTTIVE HOLIDAY
+    builder
+      .addCase(getActiveHoliday.pending, (state: HolidayState) => {
+        state.gettingActiveHoliday = true;
+        state.activeHolidayFetched = false;
+        state.activeHolidayFetchError = "";
+      })
+      .addCase(getActiveHoliday.fulfilled, (state: HolidayState, action) => {
+        state.gettingActiveHoliday = false;
+        state.activeHolidayFetched = true;
+        state.activeHoliday = action.payload;
+      })
+      .addCase(getActiveHoliday.rejected, (state: HolidayState, action) => {
+        state.gettingActiveHoliday = false;
+        state.activeHolidayFetched = false;
+        state.activeHolidayFetchError = action.payload as string;
+      });
   },
 });
 
