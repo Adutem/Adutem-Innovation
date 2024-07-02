@@ -14,6 +14,7 @@ import Layout from "../layout/index.tsx";
 import { AuthProtected } from "./AuthProtected.tsx";
 import Dashboard from "../pages/dashboard/index.tsx";
 import Logout from "@/pages/Logout.tsx";
+import { Landing } from "@/pages/Landing.tsx";
 import { BlogDetails } from "@/pages/BlogDetails.tsx";
 
 interface Props {
@@ -42,6 +43,7 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
         <Route path="career" element={<Career />} />
         <Route path="blog/:blogId" element={<BlogDetails />} />
       </Route>
+      <Route path="landing" element={<Landing />} />
       <Route path="admin-portal">
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />
