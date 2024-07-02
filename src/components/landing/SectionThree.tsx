@@ -41,7 +41,7 @@ export const SectionThree = () => {
       <header>
         <h2 className="text-center flex flex-col items-center gap-1">
           <span className="font-semibold text-gray-900 text-2xl md:text-3xl neue-regular">
-            Why is your Marketing?
+            Why is your Marketing
           </span>
           <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular">
             Not Performing?

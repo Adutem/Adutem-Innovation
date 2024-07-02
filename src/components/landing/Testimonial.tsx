@@ -23,10 +23,23 @@ export const Testimonials = ({}: Props) => {
         <GridEl>
           {testimonies.map((testimony) => (
             <div className="image-cont rounded-lg">
-              <img
-                src={testimony.imgUrl}
-                className="w-full h-auto object-cover rounded-lg"
-              />
+              {testimony.type === "image" ? (
+                <img
+                  src={testimony.imgUrl}
+                  className="w-full h-auto object-cover rounded-lg"
+                />
+              ) : (
+                <video
+                  src={testimony.imgUrl}
+                  className="w-full h-full object-fill rounded-lg max-h-[250px]"
+                  controls
+                  poster={testimony?.poster}
+                  controlsList={"nodownload"}
+                  onPlaying={(e: any) => (e.target.style.objectFit = "contain")}
+                  onPause={(e: any) => (e.target.style.objectFit = "fill")}
+                  disablePictureInPicture
+                />
+              )}
             </div>
           ))}
         </GridEl>

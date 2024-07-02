@@ -10,12 +10,23 @@ import resultSeven from "@/assets/images/testimonials/result-7.jpg";
 import tOne from "@/assets/images/testimonials/testimony-1.jpg";
 import tTwo from "@/assets/images/testimonials/testimony-2.jpg";
 import tThree from "@/assets/images/testimonials/testimony-3.jpg";
+
+// testimony videos
+import tvOne from "@/assets/videos/jermaine-watkins.mp4";
+import tvTwo from "@/assets/videos/akram-himmed.mp4";
+import tvThree from "@/assets/videos/titus.mp4";
+
+// testimony posters
+import tvOnePoster from "@/assets/posters/jermaine-watkins.png";
+import tvTwoPoster from "@/assets/posters/akram-himmed.png";
+import tvThreePoster from "@/assets/posters/titus.png";
 export interface Result {
   imgUrl: string;
 }
 export interface Testimony {
   imgUrl: string;
   type: "image" | "video";
+  poster?: string;
 }
 
 export const results: Result[] = [
@@ -54,5 +65,20 @@ export const testimonies: Testimony[] = [
   {
     imgUrl: tThree,
     type: "image",
+  },
+  {
+    imgUrl: tvOne,
+    type: "video",
+    poster: tvOnePoster,
+  },
+  {
+    imgUrl: tvTwo,
+    type: "video",
+    poster: tvTwoPoster,
+  },
+  {
+    imgUrl: tvThree,
+    type: "video",
+    poster: tvThreePoster,
   },
 ];

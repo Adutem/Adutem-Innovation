@@ -2,6 +2,8 @@ import faqs from "@/data/faq";
 import styled from "styled-components";
 import Accordion from "../Accordion";
 import { results } from "@/data/testimonies";
+import resultVideo from "@/assets/videos/Garage-Floors-of-Austin-Marketing-Analysis.mp4";
+import resultPoster from "@/assets/posters/result-poster.png";
 
 type Props = {};
 export const SectionFour = ({}: Props) => {
@@ -31,6 +33,18 @@ export const SectionFour = ({}: Props) => {
               />
             </div>
           ))}
+          <div className="image-cont rounded-lg">
+            <video
+              src={resultVideo}
+              className="w-full h-full object-fill rounded-lg max-h-[250px]"
+              controls
+              poster={resultPoster}
+              controlsList={"nodownload"}
+              onPlaying={(e: any) => (e.target.style.objectFit = "contain")}
+              onPause={(e: any) => (e.target.style.objectFit = "fill")}
+              disablePictureInPicture
+            />
+          </div>
         </GridEl>
       </div>
     </div>
