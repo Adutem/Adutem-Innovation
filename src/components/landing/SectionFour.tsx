@@ -11,10 +11,11 @@ export const SectionFour = ({}: Props) => {
       <header>
         <h2 className="text-center flex flex-col items-center gap-1">
           <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular">
-            Testimonials
+            {/* Testimonials */}
+            Some Explosive Result
           </span>
           <span className="font-medium text-gray-900 text-xl md:text-2xl neue-regular">
-            Some Explosive Result
+            What you can expect
           </span>
         </h2>
       </header>
