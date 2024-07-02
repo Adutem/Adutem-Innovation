@@ -70,7 +70,8 @@ const Contact = () => {
   }, [formSubmissionError]);
 
   // document.documentElement.style.background = "rgba(34,34,39,.94)";
-  document.documentElement.style.background = "black";
+  document.documentElement.style.background = "#000";
+  document.body.style.background = "#000";
 
   return (
     <div>

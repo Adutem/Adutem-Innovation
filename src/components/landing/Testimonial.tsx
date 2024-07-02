@@ -50,9 +50,13 @@ export const Testimonials = ({}: Props) => {
       <span className="font-medium text-gray-900 text-xl md:text-2xl neue-regular text-center mx-auto block mb-6">
         Reach out to us
       </span>
-      <button className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 text-sm">
+      <a
+        className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 text-sm text-center"
+        target="_blank"
+        href="https://calendly.com/adutem05/marketing-consultation"
+      >
         FREE DISCOVERY CALL (20 MINS)
-      </button>
+      </a>
     </div>
   );
 };

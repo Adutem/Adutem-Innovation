@@ -8,11 +8,16 @@ import {
   SectionTwo,
   Testimonials,
 } from "@/components/landing";
+import { useNavigate } from "react-router-dom";
 
 type Props = {};
 export const Landing = ({}: Props) => {
+  const navigate = useNavigate();
+
   document.documentElement.style.background = "#fff";
   document.body.style.background = "#fff";
+
+  const contactUs = () => navigate("/contact");
 
   return (
     <>
@@ -78,7 +83,10 @@ export const Landing = ({}: Props) => {
                   periods
                 </span>
               </p>
-              <button className="capitalize rounded-full py-3 px-7 w-full max-w-[300px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0 neue-regular">
+              <button
+                className="capitalize rounded-full py-3 px-7 w-full max-w-[300px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0 neue-regular"
+                onClick={contactUs}
+              >
                 Apply to Partner with Us
               </button>
             </div>
