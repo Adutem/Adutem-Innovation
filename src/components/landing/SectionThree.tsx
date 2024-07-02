@@ -40,10 +40,10 @@ export const SectionThree = () => {
       {/* Header */}
       <header>
         <h2 className="text-center flex flex-col items-center gap-1">
-          <span className="font-semibold text-gray-900 text-2xl md:text-3xl">
+          <span className="font-semibold text-gray-900 text-2xl md:text-3xl neue-regular">
             Why is your Marketing?
           </span>
-          <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl">
+          <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular">
             Not Performing?
           </span>
         </h2>
@@ -62,8 +62,12 @@ export const SectionThree = () => {
                   )}
                 ></i>
               </div>
-              <h3 className="mt-2 font-semibold text-xl">{data.title}</h3>
-              <p className="text-sm mt-2 leading-relaxed">{data.description}</p>
+              <h3 className="mt-2 font-semibold text-xl neue-regular">
+                {data.title}
+              </h3>
+              <p className="text-sm mt-2 leading-relaxed neue-regular">
+                {data.description}
+              </p>
             </div>
           ))}
         </GridEl>

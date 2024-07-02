@@ -1,7 +1,12 @@
 import pageBackground from "@/assets/svgs/page-background-sm.svg";
 import businessGrowth from "@/assets/svgs/business-growth.svg";
 import adutemLogo from "@/assets/images/adutem_logo.png";
-import { SectionThree, SectionTwo } from "@/components/landing";
+import {
+  SectionFive,
+  SectionFour,
+  SectionThree,
+  SectionTwo,
+} from "@/components/landing";
 
 type Props = {};
 export const Landing = ({}: Props) => {
@@ -49,30 +54,30 @@ export const Landing = ({}: Props) => {
           <div className="col-start-1 col-span-1 h-full flex items-center row-start-3 mt-6 md:row-start-2">
             <div className="max-w-[500px] flex flex-col mx-auto md:mx-0">
               <h1
-                className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-[2.5rem] text-[var(--base-color)] text-center md:text-left"
+                className="font-bold text-2xl md:text-3xl lg:text-4xl xl:text-[2.4rem] text-[var(--base-color)] text-center md:text-left neue-regular"
                 style={{ lineHeight: "1.2" }}
               >
                 Lead Generation <br className="md:hidden" /> for Businesses &
                 Contractors
               </h1>
               <p
-                className="capitalize mt-5 md:text-xl text-gray-900 font-semibold max-w-[440px] text-center md:text-left"
+                className="capitalize mt-5 md:text-xl text-gray-900 font-semibold max-w-[440px] text-center md:text-left neue-regular"
                 style={{ lineHeight: "1.5" }}
               >
                 {"GET YOUR OWN TRAFFIC-GENERATION INBOUND LEAD SYSTEM & SECURE NEW PROJECTS/ClIENTS EVERY 30 DAYS OR IT'S FREE".toLowerCase()}
               </p>
               <p className="font-semibold text-sm text-gray-800 mt-6 flex item-center gap-1 text-center md:text-left">
                 <i className="fi fi-sr-shield-check flex"></i>
-                <span className="-mt-1">Pay-Per-Project</span>
+                <span className="-mt-1 neue-regular">Pay-Per-Project</span>
               </p>
               <p className="font-semibold text-sm text-gray-800 mt-2 flex item-center gap-1 text-center md:text-left">
                 <i className="fi fi-sr-shield-check flex"></i>
-                <span className="-mt-1">
+                <span className="-mt-1 neue-regular">
                   The #1 Way to Close New Projects during high interest rate
                   periods
                 </span>
               </p>
-              <button className="capitalize rounded-full py-3 px-7 w-full max-w-[300px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0">
+              <button className="capitalize rounded-full py-3 px-7 w-full max-w-[300px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0 neue-regular">
                 Apply to Partner with Us
               </button>
             </div>
@@ -93,6 +98,13 @@ export const Landing = ({}: Props) => {
         {/* Sections */}
         <SectionTwo />
         <SectionThree />
+        <SectionFour />
+        <SectionFive />
+      </div>
+      <div className="w-full h-[200px] bg-[var(--base-color)] grid place-items-center">
+        <p className="text-center text-white md:text-2xl neue-regular">
+          All right Reserved. &copy; Adutem Innovation
+        </p>
       </div>
     </>
   );

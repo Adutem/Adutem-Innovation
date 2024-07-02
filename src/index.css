@@ -23,6 +23,7 @@
   --grayWhite: #f1f1f1;
   --tw-gradient-stops: rgba(0, 0, 0, 0.7) 20%, rgba(0, 0, 0, 0);
   --base-color: rgb(211, 16, 16);
+  --base-color-trans: rgba(211, 16, 16, 0.1);
   --transparent-white: #ffffff14;
   --feedback-color: #e22808;
   --success: #3cd188;
