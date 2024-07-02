@@ -10,7 +10,7 @@ export const SectionTwo = ({}: Props) => {
       <div className="flex justify-center max-h-[700px] items-center">
         <Container
           className="w-full aspect-square max-h-[650px] max-w-[650px] bg-no-repeat rounded-full flex justify-center items-center"
-          style={{ background: `url(${pageBackground})` }}
+          style={{ background: `url(/imgs/page-bg-base-grad-2.svg)` }}
         >
           <img
             src={leadFunnel}
