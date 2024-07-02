@@ -1,4 +1,4 @@
-import leadFunnel from "@/assets/images/lead-funnel.png";
+import leadFunnel from "@/assets/images/lead-funnel-2.png";
 import leadFunnelEdit from "@/assets/images/lead-funnel-edit.png";
 import pageBackground from "@/assets/svgs/page-bg-base-grad-2.svg";
 import styled from "styled-components";
