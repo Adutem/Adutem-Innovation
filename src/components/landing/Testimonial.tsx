@@ -1,21 +1,19 @@
 import faqs from "@/data/faq";
 import styled from "styled-components";
-import Accordion from "../Accordion";
-import { results } from "@/data/testimonies";
+import { testimonies } from "@/data/testimonies";
 
 type Props = {};
-export const SectionFour = ({}: Props) => {
+export const Testimonials = ({}: Props) => {
   return (
     <div className="my-20 md:my-24">
       {/* Header */}
       <header>
         <h2 className="text-center flex flex-col items-center gap-1">
           <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular">
-            {/* Testimonials */}
-            Some Explosive Result
+            Testimonials
           </span>
           <span className="font-medium text-gray-900 text-xl md:text-2xl neue-regular">
-            What you can expect
+            What our clients have to say
           </span>
         </h2>
       </header>
@@ -23,16 +21,25 @@ export const SectionFour = ({}: Props) => {
       {/* Reasons */}
       <div className="w-full mt-8 sm:mt-12 md:mt-16">
         <GridEl>
-          {results.map((result) => (
+          {testimonies.map((testimony) => (
             <div className="image-cont rounded-lg">
               <img
-                src={result.imgUrl}
+                src={testimony.imgUrl}
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
           ))}
         </GridEl>
       </div>
+      <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular mx-auto block mt-16 mb-1 text-center">
+        What to learn more?
+      </span>
+      <span className="font-medium text-gray-900 text-xl md:text-2xl neue-regular text-center mx-auto block mb-6">
+        Reach out to us
+      </span>
+      <button className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 text-sm">
+        FREE DISCOVERY CALL (20 MINS)
+      </button>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import {
   SectionFour,
   SectionThree,
   SectionTwo,
+  Testimonials,
 } from "@/components/landing";
 
 type Props = {};
@@ -96,6 +97,7 @@ export const Landing = ({}: Props) => {
       </div>
       <div className="w-[90%] lg:w-[80%] mx-auto">
         {/* Sections */}
+        <Testimonials />
         <SectionTwo />
         <SectionThree />
         <SectionFour />

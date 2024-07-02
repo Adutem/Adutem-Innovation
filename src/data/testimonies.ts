@@ -6,11 +6,19 @@ import resultFive from "@/assets/images/testimonials/result-5.jpg";
 import resultSix from "@/assets/images/testimonials/result-6.jpg";
 import resultSeven from "@/assets/images/testimonials/result-7.jpg";
 
-export interface Testimony {
+// testimony images
+import tOne from "@/assets/images/testimonials/testimony-1.jpg";
+import tTwo from "@/assets/images/testimonials/testimony-2.jpg";
+import tThree from "@/assets/images/testimonials/testimony-3.jpg";
+export interface Result {
   imgUrl: string;
 }
+export interface Testimony {
+  imgUrl: string;
+  type: "image" | "video";
+}
 
-export const testimonies: Testimony[] = [
+export const results: Result[] = [
   {
     imgUrl: resultOne,
   },
@@ -31,5 +39,20 @@ export const testimonies: Testimony[] = [
   },
   {
     imgUrl: resultSeven,
+  },
+];
+
+export const testimonies: Testimony[] = [
+  {
+    imgUrl: tOne,
+    type: "image",
+  },
+  {
+    imgUrl: tTwo,
+    type: "image",
+  },
+  {
+    imgUrl: tThree,
+    type: "image",
   },
 ];
