@@ -47,6 +47,15 @@ export const SectionFour = ({}: Props) => {
           </div>
         </GridEl>
       </div>
+
+      {/* Survey form */}
+      <a
+        className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 mt-8 text-sm text-center"
+        target="_blank"
+        href="https://calendly.com/adutem05/marketing-consultation"
+      >
+        Take our quick survey
+      </a>
     </div>
   );
 };

@@ -45,7 +45,7 @@ export const Testimonials = ({}: Props) => {
         </GridEl>
       </div>
       <span className="font-bold text-[var(--base-color)] text-2xl md:text-3xl neue-regular mx-auto block mt-16 mb-1 text-center">
-        What to learn more?
+        Want to learn more?
       </span>
       <span className="font-medium text-gray-900 text-xl md:text-2xl neue-regular text-center mx-auto block mb-6">
         Reach out to us
