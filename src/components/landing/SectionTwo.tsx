@@ -9,8 +9,11 @@ export const SectionTwo = ({}: Props) => {
     <div className="my-20 md:my-24 ">
       <div className="flex justify-center max-h-[700px] items-center">
         <Container
-          className="w-full aspect-square max-h-[650px] max-w-[650px] bg-no-repeat rounded-full flex justify-center items-center"
-          style={{ background: `url(/imgs/page-bg-base-grad-2.svg)` }}
+          className="w-full aspect-square max-h-[650px] max-w-[650px] bg-no-repeat rounded-full flex justify-center items-center fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+          style={{
+            background: `url(/imgs/page-bg-base-grad-2.svg)`,
+            transition: "transform 0.5s, opacity 0.7s ease",
+          }}
         >
           <img
             src={leadFunnel}

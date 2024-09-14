@@ -16,6 +16,7 @@ import Dashboard from "../pages/dashboard/index.tsx";
 import Logout from "@/pages/Logout.tsx";
 import { Landing } from "@/pages/Landing.tsx";
 import { BlogDetails } from "@/pages/BlogDetails.tsx";
+import { Survey } from "@/pages/Survey.tsx";
 
 interface Props {
   toggleNavBar: () => void;
@@ -44,6 +45,7 @@ const Router = ({ isNavbarOpen, toggleNavBar }: Props) => {
         <Route path="blog/:blogId" element={<BlogDetails />} />
       </Route>
       <Route path="landing" element={<Landing />} />
+      <Route path="survey" element={<Survey />} />
       <Route path="admin-portal">
         <Route path="login" element={<Login />} />
         <Route path="logout" element={<Logout />} />

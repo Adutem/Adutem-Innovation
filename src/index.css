@@ -40,6 +40,10 @@
   --danger-bg: #f7666e1a;
 }
 
+.card {
+  background-color: #131313;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -168,6 +172,10 @@ body {
 
 .fade-in {
   animation: fadeIn 1.4s ease 2s 1 normal forwards;
+}
+
+.fade-in-no-delay {
+  animation: fadeIn 1.4s ease -0.2s 1 normal forwards;
 }
 
 @keyframes fadeIn {

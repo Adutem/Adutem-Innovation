@@ -7,3 +7,8 @@ const api = new APIClient();
 export const contactOrg = (data: any) => {
   return api.create(url.CONTACT_ORG, data);
 };
+
+// Submit survey
+export const submitSurvey = (data: any) => {
+  return api.create(url.SUBMIT_SURVEY, data);
+};

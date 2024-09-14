@@ -26,14 +26,24 @@ export const SectionFour = ({}: Props) => {
       <div className="w-full mt-8 sm:mt-12 md:mt-16">
         <GridEl>
           {results.map((result) => (
-            <div className="image-cont rounded-lg">
+            <div
+              className="image-cont rounded-lg fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+              style={{
+                transition: "transform 0.5s, opacity 0.7s ease",
+              }}
+            >
               <img
                 src={result.imgUrl}
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
           ))}
-          <div className="image-cont rounded-lg">
+          <div
+            className="image-cont rounded-lg fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+            style={{
+              transition: "transform 0.5s, opacity 0.7s ease",
+            }}
+          >
             <video
               src={resultVideo}
               className="w-full h-full object-fill rounded-lg max-h-[250px]"
@@ -51,8 +61,9 @@ export const SectionFour = ({}: Props) => {
       {/* Survey form */}
       <a
         className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 mt-8 text-sm text-center"
-        target="_blank"
-        href="https://calendly.com/adutem05/marketing-consultation"
+        // target="_blank"
+        // href="https://calendly.com/adutem05/marketing-consultation"
+        href="/survey"
       >
         Take our quick survey
       </a>

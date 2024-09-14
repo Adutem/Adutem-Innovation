@@ -22,7 +22,12 @@ export const Testimonials = ({}: Props) => {
       <div className="w-full mt-8 sm:mt-12 md:mt-16">
         <GridEl>
           {testimonies.map((testimony) => (
-            <div className="image-cont rounded-lg">
+            <div
+              className="image-cont rounded-lg fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+              style={{
+                transition: "transform 0.5s, opacity 0.7s ease",
+              }}
+            >
               {testimony.type === "image" ? (
                 <img
                   src={testimony.imgUrl}
@@ -31,7 +36,10 @@ export const Testimonials = ({}: Props) => {
               ) : (
                 <video
                   src={testimony.imgUrl}
-                  className="w-full h-full object-fill rounded-lg max-h-[250px]"
+                  className="w-full h-full object-fill rounded-lg max-h-[250px] fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+                  style={{
+                    transition: "transform 0.5s, opacity 0.7s ease",
+                  }}
                   controls
                   poster={testimony?.poster}
                   controlsList={"nodownload"}

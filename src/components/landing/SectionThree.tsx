@@ -53,7 +53,12 @@ export const SectionThree = () => {
       <div className="w-full mt-12 sm:mt-16 md:mt-20">
         <GridEl>
           {sectionData.map((data) => (
-            <div className="flex-col ga-2">
+            <div
+              className="flex-col gap-2 fade-up-card delay-200 opacity-40 translate-x-6 translate-y-20"
+              style={{
+                transition: "transform 0.5s, opacity 0.7s ease",
+              }}
+            >
               <div className="danger-bg w-16 h-16 rounded-full grid place-items-center">
                 <i
                   className={classNames(
@@ -76,8 +81,9 @@ export const SectionThree = () => {
       {/* Survey form */}
       <a
         className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 mt-8 text-sm text-center"
-        target="_blank"
-        href="https://calendly.com/adutem05/marketing-consultation"
+        // target="_blank"
+        // href="https://calendly.com/adutem05/marketing-consultation"
+        href="/survey"
       >
         Take our quick survey
       </a>

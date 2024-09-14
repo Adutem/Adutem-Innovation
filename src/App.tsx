@@ -62,7 +62,10 @@ function App() {
   }, []);
 
   // Hide navbars that are not for admin portal
-  const isAdminPortal = location.pathname.includes("admin-portal");
+  const isAdminPortal =
+    location.pathname.includes("admin-portal") ||
+    location.pathname.includes("survey") ||
+    location.pathname.includes("landing");
 
   // Only use custom cursor if not in admin portal
   useEffect(() => {

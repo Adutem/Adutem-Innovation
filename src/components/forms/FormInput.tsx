@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import FormFeedback from "./FormFeedback";
 import styled from "styled-components";
 import classNames from "classnames";
@@ -13,12 +13,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Checkbox } from "../ui/checkbox";
+import { primaryGoals } from "@/constant";
+import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+
+type CheckboxItem = {
+  id: string;
+  value: string;
+};
+
+type RadioItem = {
+  id: string;
+  value: any;
+  label: string;
+};
 
 interface FormInputProps {
   name: string;
   type: string;
   placeholder?: string;
-  label: string;
+  label?: string;
   onChange: any;
   onBlur: any;
   value: any;
@@ -33,6 +47,12 @@ interface FormInputProps {
   inputRef?: any;
   hidden?: boolean;
   handleFileChange?: any;
+  lightMode?: boolean;
+  description?: string;
+  checkboxItems?: CheckboxItem[];
+  noLabel?: boolean;
+  inputStyle?: CSSProperties;
+  radioOptions?: RadioItem[];
 }
 
 interface DetachableInputProps {
@@ -64,14 +84,32 @@ const FormInput = ({
   hidden,
   inputRef,
   handleFileChange,
+  lightMode = false,
+  description,
+  checkboxItems,
+  noLabel,
+  inputStyle,
+  radioOptions,
 }: FormInputProps) => {
   if (type === "file" && !handleFileChange)
     throw Error("File Change Handler Required For File Input");
 
+  if (type === "checkbox" && !checkboxItems)
+    throw Error("Checkbox items required for checkbox input");
+
+  if (type === "radio-group" && !radioOptions)
+    throw Error("Radio options required for radio group");
+
   if (type === "text") {
     return (
       <div className="mb-4 w-full">
-        <label htmlFor={name} className="block text-sm font-medium text-white">
+        <label
+          htmlFor={name}
+          className={classNames("block text-sm font-medium neue-regular", {
+            "text-black": lightMode,
+            "text-white": !lightMode,
+          })}
+        >
           {label}
         </label>
         <input
@@ -83,8 +121,15 @@ const FormInput = ({
           onChange={onChange}
           disabled={disabled}
           className={classNames(
-            "block border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none border-[lightgray] text-gray-300 font-medium bg-[var(--input-bg)] cursor-pointer",
-            className
+            "block border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none font-medium bg-[var(--input-bg)] cursor-pointer",
+            className,
+            {
+              "text-gray-300": !lightMode,
+              "text-gray-800": lightMode,
+              "border-[lightgray]": lightMode,
+              card: !lightMode,
+              "border-[#1c1c1c]": !lightMode,
+            }
           )}
         />
         {validation.touched[name] && validation.errors[name] ? (
@@ -97,9 +142,18 @@ const FormInput = ({
   if (type === "textarea") {
     return (
       <div className="mb-4 w-full">
-        <label htmlFor={name} className="block text-sm font-medium text-white">
-          {label}
-        </label>
+        {noLabel || (
+          <label
+            htmlFor={name}
+            className={classNames("block text-sm font-medium neue-regular", {
+              "text-black": lightMode,
+              "text-white": !lightMode,
+            })}
+          >
+            {label}
+          </label>
+        )}
+
         <textarea
           name={name}
           placeholder={placeholder}
@@ -107,15 +161,47 @@ const FormInput = ({
           onBlur={onBlur}
           onChange={onChange}
           disabled={disabled}
+          style={inputStyle}
           className={classNames(
             className,
-            "block border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none border-[lightgray] text-gray-300 font-medium bg-[var(--input-bg)] resize-y min-h-32 cursor-pointer"
+            "block border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none  font-medium bg-[var(--input-bg)] resize-y min-h-32 cursor-pointer",
+            {
+              "text-gray-300": !lightMode,
+              "text-gray-800": lightMode,
+              "border-[lightgray]": lightMode,
+              card: !lightMode,
+              "border-[#1c1c1c]": !lightMode,
+            }
           )}
         />
         {validation.touched[name] && validation.errors[name] ? (
           <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
         ) : null}
       </div>
+    );
+  }
+
+  if (type === "checkbox") {
+    return (
+      <CheckboxInput
+        {...{
+          type,
+          label,
+          onChange,
+          onBlur,
+          value,
+          placeholder,
+          name,
+          validation,
+          disabled,
+          className,
+          checkboxItems,
+          description,
+          inputStyle,
+          noLabel,
+          lightMode,
+        }}
+      />
     );
   }
 
@@ -158,7 +244,13 @@ const FormInput = ({
   if (type === "chad-select") {
     return (
       <div className="mb-4 w-full">
-        <label htmlFor={name} className="block text-sm font-medium text-white">
+        <label
+          htmlFor={name}
+          className={classNames("block text-sm font-medium neue-regular", {
+            "text-black": lightMode,
+            "text-white": !lightMode,
+          })}
+        >
           {label}
         </label>
         <div className="relative flex items-center w-full mt-2">
@@ -169,7 +261,10 @@ const FormInput = ({
             defaultValue={defaultValue}
           >
             <CustomSelectTrigger
-              className="w-full bg-transparent text-white neue-regular"
+              className={classNames("w-full bg-transparent neue-regular", {
+                "text-black": lightMode,
+                "text-white": !lightMode,
+              })}
               style={{
                 border: "1px solid lightgray",
                 outline: "none",
@@ -178,12 +273,23 @@ const FormInput = ({
             >
               <SelectValue placeholder={placeholder} />
             </CustomSelectTrigger>
-            <SelectContent className="z-[100000010] bg-black">
+            <SelectContent
+              className={classNames("z-[100000010]", {
+                "bg-black": !lightMode,
+                "bg-white": lightMode,
+              })}
+            >
               {options &&
                 options.map((opt) => (
                   <SelectItem
                     value={opt}
-                    className="px-4 py-2 cursor-pointer text-[lightgray] neue-regular"
+                    className={classNames(
+                      "px-4 py-2 cursor-pointer neue-regular",
+                      {
+                        "text-[lightgray]": !lightMode,
+                        "text-gray-800": lightMode,
+                      }
+                    )}
                     aria-roledescription="button"
                     aria-role="button"
                   >
@@ -203,7 +309,7 @@ const FormInput = ({
     );
   }
 
-  if (type === "password")
+  if (type === "password") {
     return (
       <PasswordInput
         {...{
@@ -220,13 +326,17 @@ const FormInput = ({
         }}
       />
     );
+  }
 
   if (type === "date") {
     return (
       <div className="mb-4 w-full">
         <label
           htmlFor={name}
-          className="block text-sm font-medium text-white mb-2"
+          className={classNames("block text-sm font-medium neue-regular", {
+            "text-black": lightMode,
+            "text-white": !lightMode,
+          })}
         >
           {label}
         </label>
@@ -337,6 +447,31 @@ const FormInput = ({
     );
   }
 
+  if (type === "radio-group") {
+    return (
+      <RadioInput
+        {...{
+          type,
+          label,
+          onChange,
+          onBlur,
+          value,
+          placeholder,
+          name,
+          validation,
+          disabled,
+          className,
+          checkboxItems,
+          description,
+          inputStyle,
+          noLabel,
+          lightMode,
+          radioOptions,
+        }}
+      />
+    );
+  }
+
   return (
     <div className="mb-4 w-full">
       <label htmlFor={name} className="block text-sm font-medium text-white">
@@ -357,6 +492,180 @@ const FormInput = ({
         min={min}
         max={max}
       />
+      {validation.touched[name] && validation.errors[name] ? (
+        <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
+      ) : null}
+    </div>
+  );
+};
+
+type RadioProps = {
+  item: RadioItem;
+};
+
+const CustomRadio = ({ item }: RadioProps) => {
+  return (
+    <div className={classNames("flex items-center mt-2 gap-3")}>
+      <RadioGroupItem id={item.id} value={item.value} />
+      <label
+        className="text-xs text-black font-normal neue-regular cursor-pointer"
+        htmlFor={item.id}
+      >
+        {item.label}
+      </label>
+    </div>
+  );
+};
+
+const RadioInput = ({
+  label,
+  value,
+  radioOptions,
+  name,
+  validation,
+  lightMode,
+  defaultValue,
+}: FormInputProps) => {
+  return (
+    <div className="mb-4 w-full">
+      <label
+        htmlFor={name}
+        className={classNames("block text-base mb-2 font-medium neue-regular", {
+          "text-black": lightMode,
+          "text-white": !lightMode,
+        })}
+      >
+        {label}
+      </label>
+      <RadioGroup
+        defaultValue={defaultValue}
+        className="flex flex-col"
+        onValueChange={(value) => validation.setFieldValue(name, value)}
+      >
+        {radioOptions?.map((item) => (
+          <CustomRadio key={item.id} item={item} />
+        ))}
+      </RadioGroup>
+      {validation.touched[name] && validation.errors[name] ? (
+        <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
+      ) : null}
+    </div>
+  );
+};
+
+type CheckboxProps = {
+  item: CheckboxItem;
+  name: string;
+  values: string[];
+  handleCheckedChange: (name: string, values: string[]) => void;
+  hidden: boolean;
+};
+
+const CustomCheckbox = ({
+  item,
+  name,
+  values,
+  handleCheckedChange,
+  hidden,
+}: CheckboxProps) => {
+  return (
+    <div
+      className={classNames("flex items-center mt-2 gap-3", { hidden: hidden })}
+    >
+      <Checkbox
+        checked={values.includes(item.value)}
+        name={item.id}
+        id={item.id}
+        onCheckedChange={(checked) => {
+          return checked
+            ? handleCheckedChange(name, [...values, item.value])
+            : handleCheckedChange(
+                name,
+                values.filter((value: string) => value !== item.value)
+              );
+        }}
+      />
+      <label
+        className="text-xs text-black font-normal neue-regular cursor-pointer"
+        htmlFor={item.id}
+      >
+        {item.value}
+      </label>
+    </div>
+  );
+};
+
+const CheckboxInput = ({
+  label,
+  description,
+  value,
+  checkboxItems,
+  name,
+  validation,
+  lightMode,
+}: FormInputProps) => {
+  const shouldHide = value.includes("Others (please specify)");
+  const validItemsList = checkboxItems?.map((goal) => goal.value) || [];
+  return (
+    <div className="mb-4 w-full">
+      <label
+        htmlFor={name}
+        className={classNames("block text-base mb-4 font-medium neue-regular", {
+          "text-black": lightMode,
+          "text-white": !lightMode,
+        })}
+      >
+        {label}
+      </label>
+      {description && (
+        <p
+          className={classNames("block text-xs font-normal neue-regular", {
+            "text-black": lightMode,
+            "text-white": !lightMode,
+          })}
+        >
+          {description}
+        </p>
+      )}
+      {checkboxItems?.map((item) => (
+        <CustomCheckbox
+          key={item.id}
+          item={item}
+          values={value}
+          name={name}
+          handleCheckedChange={(name: string, value: string[]) => {
+            if (value.includes("Others (please specify)")) {
+              validation.setFieldValue(name, ["Others (please specify)"]);
+            } else {
+              const validValues = value.filter((val) =>
+                validItemsList.includes(val)
+              );
+              validation.setFieldValue(name, validValues);
+            }
+          }}
+          hidden={shouldHide && item.value !== "Others (please specify)"}
+        />
+      ))}
+      {shouldHide && (
+        <FormInput
+          name={name}
+          noLabel={true}
+          onBlur={validation.handleBlur}
+          onChange={(e: any) =>
+            validation.setFieldValue(name, [
+              "Others (please specify)",
+              e.target.value,
+            ])
+          }
+          type="textarea"
+          validation={validation}
+          value={value[1]}
+          className="neue-regular text-gray-300 min-h-20"
+          inputStyle={{ minHeight: "80px" }}
+          lightMode={true}
+          placeholder={"Enter text here..."}
+        />
+      )}
       {validation.touched[name] && validation.errors[name] ? (
         <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
       ) : null}

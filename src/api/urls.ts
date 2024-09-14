@@ -17,3 +17,4 @@ export const BLOG = "/blog";
 
 // contact
 export const CONTACT_ORG = "/contact/contact-org";
+export const SUBMIT_SURVEY = "/contact/submit-survey";
