@@ -16,6 +16,8 @@ import {
 import { Checkbox } from "../ui/checkbox";
 import { primaryGoals } from "@/constant";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 type CheckboxItem = {
   id: string;
@@ -131,6 +133,55 @@ const FormInput = ({
               "border-[#1c1c1c]": !lightMode,
             }
           )}
+        />
+        {validation.touched[name] && validation.errors[name] ? (
+          <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>
+        ) : null}
+      </div>
+    );
+  }
+
+  if (type === "phone-number") {
+    return (
+      <div className="mb-4 w-full">
+        <label
+          htmlFor={name}
+          className={classNames("block text-sm font-medium neue-regular", {
+            "text-black": lightMode,
+            "text-white": !lightMode,
+          })}
+        >
+          {label}
+        </label>
+
+        <PhoneInput
+          country={"us"}
+          value={value}
+          onChange={(value) => validation.setFieldValue(name, value)}
+          disabled={disabled}
+          inputClass={classNames(
+            "block border-[1px] rounded-md px-4 py-3 text-xs mt-2 w-full outline-none font-medium bg-[var(--input-bg)] cursor-pointer",
+            className,
+            {
+              "text-gray-300": !lightMode,
+              "text-gray-800": lightMode,
+              "border-[lightgray]": lightMode,
+              card: !lightMode,
+              "border-[#1c1c1c]": !lightMode,
+            }
+          )}
+          inputStyle={{
+            padding: "12px 16px 12px 48px",
+            fontSize: "12px",
+            lineHeight: "16px",
+            width: "100%",
+            height: "auto",
+          }}
+          containerStyle={{
+            marginTop: "8px",
+          }}
+          onBlur={onBlur}
+          placeholder={placeholder}
         />
         {validation.touched[name] && validation.errors[name] ? (
           <FormFeedback type="invalid">{validation.errors[name]}</FormFeedback>

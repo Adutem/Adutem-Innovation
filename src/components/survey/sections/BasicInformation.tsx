@@ -59,7 +59,7 @@ export const BasicInformation = ({
         lightMode={true}
       />
       <FormInput
-        type="text"
+        type="phone-number"
         name="phoneNumber"
         label="Phone Number"
         onBlur={handleBlur}
