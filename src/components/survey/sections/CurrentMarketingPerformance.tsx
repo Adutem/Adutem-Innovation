@@ -48,7 +48,7 @@ export const CurrentMarketingPerformance = ({
         lightMode={true}
       />
 
-      <FormInput
+      {/* <FormInput
         type="chad-select"
         label="What is your current conversion rate from lead to customer?"
         name="currentConversionRate"
@@ -60,6 +60,20 @@ export const CurrentMarketingPerformance = ({
         className="neue-regular text-gray-300"
         options={currentConversionRate}
         defaultValue={""}
+        lightMode={true}
+      /> */}
+      <FormInput
+        type="text"
+        label="What is your current conversion rate from lead to customer?"
+        name="currentConversionRate"
+        onBlur={handleBlur}
+        onChange={handleChange}
+        placeholder="e.g 5% - 10%, 10%"
+        value={values.currentConversionRate || ""}
+        validation={validation}
+        className="neue-regular text-gray-300"
+        // options={currentConversionRate}
+        // defaultValue={""}
         lightMode={true}
       />
       <FormInput

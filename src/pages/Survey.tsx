@@ -231,6 +231,8 @@ export const Survey = ({}: Props) => {
       validation.resetForm();
       setCurrentRange(1);
       dispatch(resetSubmitSurvey());
+      window.location.href =
+        "https://calendly.com/adutem05/marketing-consultation?month=2024-09";
     }
   }, [surveySubmitted]);
 

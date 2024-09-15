@@ -86,10 +86,11 @@ export const Landing = ({}: Props) => {
                 </span>
               </p>
               <button
-                className="capitalize rounded-full py-3 px-7 w-full max-w-[300px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0 neue-regular"
+                className="capitalize rounded-full py-3 px-7 w-full max-w-[350px] bg-[var(--base-color)] text-white mt-6 cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto md:mx-0 neue-regular"
                 onClick={contactUs}
               >
-                Apply to Partner with Us
+                {/* Apply to Partner with Us */}
+                Start your Marketing Journey Now
               </button>
             </div>
           </div>
