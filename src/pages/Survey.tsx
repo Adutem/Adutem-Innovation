@@ -96,7 +96,10 @@ export const Survey = ({}: Props) => {
     website: yup
       .string()
       .required("Please provide website link")
-      .url("Enter a valid url"),
+      .matches(
+        /^(https?:\/\/)?([a-zA-Z0-9_-]+\.)*[a-zA-Z0-9_-]+\.[a-zA-Z]{2,}(:[0-9]{1,5})?(\/[^\s]*)?$/,
+        "Enter a valid url"
+      ),
     // Business information
     businessIndustry: yup
       .string()
