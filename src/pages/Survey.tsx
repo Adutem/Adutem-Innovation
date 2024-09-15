@@ -25,6 +25,7 @@ import { useRedux } from "@/hooks/useRedux";
 import { resetSubmitSurvey, submitSurvey } from "@/redux";
 import { Loader } from "@/components/progress";
 import { showSuccessNotification } from "@/utils";
+import classNames from "classnames";
 
 type Props = {};
 export const Survey = ({}: Props) => {
@@ -371,11 +372,18 @@ export const Survey = ({}: Props) => {
             />
 
             {/* Action Buttons */}
-            <div className=" gap-2 flex justify-end items-center mt-6 mb-8">
+            <div className=" gap-2 flex justify-end items-center mt-6 mb-8 flex-wrap">
               {/* Prev */}
               {currentRange > 1 && (
                 <button
-                  className="bg-[var(--base-color)] py-2 px-7 rounded-lg neue-regular font-medium text-white disabled:bg-gray-400 transition-all duration-300 hover:bg-[#ff6801]"
+                  className={classNames(
+                    "bg-[var(--base-color)] py-2 px-7 rounded-lg neue-regular font-medium text-white transition-all duration-300 hover:bg-[#ff6801] whitespace-nowrap",
+                    {
+                      "flex-1": currentRange === sectionList.length,
+                      "bg-gray-500": true,
+                      "order-5": currentRange === sectionList.length,
+                    }
+                  )}
                   type="button"
                   onClick={goToPrevSection}
                   disabled={submittingSurvey || loading}
@@ -387,7 +395,9 @@ export const Survey = ({}: Props) => {
               {/* Next */}
               {currentRange > 0 && currentRange < sectionList.length && (
                 <button
-                  className="bg-[var(--base-color)] py-2 px-7 rounded-lg neue-regular font-medium text-white transition-all duration-300 hover:bg-[#ff6801]"
+                  className={
+                    "bg-[var(--base-color)] py-2 px-7 rounded-lg neue-regular font-medium text-white transition-all duration-300 hover:bg-[#ff6801]"
+                  }
                   type="button"
                   onClick={goToNextSection}
                   disabled={submittingSurvey || loading}
@@ -399,11 +409,11 @@ export const Survey = ({}: Props) => {
               {/* Submit */}
               {currentRange === sectionList.length && (
                 <button
-                  className="bg-[var(--base-color)] py-2 px-8 rounded-lg neue-regular font-medium text-white transition-all duration-300 hover:bg-[#ff6801]"
+                  className="bg-[var(--base-color)] sm:py-2 px-4 sm:px-8 rounded-lg neue-regular font-medium text-white transition-all duration-300 hover:bg-[#ff6801] flex-1 text-xs sm:text-base py-3 whitespace-nowrap"
                   type="submit"
                   disabled={submittingSurvey}
                 >
-                  Submit
+                  Book an Appointment
                 </button>
               )}
             </div>
