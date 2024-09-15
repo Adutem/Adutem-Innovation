@@ -24,6 +24,10 @@ const newWorks: WorkDataType[] = [
     url: `9fZn3OoULZk`,
     si: `8eVBtKqypjY2BnsY`,
   },
+  {
+    url: `M6z5K2nuDWw`,
+    si: `8KYLkWe1SBx-q1sr`,
+  },
 ];
 
 export default newWorks;
