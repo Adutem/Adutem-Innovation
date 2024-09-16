@@ -23,7 +23,7 @@ const ClientFeedBack = () => {
               className="fi fi-sr-arrow-alt-left flex text-white hover:text-[var(--base-color)] transition-colors text-3xl cursor-pointer"
               onClick={() =>
                 setActiveIndex((prev) =>
-                  prev <= 0 ? 2 : Math.max(prev - 1, 0)
+                  prev <= 0 ? 3 : Math.max(prev - 1, 0)
                 )
               }
             ></i>
@@ -31,7 +31,7 @@ const ClientFeedBack = () => {
               className="fi fi-sr-arrow-alt-right flex text-white hover:text-[var(--base-color)] transition-colors text-3xl cursor-pointer"
               onClick={() =>
                 setActiveIndex((prev) =>
-                  prev >= 2 ? 0 : Math.min(prev + 1, 2)
+                  prev >= 3 ? 0 : Math.min(prev + 1, 3)
                 )
               }
             ></i>

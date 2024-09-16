@@ -10,6 +10,7 @@ const reviews = [
   "https://www.youtube.com/embed/zmK3LWJoOEc?si=x-Ii92QPffx4-TAv",
   "https://youtube.com/embed/XTYgE9VWRP8?si=uKHKcyZWK54_rsHf",
   "https://youtube.com/embed/rTeMtftvMfE?si=mRUmBp3OtAKAPHO4",
+  "https://youtube.com/embed/M6z5K2nuDWw?si=8KYLkWe1SBx-q1sr",
 ];
 
 const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
@@ -45,6 +46,16 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
             <q>
               Overall, loved working with the team at Adutem Innovation and look
               forward to a continued partnership with them.
+            </q>
+          </span>
+          <span
+            className={`${
+              activeIndex === 3 && "is-active"
+            } opacity-0 translate-y-[100px] absolute left-0`}
+          >
+            <q>
+              There results are amazing!. Very diligent and hardworking team.
+              Passionate about what they do.
             </q>
           </span>
         </WhatTheySay>
@@ -86,6 +97,16 @@ const ClientFeedBackCard = ({ activeIndex }: FeedBackCardProps) => {
               Hall
             </p>
             <p>-</p>
+          </span>
+          <span
+            className={`${
+              activeIndex === 3 && "is-active"
+            } opacity-0 maa-translateY-[60px] absolute left-0`}
+          >
+            <p className="mb-1 font-semibold text-[var(--grayWhite)] text-lg">
+              Dan Elate
+            </p>
+            <p>Business Owners</p>
           </span>
         </AboutClient>
       </div>
