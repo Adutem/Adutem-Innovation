@@ -4,6 +4,7 @@ import Accordion from "../Accordion";
 import { results } from "@/data/testimonies";
 import resultVideo from "@/assets/videos/Garage-Floors-of-Austin-Marketing-Analysis.mp4";
 import resultPoster from "@/assets/posters/result-poster.png";
+import { LinkButton } from "../reusables";
 
 type Props = {};
 export const SectionFour = ({}: Props) => {
@@ -59,14 +60,9 @@ export const SectionFour = ({}: Props) => {
       </div>
 
       {/* Survey form */}
-      <a
-        className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 mt-8 text-sm text-center"
-        // target="_blank"
-        // href="https://calendly.com/adutem05/marketing-consultation"
-        href="/survey"
-      >
-        Take our quick survey
-      </a>
+      <LinkButton href="/survey" className="mt-8">
+        Start your Marketing Journey Now
+      </LinkButton>
     </div>
   );
 };

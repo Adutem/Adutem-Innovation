@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import styled from "styled-components";
+import { LinkButton } from "../reusables";
 
 const sectionData = [
   {
@@ -79,14 +80,9 @@ export const SectionThree = () => {
       </div>
 
       {/* Survey form */}
-      <a
-        className="capitalize rounded-full py-4 px-7 w-full max-w-[400px] bg-[var(--base-color)] text-white cursor-pointer hover:opacity-70 transition-opacity duration-300 mx-auto neue-regular block mb-16 mt-8 text-sm text-center"
-        // target="_blank"
-        // href="https://calendly.com/adutem05/marketing-consultation"
-        href="/survey"
-      >
-        Take our quick survey
-      </a>
+      <LinkButton href="/survey" className="mt-8">
+        Start your Marketing Journey Now
+      </LinkButton>
     </div>
   );
 };

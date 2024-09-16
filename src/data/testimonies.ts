@@ -15,11 +15,14 @@ import tThree from "@/assets/images/testimonials/testimony-3.jpg";
 import tvOne from "@/assets/videos/jermaine-watkins.mp4";
 import tvTwo from "@/assets/videos/akram-himmed.mp4";
 import tvThree from "@/assets/videos/titus.mp4";
+import tvFour from "@/assets/videos/dan-elate.mp4";
 
 // testimony posters
 import tvOnePoster from "@/assets/posters/jermaine-watkins.png";
 import tvTwoPoster from "@/assets/posters/akram-himmed.png";
 import tvThreePoster from "@/assets/posters/titus.png";
+import tvFourPoster from "@/assets/posters/dan-elate.png";
+
 export interface Result {
   imgUrl: string;
 }
@@ -80,5 +83,10 @@ export const testimonies: Testimony[] = [
     imgUrl: tvThree,
     type: "video",
     poster: tvThreePoster,
+  },
+  {
+    imgUrl: tvFour,
+    type: "video",
+    poster: tvFourPoster,
   },
 ];
